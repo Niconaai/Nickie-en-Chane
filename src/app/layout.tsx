@@ -13,7 +13,7 @@ export default function RootLayout({
 
   return (
     <html lang="af">
-      <body className="relative min-h-screen flex flex-col">
+      <body className="relative min-h-screen flex flex-col font-serif"> {/* NET HIER - font op body */}
         <nav className="bg-[#FFF7E3] border-b border-[#BB9F88]">
           <div className="max-w-4xl mx-auto">
             {/* Desktop Navigation */}
@@ -29,7 +29,7 @@ export default function RootLayout({
 
             {/* Mobile Navigation */}
             <div className="md:hidden flex justify-between items-center py-4 px-4">
-              <div className="text-[#67472C] font-serif text-lg">Nickie & Chane</div>
+              <div className="text-[#67472C] text-lg">Nickie & Chane</div>
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-[#67472C] p-2"
@@ -68,13 +68,11 @@ export default function RootLayout({
         {/* Footer */}
         <footer className="bg-[#FFF7E3] border-t border-[#BB9F88] py-8 px-4">
           <div className="max-w-4xl mx-auto">
-            {/* Decorative Strips */}
             <div className="max-w-md mx-auto mb-6">
               <div className="h-1 bg-[#97A887] mb-2"></div>
               <div className="h-1 bg-[#BB9F88] mb-2"></div>
               <div className="h-1 bg-[#656E5D]"></div>
             </div>
-            
             <div className="text-center text-[#656E5D] text-sm">
               <p className="mb-2">Ontwerp deur Nickie • Gebou met Liefde</p>
               <p>© 2025 Nickie & Chane • Hosted on Vercel</p>

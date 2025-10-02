@@ -1,8 +1,8 @@
 export default function RSVP() {
   return (
-    <div className="min-h-screen bg-[#FFF7E3] py-12 px-4">
+    <div className="min-h-screen bg-[#E8DBC5] py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-serif text-[#67472C] text-center mb-12">RSVP</h1>
+        <h1 className="text-4xl  text-[#67472C] text-center mb-12">RSVP</h1>
 
         {/* Decorative Strips - Use between sections */}
 <div className="max-w-md mx-auto my-12">

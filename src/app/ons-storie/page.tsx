@@ -91,7 +91,7 @@ export default function OnsStorie() {
       title: "Ons Vandag",
       icon: Icons.star,
       content: "Vandag is ons twee individue met gedeelde passies. Nickie die tegnologie-liefhebber en Chane die onderwys-engel, verenig deur ons liefde vir die buitelug, hardloop, en mekaar.",
-      color: "bg-[#FFF7E3]",
+      color: "bg-[#E8DBC5]",
       textColor: "text-[#67472C]",
       border: "border border-[#BB9F88]",
       photos: [
@@ -118,7 +118,7 @@ export default function OnsStorie() {
     if (photos.length === 1) {
       return (
         <div className="flex justify-center mb-6">
-          <div className="relative rounded-lg overflow-hidden bg-[#FFF7E3] max-w-md">
+          <div className="relative rounded-lg overflow-hidden bg-[#E8DBC5] max-w-md">
             <Image
               src={photos[0].src}
               alt={photos[0].alt}
@@ -136,7 +136,7 @@ export default function OnsStorie() {
     return (
       <div className={`grid ${gridCols} gap-3 sm:gap-4 mb-6`}>
         {photos.map((photo, index) => (
-          <div key={index} className="relative rounded-lg overflow-hidden bg-[#FFF7E3]">
+          <div key={index} className="relative rounded-lg overflow-hidden bg-[#E8DBC5]">
             <Image
               src={photo.src}
               alt={photo.alt}
@@ -151,11 +151,11 @@ export default function OnsStorie() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFF7E3] py-8 px-4 sm:py-12">
+    <div className="min-h-screen bg-[#E8DBC5] py-8 px-4 sm:py-12">
       <div className="max-w-4xl mx-auto">
         
 <div className="text-center mb-12">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#67472C] mb-4">Ons Storie</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Ons Storie</h1>
         </div>
         
 {/* Decorative Strips - Use between sections */}
@@ -166,11 +166,11 @@ export default function OnsStorie() {
 </div>
         {/* Character Profiles - Now at the top */}
 <div className="text-center mb-12">
-  <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#67472C] mb-8">Ons Twee</h1>
+  <h1 className="text-3xl sm:text-4xl md:text-5xl  text-[#67472C] mb-8">Ons Twee</h1>
   
   <div className="grid md:grid-cols-2 gap-8 mb-8">
     <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
-      <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#FFF7E3]">
+      <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
         <Image
           src="/storie/early-nickie.jpg"
           alt="Nickie"
@@ -182,12 +182,12 @@ export default function OnsStorie() {
       <div className="flex justify-center mb-4 text-black">
         {Icons.computer}
       </div>
-      <h3 className="font-serif text-[#67472C] text-2xl mb-3">Nickie</h3>
+      <h3 className=" text-[#67472C] text-2xl mb-3">Nickie</h3>
       <p className="text-[#656E5D] text-base">Sagteware Ontwikkelaar • Buitelug • Tegnologie</p>
     </div>
     
     <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
-      <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#FFF7E3]">
+      <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
         <Image
           src="/storie/early-chane.jpg"
           alt="Chane"
@@ -199,7 +199,7 @@ export default function OnsStorie() {
       <div className="flex justify-center mb-4 text-black">
         {Icons.teacher}
       </div>
-      <h3 className="font-serif text-[#67472C] text-2xl mb-3">Chane</h3>
+      <h3 className=" text-[#67472C] text-2xl mb-3">Chane</h3>
       <p className="text-[#656E5D] text-base">Onderwyser • Liefdevol • Hardloop Maat</p>
     </div>
   </div>
@@ -214,7 +214,7 @@ export default function OnsStorie() {
 
 {/* Storybook Header - Now comes after profiles */}
 <div className="text-center mb-8 sm:mb-12">
-  <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#67472C] mb-4">Ons Storieboek</h1>
+  <h1 className="text-3xl sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Ons Storieboek</h1>
   <div className="flex justify-center space-x-2">
     {storyPages.map((_, index) => (
       <div 
@@ -233,7 +233,7 @@ export default function OnsStorie() {
           {currentPage > 0 && (
             <button 
               onClick={prevPage}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 sm:-translate-x-8 bg-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg border border-[#BB9F88] text-[#67472C] hover:bg-[#FFF7E3] transition-colors z-10"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 sm:-translate-x-8 bg-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg border border-[#BB9F88] text-[#67472C] hover:bg-[#E8DBC5] transition-colors z-10"
             >
               <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
                 <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
@@ -244,7 +244,7 @@ export default function OnsStorie() {
           {currentPage < storyPages.length - 1 && (
             <button 
               onClick={nextPage}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 sm:translate-x-8 bg-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg border border-[#BB9F88] text-[#67472C] hover:bg-[#FFF7E3] transition-colors z-10"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 sm:translate-x-8 bg-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg border border-[#BB9F88] text-[#67472C] hover:bg-[#E8DBC5] transition-colors z-10"
             >
               <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
@@ -262,7 +262,7 @@ export default function OnsStorie() {
               <div className="flex justify-center mb-4 text-black">
                 {storyPages[currentPage].icon}
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif mb-4">{storyPages[currentPage].title}</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl  mb-4">{storyPages[currentPage].title}</h2>
               
               <p className="text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-6">
                 {storyPages[currentPage].content}

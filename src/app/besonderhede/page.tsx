@@ -1,8 +1,8 @@
 export default function Besonderhede() {
   return (
-    <div className="min-h-screen bg-[#FFF7E3] py-12 px-4">
+    <div className="min-h-screen bg-[#E8DBC5] py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-serif text-[#67472C] text-center mb-12">Besonderhede</h1>
+        <h1 className="text-4xl  text-[#67472C] text-center mb-12">Besonderhede</h1>
         
         {/* Decorative Strips - Use between sections */}
 <div className="max-w-md mx-auto my-12">
@@ -13,7 +13,7 @@ export default function Besonderhede() {
 
         {/* Timeline Section */}
         <div className="bg-white rounded-lg shadow-lg p-8 border border-[#BB9F88] mb-12">
-          <h2 className="text-3xl font-serif text-[#99735A] text-center mb-8">Tydlyn</h2>
+          <h2 className="text-3xl  text-[#99735A] text-center mb-8">Tydlyn</h2>
           <div className="max-w-2xl mx-auto">
             <div className="space-y-6">
               <div className="flex items-start">
@@ -66,7 +66,7 @@ export default function Besonderhede() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Seremonie */}
           <div className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
-            <h2 className="text-2xl font-serif text-[#99735A] mb-4">Seremonie</h2>
+            <h2 className="text-2xl  text-[#99735A] mb-4">Seremonie</h2>
             <div className="space-y-3 text-[#656E5D] mb-4">
               <p className="font-semibold">Datum: 28 Maart 2025</p>
               <p className="font-semibold">Tyd: 15:00</p>
@@ -89,7 +89,7 @@ export default function Besonderhede() {
 
           {/* Onthaal */}
           <div className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
-            <h2 className="text-2xl font-serif text-[#99735A] mb-4">Onthaal</h2>
+            <h2 className="text-2xl  text-[#99735A] mb-4">Onthaal</h2>
             <div className="space-y-3 text-[#656E5D] mb-4">
               <p className="font-semibold">Datum: 28 Maart 2025</p>
               <p className="font-semibold">Tyd: 18:00</p>

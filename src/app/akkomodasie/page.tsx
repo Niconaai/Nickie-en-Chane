@@ -16,9 +16,9 @@ export default function Akkomodasie() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF7E3] py-12 px-4">
+    <div className="min-h-screen bg-[#E8DBC5] py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-serif text-[#67472C] text-center mb-12">Akkomodasie</h1>
+        <h1 className="text-4xl  text-[#67472C] text-center mb-12">Akkomodasie</h1>
 
         {/* Decorative Strips - Use between sections */}
 <div className="max-w-md mx-auto my-12">
@@ -29,7 +29,7 @@ export default function Akkomodasie() {
         
         {/* Family Accommodation Notice */}
         <div className="bg-[#97A887] text-white rounded-lg p-6 mb-12 text-center">
-          <h2 className="text-2xl font-serif mb-4">Groep Akkomodasie</h2>
+          <h2 className="text-2xl  mb-4">Groep Akkomodasie</h2>
           <p className="text-lg">
             Naby familielede kan Chane kontak voor einde Januarie vir groep akkomodasie by <strong>Blommelot</strong>.
           </p>
@@ -37,11 +37,11 @@ export default function Akkomodasie() {
 
         {/* Naby Onthaal */}
         <div className="mb-12">
-          <h2 className="text-3xl font-serif text-[#99735A] mb-6 text-center">Naby Onthaal (KF49 Citrus Pakhuis)</h2>
+          <h2 className="text-3xl  text-[#99735A] mb-6 text-center">Naby Onthaal (KF49 Citrus Pakhuis)</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {accommodations.nearReception.map((place, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
-                <h3 className="text-xl font-serif text-[#67472C] mb-2">{place.name}</h3>
+                <h3 className="text-xl  text-[#67472C] mb-2">{place.name}</h3>
                 <p className="text-[#656E5D] mb-4">{place.details}</p>
                 <a 
                   href={place.mapsUrl}
@@ -58,11 +58,11 @@ export default function Akkomodasie() {
 
         {/* In Dorp */}
         <div className="mb-12">
-          <h2 className="text-3xl font-serif text-[#99735A] mb-6 text-center">Gastehuise in Brits</h2>
+          <h2 className="text-3xl  text-[#99735A] mb-6 text-center">Gastehuise in Brits</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {accommodations.inTown.map((place, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
-                <h3 className="text-xl font-serif text-[#67472C] mb-2">{place.name}</h3>
+                <h3 className="text-xl  text-[#67472C] mb-2">{place.name}</h3>
                 <p className="text-[#656E5D] mb-4">{place.details}</p>
                 <a 
                   href={place.mapsUrl}
