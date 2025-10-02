@@ -23,6 +23,7 @@ export default function RootLayout({
             <Link href="/rsvp" className="text-[#67472C] hover:text-[#99735A]">RSVP</Link>
             <Link href="/foto-gallery" className="text-[#67472C] hover:text-[#99735A]">Foto&apos;s</Link>
             <Link href="/akkomodasie" className="text-[#67472C] hover:text-[#99735A]">Akkomodasie</Link>
+            <Link href="/faq" className="text-[#67472C] hover:text-[#99735A]">FAQs</Link>
           </div>
         </nav>
         {children}
