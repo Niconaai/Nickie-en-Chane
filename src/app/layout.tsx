@@ -21,7 +21,7 @@ export default function RootLayout({
             <Link href="/ons-storie" className="text-[#67472C] hover:text-[#99735A]">Ons Storie</Link>
             <Link href="/besonderhede" className="text-[#67472C] hover:text-[#99735A]">Besonderhede</Link>
             <Link href="/rsvp" className="text-[#67472C] hover:text-[#99735A]">RSVP</Link>
-            <Link href="/foto-gallery" className="text-[#67472C] hover:text-[#99735A]">Foto's</Link>
+            <Link href="/foto-gallery" className="text-[#67472C] hover:text-[#99735A]">Foto&apos;s</Link>
             <Link href="/akkomodasie" className="text-[#67472C] hover:text-[#99735A]">Akkomodasie</Link>
           </div>
         </nav>
