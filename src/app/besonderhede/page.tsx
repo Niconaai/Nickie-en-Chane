@@ -4,6 +4,13 @@ export default function Besonderhede() {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-serif text-[#67472C] text-center mb-12">Besonderhede</h1>
         
+        {/* Decorative Strips - Use between sections */}
+<div className="max-w-md mx-auto my-12">
+  <div className="h-1 bg-[#97A887] mb-2"></div>
+  <div className="h-1 bg-[#BB9F88] mb-2"></div>
+  <div className="h-1 bg-[#656E5D]"></div>
+</div>
+
         {/* Timeline Section */}
         <div className="bg-white rounded-lg shadow-lg p-8 border border-[#BB9F88] mb-12">
           <h2 className="text-3xl font-serif text-[#99735A] text-center mb-8">Tydlyn</h2>
@@ -47,6 +54,13 @@ export default function Besonderhede() {
             </div>
           </div>
         </div>
+
+        {/* Decorative Strips - Use between sections */}
+<div className="max-w-md mx-auto my-12">
+  <div className="h-1 bg-[#97A887] mb-2"></div>
+  <div className="h-1 bg-[#BB9F88] mb-2"></div>
+  <div className="h-1 bg-[#656E5D]"></div>
+</div>
 
         {/* Locations */}
         <div className="grid md:grid-cols-2 gap-8">

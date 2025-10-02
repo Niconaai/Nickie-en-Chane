@@ -154,8 +154,16 @@ export default function OnsStorie() {
     <div className="min-h-screen bg-[#FFF7E3] py-8 px-4 sm:py-12">
       <div className="max-w-4xl mx-auto">
         
+<div className="text-center mb-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#67472C] mb-4">Ons Storie</h1>
+        </div>
         
-
+{/* Decorative Strips - Use between sections */}
+<div className="max-w-md mx-auto my-12">
+  <div className="h-1 bg-[#97A887] mb-2"></div>
+  <div className="h-1 bg-[#BB9F88] mb-2"></div>
+  <div className="h-1 bg-[#656E5D]"></div>
+</div>
         {/* Character Profiles - Now at the top */}
 <div className="text-center mb-12">
   <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#67472C] mb-8">Ons Twee</h1>
@@ -195,6 +203,13 @@ export default function OnsStorie() {
       <p className="text-[#656E5D] text-base">Onderwyser • Liefdevol • Hardloop Maat</p>
     </div>
   </div>
+</div>
+
+{/* Decorative Strips - Use between sections */}
+<div className="max-w-md mx-auto my-12">
+  <div className="h-1 bg-[#97A887] mb-2"></div>
+  <div className="h-1 bg-[#BB9F88] mb-2"></div>
+  <div className="h-1 bg-[#656E5D]"></div>
 </div>
 
 {/* Storybook Header - Now comes after profiles */}
