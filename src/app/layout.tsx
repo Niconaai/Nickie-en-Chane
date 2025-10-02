@@ -1,6 +1,5 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Nickie & Chane Troue',
@@ -16,14 +15,16 @@ export default function RootLayout({
     <html lang="af">
       <body>
         <nav className="bg-[#FFF7E3] border-b border-[#BB9F88]">
-          <div className="max-w-4xl mx-auto flex justify-center space-x-8 py-4">
-            <Link href="/" className="text-[#67472C] hover:text-[#99735A]">Tuis</Link>
-            <Link href="/ons-storie" className="text-[#67472C] hover:text-[#99735A]">Ons Storie</Link>
-            <Link href="/besonderhede" className="text-[#67472C] hover:text-[#99735A]">Besonderhede</Link>
-            <Link href="/rsvp" className="text-[#67472C] hover:text-[#99735A]">RSVP</Link>
-            <Link href="/foto-gallery" className="text-[#67472C] hover:text-[#99735A]">Foto&apos;s</Link>
-            <Link href="/akkomodasie" className="text-[#67472C] hover:text-[#99735A]">Akkomodasie</Link>
-            <Link href="/faq" className="text-[#67472C] hover:text-[#99735A]">FAQs</Link>
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-4 py-4 px-4 text-sm md:text-base md:gap-8">
+              <a href="/" className="text-[#67472C] hover:text-[#99735A] transition-colors">Tuis</a>
+              <a href="/ons-storie" className="text-[#67472C] hover:text-[#99735A] transition-colors">Ons Storie</a>
+              <a href="/besonderhede" className="text-[#67472C] hover:text-[#99735A] transition-colors">Besonderhede</a>
+              <a href="/rsvp" className="text-[#67472C] hover:text-[#99735A] transition-colors">RSVP</a>
+              <a href="/foto-gallery" className="text-[#67472C] hover:text-[#99735A] transition-colors">Foto&apos;s</a>
+              <a href="/akkomodasie" className="text-[#67472C] hover:text-[#99735A] transition-colors">Akkomodasie</a>
+              <a href="/faq" className="text-[#67472C] hover:text-[#99735A] transition-colors">FAQs</a>
+            </div>
           </div>
         </nav>
         {children}
