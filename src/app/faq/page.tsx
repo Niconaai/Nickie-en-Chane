@@ -2,7 +2,7 @@ export default function FAQ() {
   const faqs = [
     {
       question: "Wat is die kleredrag?",
-      answer: "Formeel. Ons weet dit is warm, maar ons verwag van al die mans om das te dra. Ons nooi gaste om aardtone te dra soos groen, bruin, crème of goud."
+      answer: "Formeel. Ons versoek vriendelik dat al die mans om 'n das sal dra, en die dames 'n formele rok/kleredrag sal aantrek - geen cocktail rokke nie asseblief. Sien die Besonderhede bladsy vir ons kleur kaart en meer inligting oor die kleredrag."
     },
     {
       question: "Is daar kinders toegelaat?",

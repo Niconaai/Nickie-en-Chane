@@ -16,6 +16,7 @@ export default function Akkomodasie() {
   };
 
   return (
+    <div className="text-center">
     <div className="min-h-screen bg-[#E8DBC5] py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl  text-[#67472C] text-center mb-12">Akkomodasie</h1>
@@ -82,6 +83,7 @@ export default function Akkomodasie() {
           <p className="text-lg mb-4">Maak gerus gebruik van akkomodasie van jou keuse. Gesels gerus met Chané oor opsies. Die bogenoemde is net vir verwysing.</p>
         </div>
       </div>
+    </div>
     </div>
   )
 }
