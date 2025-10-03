@@ -57,7 +57,7 @@ export default function RootLayout({
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <html lang="af">
+    <html lang="af" >
       <MenuContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>
         <body className="min-h-screen flex flex-col font-serif bg-[#E8DBC5]">
           <nav className="bg-[#E8DBC5] border-b border-[#BB9F88]">

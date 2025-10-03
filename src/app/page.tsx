@@ -107,6 +107,21 @@ export default function Home() {
 
         {/* Hashtag */}
         <p className="text-base sm:text-lg md:text-xl text-[#656E5D] mb-12">#thunderMerwe</p>
+        <div className="bg-white py-12">
+  <h2 className="text-3xl font-bold text-center mb-8">Volg ons op Instagram</h2>
+  
+  {/* Instagram Embed */}
+  <div className="flex justify-center">
+    <blockquote 
+      className="instagram-media" 
+      data-instgrm-permalink="https://www.instagram.com/explore/tags/thundermerwe/"
+      data-instgrm-version="14"
+      style={{ background: '#FFF', border: '0', borderRadius: '3px', margin: '1px', maxWidth: '540px', width: '100%' }}
+    >
+      {/* Instagram sal hierdie element automatisch vul */}
+    </blockquote>
+  </div>
+</div>
 
         {/* Een blok vir meer inligting */}
         <div className="max-w-2xl mx-auto mt-20">
