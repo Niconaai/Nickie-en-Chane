@@ -77,8 +77,8 @@ export default function Home() {
 
       <div className="text-center py-12 px-4">
         {/* Name in mooi boksie */}
-        <div className="max-w-md mx-auto mb-8 bg-white rounded-2xl shadow-lg border border-[#BB9F88] p-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl text-[#67472C]">Nickie & Chane</h1>
+        <div className="max-w-lg mx-auto mb-8 bg-white rounded-2xl shadow-lg border border-[#BB9F88] p-8">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl text-[#67472C]">Nickie & Chane</h1>
         </div>
 
         {/* Datum */}
