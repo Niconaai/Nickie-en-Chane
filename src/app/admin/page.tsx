@@ -6,9 +6,14 @@ import FamilyModal from '@/components/admin/FamilyModal';
 import FamilyList from '@/components/admin/FamilyList';
 import GuestList from '@/components/admin/GuestList';
 import AdminTabs from '@/components/admin/AdminTabs';
+import AdminLogin from '@/components/admin/AdminLogin';
 import { Family, Guest, FamilyFormData, GuestFormData, ModalType } from '@/components/admin/types';
 
+// Hard-coded admin wagwoord - verander dit na iets veilig!
+const ADMIN_PASSWORD = 'ThunderMerwe2026';
+
 export default function AdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [families, setFamilies] = useState<Family[]>([]);
   const [guests, setGuests] = useState<Guest[]>([]);
   const [loading, setLoading] = useState(true);
@@ -38,9 +43,15 @@ export default function AdminPage() {
     meal_preference: 'standard'
   });
 
-  // Load data
+  // Check of gebruiker reeds ingeteken is (bv. na page refresh)
   useEffect(() => {
-    loadData();
+    const savedAuth = localStorage.getItem('adminAuthenticated');
+    if (savedAuth === 'true') {
+      setIsAuthenticated(true);
+      loadData();
+    } else {
+      setLoading(false);
+    }
   }, []);
 
   const loadData = async () => {
@@ -59,6 +70,23 @@ export default function AdminPage() {
     if (familiesData) setFamilies(familiesData);
     if (guestsData) setGuests(guestsData);
     setLoading(false);
+  };
+
+  // Login funksie
+  const handleLogin = (password: string): boolean => {
+    if (password === ADMIN_PASSWORD) {
+      setIsAuthenticated(true);
+      localStorage.setItem('adminAuthenticated', 'true');
+      loadData();
+      return true;
+    }
+    return false;
+  };
+
+  // Logout funksie
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('adminAuthenticated');
   };
 
   // Family modal functions
@@ -248,6 +276,11 @@ export default function AdminPage() {
     }
   };
 
+  // Toon login screen as nie geauthentiseer nie
+  if (!isAuthenticated) {
+    return <AdminLogin onLogin={handleLogin} />;
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -259,14 +292,23 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-6xl mx-auto">
+        {/* Header met logout knoppie */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Trou Admin Paneel</h1>
-          <button
-            onClick={openAddFamilyModal}
-            className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors"
-          >
-            Voeg Gesin By
-          </button>
+          <div className="flex space-x-4">
+            <button
+              onClick={openAddFamilyModal}
+              className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors"
+            >
+              Voeg Gesin By
+            </button>
+            <button
+              onClick={handleLogout}
+              className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+            >
+              Teken Uit
+            </button>
+          </div>
         </div>
 
         <AdminTabs
