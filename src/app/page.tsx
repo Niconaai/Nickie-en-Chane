@@ -113,13 +113,13 @@ export default function Home() {
           <div className="bg-white rounded-2xl shadow-lg border border-[#BB9F88] p-8 text-center">
             <h2 className="text-2xl text-[#67472C] mb-4">Meer Inligting</h2>
             <p className="text-[#656E5D] mb-6">
-              Vir volledige besonderhede oor ons troudag, besoek die ander bladsye deur die navigasie menu te gebruik.
+              Vir volledige besonderhede oor ons troudag, besoek die ander bladsye deur die Navigasie Menu te gebruik.
             </p>
             <button 
               onClick={handleMenuButtonClick}
               className="bg-[#67472C] text-white px-6 py-3 rounded-lg hover:bg-[#99735A] transition-colors font-semibold"
             >
-              {typeof window !== 'undefined' && window.innerWidth < 768 ? 'Open Menu' : 'Sien Meer Inligting'}
+              {typeof window !== 'undefined' && window.innerWidth < 768 ? 'Navigasie Menu' : 'Sien Meer Inligting'}
             </button>
           </div>
         </div>

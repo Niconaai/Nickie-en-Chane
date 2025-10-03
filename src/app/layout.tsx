@@ -68,7 +68,7 @@ export default function RootLayout({
                   {MenuIcons.home} Tuis
                 </Link>
                 <Link href="/ons-storie" className="text-[#67472C] hover:text-[#99735A] transition-colors flex items-center">
-                  {MenuIcons.story} Ons Storie
+                  {MenuIcons.story} Meer oor Ons
                 </Link>
                 <Link href="/besonderhede" className="text-[#67472C] hover:text-[#99735A] transition-colors flex items-center">
                   {MenuIcons.details} Besonderhede
@@ -112,7 +112,7 @@ export default function RootLayout({
                       {MenuIcons.home} Tuis
                     </Link>
                     <Link href="/ons-storie" className="text-[#67472C] hover:text-[#99735A] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
-                      {MenuIcons.story} Ons Storie
+                      {MenuIcons.story} Meer oor Ons
                     </Link>
                     <Link href="/besonderhede" className="text-[#67472C] hover:text-[#99735A] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
                       {MenuIcons.details} Besonderhede
