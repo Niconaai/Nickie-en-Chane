@@ -48,7 +48,7 @@ export default function OnsStorie() {
     {
       title: "Ons Begin",
       icon: Icons.school,
-      content: "Ons pad het baie jare gelede by Hoërskool Brits begin, waar ons mekaar ontmoet het. Nickie was Chane se Matriek gewees in 2015. Alhoewel ons eers baie later mekaar ontdek het.",
+      content: "Ons pad het baie jare gelede by Hoërskool Brits begin, waar ons mekaar ontmoet het. Nickie was Chané se Matriek in 2015. Die liefde het wel eers baie later geblom.",
       color: "bg-[#CBD0B5]",
       textColor: "text-[#656E5D]",
       photos: [
@@ -58,7 +58,7 @@ export default function OnsStorie() {
     {
       title: "Die Herontdekking",
       icon: Icons.message,
-      content: "Jare later het Chane die eerste _move_ gemaak met 'n Facebook boodskap. Die gesprek het vinnig gevloei en ons het besef daar is iets spesiaal tussen ons.",
+      content: "In Januarie 2022 het Chané 'n Facebook boodskap gestuur. Die gesprek het vinnig gevloei en ons het besef dat daar iets spesiaals is.",
       color: "bg-[#97A887]",
       textColor: "text-white",
       photos: [
@@ -68,7 +68,7 @@ export default function OnsStorie() {
     {
       title: "Ons Reis Begin",
       icon: Icons.heart,
-      content: "In 2022 het ons amptelik begin uitgaan. Elke dag het ons liefde gegroei en ons het geweet hierdie is anders - hierdie is vir altyd.",
+      content: "In April 2022 het ons amptelik begin uitgaan. Elke dag het ons liefde gegroei en ons het geweet hierdie is anders - hierdie is vir altyd.",
       color: "bg-[#BB9F88]",
       textColor: "text-white",
       photos: [
@@ -77,9 +77,9 @@ export default function OnsStorie() {
       ]
     },
     {
-      title: "Die Voorstel",
+      title: "Die Verlowing",
       icon: Icons.ring,
-      content: "Nickie, nie een vir groot romantiese gebare nie, het een aand impulsief uit die bloute gevra: 'Sal jy met my trou?' Geen kerslig, geen plan - net 'n opregte moment van liefde.",
+      content: "Nickie, nie een vir groot romantiese gebare nie, het een aand impulsief uit die bloute gevra: 'Dit is tyd... Sal jy met my trou?' Geen kerslig, geen plan - net 'n opregte moment van liefde.",
       color: "bg-[#67472C]",
       textColor: "text-white",
       photos: [
@@ -90,7 +90,7 @@ export default function OnsStorie() {
     {
       title: "Ons Vandag",
       icon: Icons.star,
-      content: "Vandag is ons twee individue met gedeelde passies. Nickie die tegnologie-liefhebber en Chane die onderwys-engel, verenig deur ons liefde vir die buitelug, hardloop, en mekaar.",
+      content: "Vandag is ons twee individue met passies wat ons deel. Nickie, die tegnologie-liefhebber, en Chané, die onderwys-engel, verenig deur ons liefde vir die buitelug, hardloop, en mekaar.",
       color: "bg-[#E8DBC5]",
       textColor: "text-[#67472C]",
       border: "border border-[#BB9F88]",
@@ -155,7 +155,7 @@ export default function OnsStorie() {
       <div className="max-w-4xl mx-auto">
         
 <div className="text-center mb-12">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Ons Storie</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Meer oor Ons</h1>
         </div>
         
 {/* Decorative Strips - Use between sections */}
@@ -166,7 +166,7 @@ export default function OnsStorie() {
 </div>
         {/* Character Profiles - Now at the top */}
 <div className="text-center mb-12">
-  <h1 className="text-3xl sm:text-4xl md:text-5xl  text-[#67472C] mb-8">Ons Twee</h1>
+  
   
   <div className="grid md:grid-cols-2 gap-8 mb-8">
     <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
@@ -189,8 +189,8 @@ export default function OnsStorie() {
     <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
       <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
         <Image
-          src="/storie/early-chane.jpg"
-          alt="Chane"
+          src="/storie/early-Chané.jpg"
+          alt="Chané"
           fill
           className="object-cover"
           sizes="192px"
@@ -199,7 +199,7 @@ export default function OnsStorie() {
       <div className="flex justify-center mb-4 text-black">
         {Icons.teacher}
       </div>
-      <h3 className=" text-[#67472C] text-2xl mb-3">Chane</h3>
+      <h3 className=" text-[#67472C] text-2xl mb-3">Chané</h3>
       <p className="text-[#656E5D] text-base">Onderwyser • Liefdevol • Hardloop Maat</p>
     </div>
   </div>
@@ -214,7 +214,7 @@ export default function OnsStorie() {
 
 {/* Storybook Header - Now comes after profiles */}
 <div className="text-center mb-8 sm:mb-12">
-  <h1 className="text-3xl sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Ons Storieboek</h1>
+  <h1 className="text-3xl sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Storieboek</h1>
   <div className="flex justify-center space-x-2">
     {storyPages.map((_, index) => (
       <div 

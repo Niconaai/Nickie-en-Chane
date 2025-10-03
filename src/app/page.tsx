@@ -69,7 +69,7 @@ export default function Home() {
               <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
               </svg>
-              <p className="text-xs mt-1">Bo toe</p>
+              <p className="text-xs mt-1">Terug op</p>
             </div>
           </button>
         </div>
@@ -78,7 +78,7 @@ export default function Home() {
       <div className="text-center py-12 px-4">
         {/* Name in mooi boksie */}
         <div className="max-w-lg mx-auto mb-8 bg-white rounded-2xl shadow-lg border border-[#BB9F88] p-8">
-          <h1 className="text-4xl sm:text-5xl md:text-5xl text-[#67472C]">Nickie & Chane</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-5xl text-[#67472C]">Nickie & Chané</h1>
         </div>
 
         {/* Datum */}
@@ -96,7 +96,7 @@ export default function Home() {
           <div className="rounded-2xl shadow-2xl border-4 border-white p-4 bg-white">
             <Image 
               src="/hoof-foto.jpg" 
-              alt="Nickie en Chane"
+              alt="Nickie en Chané"
               width={800}
               height={500}
               className="rounded-lg mx-auto w-full h-auto"

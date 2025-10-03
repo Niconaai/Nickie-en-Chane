@@ -89,7 +89,7 @@ export default function RootLayout({
 
               {/* Mobile Navigation */}
               <div className="md:hidden flex justify-between items-center py-4 px-4">
-                <div className="text-[#67472C] text-lg">Nickie & Chane</div>
+                <div className="text-[#67472C] text-lg">Nickie & Chané</div>
                 <button 
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="text-[#67472C] p-2"
@@ -148,7 +148,7 @@ export default function RootLayout({
               </div>
               <div className="text-center text-[#656E5D] text-sm">
                 <p className="mb-2">Ontwerp deur Nickie • Gebou met Liefde</p>
-                <p>© 2025 Nickie & Chane • Hosted on Vercel</p>
+                <p>© 2025 Nickie & Chané • Hosted on Vercel</p>
               </div>
             </div>
           </footer>

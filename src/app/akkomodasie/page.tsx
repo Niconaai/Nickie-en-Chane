@@ -31,7 +31,7 @@ export default function Akkomodasie() {
         <div className="bg-[#97A887] text-white rounded-lg p-6 mb-12 text-center">
           <h2 className="text-2xl  mb-4">Groep Akkomodasie</h2>
           <p className="text-lg">
-            Naby familielede kan Chane kontak voor einde Januarie vir groep akkomodasie by <strong>Blommelot</strong>.
+            Gaste kan Chané kontak voor einde Januarie vir groep akkomodasie by <strong>Blommelot</strong>.
           </p>
         </div>
 
@@ -79,8 +79,7 @@ export default function Akkomodasie() {
 
         {/* Contact Info */}
         <div className="bg-[#CBD0B5] rounded-lg p-8 text-center text-[#656E5D]">
-          <p className="text-lg mb-4">Kontak ons vir meer inligting oor akkomodasie</p>
-          <p className="font-semibold">📞 Telefoonnommers kom hier</p>
+          <p className="text-lg mb-4">Maak gerus gebruik van akkomodasie van jou keuse. Gesels gerus met Chané oor opsies. Die bogenoemde is net vir verwysing.</p>
         </div>
       </div>
     </div>

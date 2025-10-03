@@ -86,7 +86,7 @@ export default function FAQ() {
               </a>
             </div>
             <div className="bg-white rounded-lg px-4 py-2 border border-[#BB9F88]">
-              <p className="text-[#67472C] font-semibold">Chane</p>
+              <p className="text-[#67472C] font-semibold">Chané</p>
               <a href="tel:+27762905997" className="text-[#656E5D] text-sm hover:text-[#99735A] transition-colors">
                 📞 076 290 5997
               </a>
