@@ -7,7 +7,9 @@ import { useState, createContext, useContext } from 'react'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const MenuContext = createContext({
   isMenuOpen: false,
-  setIsMenuOpen: (open: boolean) => { }
+  setIsMenuOpen: (open: boolean) => { },
+  isLoading: false,
+  setIsLoading: (loading: boolean) => { }
 })
 
 // SVG Pictograms
@@ -50,51 +52,110 @@ const MenuIcons = {
   )
 }
 
+//Custom link component met loading
+const LoadingLink = ({ href, children, className, onClick }: {
+  href: string,
+  children: React.ReactNode,
+  className?: string,
+  onClick?: () => void
+}) => {
+  const { setIsLoading, setIsMenuOpen } = useMenu()
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+
+    // Start loading
+    setIsLoading(true)
+
+    // Close menu on mobile
+    setIsMenuOpen(false)
+
+    // Call custom onClick if provided
+    if (onClick) onClick()
+
+    // Navigate after delay
+    setTimeout(() => {
+      window.location.href = href
+    }, 800)
+  }
+
+  return (
+    <a href={href} onClick={handleClick} className={className}>
+      {children}
+    </a>
+  )
+}
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const menuContextValue = {
+    isMenuOpen,
+    setIsMenuOpen,
+    isLoading,
+    setIsLoading
+  }
 
   return (
     <html lang="af">
-      <MenuContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>
-        <body className="min-h-screen flex flex-col font-serif bg-white"> {/* ✅ Verander na bg-white */}
-          <nav className="bg-white border-b border-gray-200"> {/* ✅ Verander agtergrond en border */}
+      <MenuContext.Provider value={menuContextValue}>
+        <body className="min-h-screen flex flex-col font-serif bg-white">
+          {/* Loading Overlay */}
+          {isLoading && (
+            <div className="fixed inset-0 bg-white bg-opacity-90 z-50 flex items-center justify-center">
+              <div className="text-center">
+                {/* Local GIF */}
+                <div className="mx-auto mb-4" style={{ width: '200px', height: '125px' }}>
+                  <img
+                    src="/cow-walking.gif"
+                    alt="Loading..."
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <p className="text-[#3d251e] text-lg font-semibold">Laai...</p>
+              </div>
+            </div>
+          )}
+
+          <nav className="bg-white border-b border-gray-200">
             <div className="max-w-4xl mx-auto">
-              {/* Desktop Navigation */}
+              {/* Desktop Navigation - vervang Link met LoadingLink */}
               <div className="hidden md:flex flex-wrap justify-center gap-4 py-4 px-4 text-sm md:text-base md:gap-8">
-                <Link href="/" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
+                <LoadingLink href="/" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.home} Tuis
-                </Link>
-                <Link href="/ons-storie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
+                </LoadingLink>
+                <LoadingLink href="/ons-storie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.story} Meer oor Ons
-                </Link>
-                <Link href="/besonderhede" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
+                </LoadingLink>
+                <LoadingLink href="/besonderhede" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.details} Besonderhede
-                </Link>
-                <Link href="/rsvp" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
+                </LoadingLink>
+                <LoadingLink href="/rsvp" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.rsvp} RSVP
-                </Link>
-                <Link href="/foto-gallery" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
+                </LoadingLink>
+                <LoadingLink href="/foto-gallery" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.photos} Foto&apos;s
-                </Link>
-                <Link href="/akkomodasie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
+                </LoadingLink>
+                <LoadingLink href="/akkomodasie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.accommodation} Akkomodasie
-                </Link>
-                <Link href="/faq" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
+                </LoadingLink>
+                <LoadingLink href="/faq" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.faq} FAQs
-                </Link>
+                </LoadingLink>
               </div>
 
               {/* Mobile Navigation */}
               <div className="md:hidden flex justify-between items-center py-4 px-4">
-                <div className="text-[#3d251e] text-lg">Nickie & Chané</div> {/* ✅ Verander teks kleur */}
+                <div className="text-[#3d251e] text-lg">Nickie & Chané</div>
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="text-[#3d251e] p-2" >{/* ✅ Verander teks kleur */}
-
+                  className="text-[#3d251e] p-2"
+                >
                   <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
                     {isMenuOpen ? (
                       <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
@@ -105,51 +166,51 @@ export default function RootLayout({
                 </button>
               </div>
 
-              {/* Mobile Menu Dropdown */}
+              {/* Mobile Menu Dropdown - vervang Link met LoadingLink */}
               {isMenuOpen && (
-                <div className="md:hidden bg-white border-t border-gray-200"> {/* ✅ Verander agtergrond en border */}
+                <div className="md:hidden bg-white border-t border-gray-200">
                   <div className="flex flex-col py-4 space-y-4 px-4">
-                    <Link href="/" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    <LoadingLink href="/" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.home} Tuis
-                    </Link>
-                    <Link href="/ons-storie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    </LoadingLink>
+                    <LoadingLink href="/ons-storie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.story} Meer oor Ons
-                    </Link>
-                    <Link href="/besonderhede" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    </LoadingLink>
+                    <LoadingLink href="/besonderhede" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.details} Besonderhede
-                    </Link>
-                    <Link href="/rsvp" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    </LoadingLink>
+                    <LoadingLink href="/rsvp" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.rsvp} RSVP
-                    </Link>
-                    <Link href="/foto-gallery" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    </LoadingLink>
+                    <LoadingLink href="/foto-gallery" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.photos} Foto&apos;s
-                    </Link>
-                    <Link href="/akkomodasie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    </LoadingLink>
+                    <LoadingLink href="/akkomodasie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.accommodation} Akkomodasie
-                    </Link>
-                    <Link href="/faq" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    </LoadingLink>
+                    <LoadingLink href="/faq" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.faq} FAQs
-                    </Link>
+                    </LoadingLink>
                   </div>
                 </div>
               )}
             </div>
           </nav>
 
-          <main className="flex-grow bg-white"> {/* ✅ Verander agtergrond */}
+          <main className="flex-grow bg-white">
             {children}
           </main>
 
-          <footer className="bg-white border-t border-gray-200 py-8 px-4"> {/* ✅ Verander agtergrond en border */}
+          <footer className="bg-white border-t border-gray-200 py-8 px-4">
             <div className="max-w-4xl mx-auto">
               <div className="max-w-md mx-auto my-12">
                 <div className="h-1 bg-[#97A887] mb-2"></div>
                 <div className="h-1 bg-[#BB9F88] mb-2"></div>
                 <div className="h-1 bg-[#656E5D]"></div>
               </div>
-              <div className="text-center text-[#5c4033] text-sm"> {/* ✅ Verander teks kleur */}
-                <p className="mb-2">Ontwerp deur Nickie • Gebou met Liefde</p>
-                <p>© 2025 Nickie & Chané • Hosted on Vercel</p>
+              <div className="text-center text-[#5c4033] text-sm">
+                <p className="mb-2">• Nick van der Merwe •</p>
+                <p>© 2025 Nick&Co</p>
               </div>
             </div>
           </footer>

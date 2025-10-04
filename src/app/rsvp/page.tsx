@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import RSVPLogin from '@/components/rsvp/RSVPLogin';
-import FamilyOverview from '@/components/rsvp/FamilyOverview';
-import { Family, Guest } from '@/components/admin/types';
+import RSVPLogin from '../../components/rsvp/RSVPLogin';
+import FamilyOverview from '../../components/rsvp/FamilyOverview';
+import { Family, Guest } from '../../components/admin/types';
 
 export default function RSVPPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

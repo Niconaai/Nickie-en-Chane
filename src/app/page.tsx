@@ -105,7 +105,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Hashtag Social media corner*/}
+      {/* Hashtag Social media corner*/}
         <div className="text-center bg-white p-8 rounded-lg shadow-sm border border-gray-300">
           {/* Hoof Titel */}
           <h3 className="text-2xl font-bold mb-2 text-[#3d251e]">Deel Ons Avontuur</h3>
@@ -139,7 +139,7 @@ export default function Home() {
               Volg ons
             </a>
           </div>
-        </div>
+        </div> 
 
         {/* Een blok vir meer inligting */}
         <div className="max-w-2xl mx-auto mt-20">
