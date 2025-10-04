@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabase';
-import FamilyModal from '@/components/admin/FamilyModal';
-import FamilyList from '@/components/admin/FamilyList';
-import GuestList from '@/components/admin/GuestList';
-import PaymentsList from '@/components/admin/PaymentsList';
-import AdminTabs from '@/components/admin/AdminTabs';
-import { Family, Guest, Payment, FamilyFormData, GuestFormData, ModalType } from '@/components/admin/types';
+import { supabase } from '../../lib/supabase';
+import FamilyModal from '../../components/admin/FamilyModal';
+import FamilyList from '../../components/admin/FamilyList';
+import GuestList from '../../components/admin/GuestList';
+import PaymentsList from '../../components/admin/PaymentsList';
+import AdminTabs from '../../components/admin/AdminTabs';
+import { Family, Guest, Payment, FamilyFormData, GuestFormData, ModalType } from '../../components/admin/types';
 
 // Hard-coded admin wagwoord - verander dit na iets veilig!
 const ADMIN_PASSWORD = 'ThunderMerwe2026';
@@ -19,7 +19,7 @@ export default function AdminPage() {
   const [payments, setPayments] = useState<Payment[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'families' | 'guests' | 'payments'>('families');
-  
+
   // Modal states
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<ModalType>('add-family');
@@ -57,7 +57,7 @@ export default function AdminPage() {
 
   const loadData = async () => {
     setLoading(true);
-    
+
     // Load families
     const { data: familiesData } = await supabase
       .from('families')
@@ -149,17 +149,17 @@ export default function AdminPage() {
   };
 
   const handleFamilyFormChange = (field: keyof FamilyFormData, value: string | number) => {
-    setFamilyForm(prev => ({ ...prev, [field]: value }));
+    setFamilyForm((prev: FamilyFormData) => ({ ...prev, [field]: value }));
   };
 
   const handleGuestFormChange = (field: keyof GuestFormData, value: string | boolean) => {
-    setGuestForm(prev => ({ ...prev, [field]: value }));
+    setGuestForm((prev: GuestFormData) => ({ ...prev, [field]: value }));
   };
 
   // Save operations
   const saveFamily = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (modalType === 'add-family') {
       const { data, error } = await supabase
         .from('families')
@@ -177,7 +177,7 @@ export default function AdminPage() {
       }
     } else if (modalType === 'edit-family') {
       if (!currentFamily) return;
-      
+
       const { error } = await supabase
         .from('families')
         .update(familyForm)
@@ -188,7 +188,7 @@ export default function AdminPage() {
         return;
       }
 
-      setFamilies(families.map(f => 
+      setFamilies(families.map(f =>
         f.id === currentFamily.id ? { ...f, ...familyForm } : f
       ));
       alert('Gesin suksesvol gewysig!');
@@ -199,7 +199,7 @@ export default function AdminPage() {
 
   const saveGuest = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (modalType === 'edit-guest' && currentGuest) {
       const { error } = await supabase
         .from('guests')
@@ -211,9 +211,15 @@ export default function AdminPage() {
         return;
       }
 
-      setGuests(guests.map(g => 
+      setGuests(guests.map(g =>
         g.id === currentGuest.id ? { ...g, ...guestForm } : g
       ));
+
+      // Update family totals if is_adult changed
+      if (currentGuest.is_adult !== guestForm.is_adult) {
+        await updateFamilyTotals(currentGuest.family_id);
+      }
+
       alert('Gas suksesvol gewysig!');
       closeModal();
     }
@@ -228,65 +234,65 @@ export default function AdminPage() {
   };
 
   // Calculate deposit using family's total_adults (eenvoudig en betroubaar)
-const calculateDeposit = (familyId: string) => {
-  const family = families.find(f => f.id === familyId);
-  if (!family) {
-    console.error('Family not found:', familyId);
-    return 0;
-  }
-  
-  const amount = family.total_adults * 30000;
-  console.log(`Deposit for ${family.family_name}: ${family.total_adults} adults × R300 = R${(amount / 100).toFixed(2)}`);
-  return amount;
-};
-
-// Create payment for a family
-const handleCreatePayment = async (familyId: string) => {
-  try {
+  const calculateDeposit = (familyId: string) => {
     const family = families.find(f => f.id === familyId);
     if (!family) {
-      alert('Gesin nie gevind nie.');
-      return;
+      console.error('Family not found:', familyId);
+      return 0;
     }
 
-    // Check if payment already exists
-    const existingPayment = payments.find(p => p.family_id === familyId);
-    if (existingPayment) {
-      alert(`Betaling bestaan reeds vir ${family.family_name}.`);
-      return;
+    const amount = family.total_adults * 30000;
+    console.log(`Deposit for ${family.family_name}: ${family.total_adults} adults × R300 = R${(amount / 100).toFixed(2)}`);
+    return amount;
+  };
+
+  // Create payment for a family
+  const handleCreatePayment = async (familyId: string) => {
+    try {
+      const family = families.find(f => f.id === familyId);
+      if (!family) {
+        alert('Gesin nie gevind nie.');
+        return;
+      }
+
+      // Check if payment already exists
+      const existingPayment = payments.find(p => p.family_id === familyId);
+      if (existingPayment) {
+        alert(`Betaling bestaan reeds vir ${family.family_name}.`);
+        return;
+      }
+
+      // Bereken deposito gebaseer op total_adults
+      const depositAmount = family.total_adults * 30000;
+
+      if (family.total_adults === 0) {
+        alert(`${family.family_name} het geen volwassene gaste nie. Geen deposito nodig.`);
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from('payments')
+        .insert([{
+          family_id: familyId,
+          amount: depositAmount,
+          payment_method: 'eft',
+          payment_status: 'pending'
+        }])
+        .select();
+
+      if (error) throw error;
+
+      if (data) {
+        setPayments([data[0], ...payments]);
+        alert(`✅ Betaling geskep vir ${family.family_name}!\n${family.total_adults} volwassene(s) × R300 = R${(depositAmount / 100).toFixed(2)}`);
+      }
+
+    } catch (error) {
+      console.error('Full error details:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Onbekende fout';
+      alert('❌ Fout met skep betaling: ' + errorMessage);
     }
-
-    // Bereken deposito gebaseer op total_adults
-    const depositAmount = family.total_adults * 30000;
-
-    if (family.total_adults === 0) {
-      alert(`${family.family_name} het geen volwassene gaste nie. Geen deposito nodig.`);
-      return;
-    }
-
-    const { data, error } = await supabase
-      .from('payments')
-      .insert([{
-        family_id: familyId,
-        amount: depositAmount,
-        payment_method: 'eft',
-        payment_status: 'pending'
-      }])
-      .select();
-
-    if (error) throw error;
-
-    if (data) {
-      setPayments([data[0], ...payments]);
-      alert(`✅ Betaling geskep vir ${family.family_name}!\n${family.total_adults} volwassene(s) × R300 = R${(depositAmount / 100).toFixed(2)}`);
-    }
-
-  } catch (error) {
-    console.error('Full error details:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Onbekende fout';
-    alert('❌ Fout met skep betaling: ' + errorMessage);
-  }
-};
+  };
 
   // Update payment
   const handleUpdatePayment = async (paymentId: string, updates: Partial<Payment>) => {
@@ -302,7 +308,7 @@ const handleCreatePayment = async (familyId: string) => {
       if (error) throw error;
 
       // Update local state
-      setPayments(payments.map(p => 
+      setPayments(payments.map(p =>
         p.id === paymentId ? { ...p, ...updates } : p
       ));
 
@@ -319,7 +325,7 @@ const handleCreatePayment = async (familyId: string) => {
             .eq('id', payment.family_id);
 
           if (!familyError) {
-            setFamilies(families.map(f => 
+            setFamilies(families.map(f =>
               f.id === payment.family_id ? { ...f, rsvp_status: 'submitted' } : f
             ));
           }
@@ -352,41 +358,101 @@ const handleCreatePayment = async (familyId: string) => {
   };
 
   const deleteGuest = async (id: string) => {
-    const { error } = await supabase
-      .from('guests')
-      .delete()
-      .eq('id', id);
+    try {
+      // Eerstens, kry die family_id voor deletion
+      const guestToDelete = guests.find(g => g.id === id);
+      if (!guestToDelete) {
+        alert('Gas nie gevind nie.');
+        return;
+      }
 
-    if (error) {
-      alert('Fout met skrap gas: ' + error.message);
-      return;
+      const familyId = guestToDelete.family_id;
+
+      const { error } = await supabase
+        .from('guests')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+
+      // Update local state
+      setGuests(guests.filter(g => g.id !== id));
+
+      // Update family totals
+      await updateFamilyTotals(familyId);
+
+      alert('Gas suksesvol geskrap!');
+
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Onbekende fout';
+      alert('Fout met byvoeg gas: ' + errorMessage);
     }
-
-    setGuests(guests.filter(g => g.id !== id));
-    alert('Gas suksesvol geskrap!');
   };
 
   // Add guest
   const addGuest = async (familyId: string, name: string, isAdult: boolean) => {
-    const { data, error } = await supabase
-      .from('guests')
-      .insert([{
-        family_id: familyId,
-        name,
-        is_adult: isAdult,
-        is_attending: false,
-        meal_preference: 'standard'
-      }])
-      .select();
+    try {
+      const { data, error } = await supabase
+        .from('guests')
+        .insert([{
+          family_id: familyId,
+          name,
+          is_adult: isAdult,
+          is_attending: false,
+          meal_preference: 'standard'
+        }])
+        .select();
 
-    if (error) {
-      alert('Fout met byvoeg gas: ' + error.message);
-      return;
+      if (error) throw error;
+
+      if (data) {
+        // Update local state
+        setGuests([...guests, data[0]]);
+
+        // Update family totals
+        await updateFamilyTotals(familyId);
+
+        alert('Gas suksesvol bygevoeg!');
+      }
+
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Onbekende fout';
+      alert('Fout met byvoeg gas: ' + errorMessage);
     }
+  };
 
-    if (data) {
-      setGuests([...guests, data[0]]);
-      alert('Gas suksesvol bygevoeg!');
+  // Update family totals based on actual guests
+  const updateFamilyTotals = async (familyId: string) => {
+    try {
+      // Get all guests for this family
+      const { data: familyGuests, error } = await supabase
+        .from('guests')
+        .select('is_adult')
+        .eq('family_id', familyId);
+
+      if (error) throw error;
+
+      // Calculate new totals
+      const total_adults = familyGuests.filter((g: {is_adult: boolean}) => g.is_adult).length;
+      const total_children = familyGuests.filter((g: {is_adult: boolean}) => !g.is_adult).length;
+
+      // Update family record
+      const { error: updateError } = await supabase
+        .from('families')
+        .update({ total_adults, total_children })
+        .eq('id', familyId);
+
+      if (updateError) throw updateError;
+
+      // Update local state
+      setFamilies(families.map(f =>
+        f.id === familyId ? { ...f, total_adults, total_children } : f
+      ));
+
+      console.log(`Updated family ${familyId}: ${total_adults} adults, ${total_children} children`);
+
+    } catch (error) {
+      console.error('Error updating family totals:', error);
     }
   };
 
