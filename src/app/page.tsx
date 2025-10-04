@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { useMenu } from './layout';
+import CountdownTimer from '../../src/components/CountdownTimer';
 
 export default function Home() {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
@@ -81,8 +82,15 @@ export default function Home() {
           <h1 className="text-4xl sm:text-5xl md:text-5xl text-[#3d251e]">Nickie & Chané</h1>
         </div>
 
-        {/* Datum */}
-        <p className="text-lg sm:text-xl md:text-2xl text-[#3d251e] mb-8 font-semibold">28 Maart 2026</p>
+        {/* Decorative lines between name and photo */}
+        <div className="max-w-md mx-auto my-12">
+          <div className="h-1 bg-[#97A887] mb-2"></div>
+          <div className="h-1 bg-[#BB9F88] mb-2"></div>
+          <div className="h-1 bg-[#656E5D]"></div>
+        </div>
+        
+        {/*Countdown Timer */}
+        <CountdownTimer/>
 
         {/* Decorative lines between name and photo */}
         <div className="max-w-md mx-auto my-12">
@@ -105,7 +113,7 @@ export default function Home() {
           </div>
         </div>
 
-      {/* Hashtag Social media corner*/}
+        {/* Hashtag Social media corner*/}
         <div className="text-center bg-white p-8 rounded-lg shadow-sm border border-gray-300">
           {/* Hoof Titel */}
           <h3 className="text-2xl font-bold mb-2 text-[#3d251e]">Deel Ons Avontuur</h3>
@@ -139,7 +147,7 @@ export default function Home() {
               Volg ons
             </a>
           </div>
-        </div> 
+        </div>
 
         {/* Een blok vir meer inligting */}
         <div className="max-w-2xl mx-auto mt-20">
