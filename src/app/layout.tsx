@@ -58,43 +58,43 @@ export default function RootLayout({
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <html lang="af" >
+    <html lang="af">
       <MenuContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>
-        <body className="min-h-screen flex flex-col font-serif bg-[#E8DBC5]">
-          <nav className="bg-[#E8DBC5] border-b border-[#BB9F88]">
+        <body className="min-h-screen flex flex-col font-serif bg-white"> {/* ✅ Verander na bg-white */}
+          <nav className="bg-white border-b border-gray-200"> {/* ✅ Verander agtergrond en border */}
             <div className="max-w-4xl mx-auto">
               {/* Desktop Navigation */}
               <div className="hidden md:flex flex-wrap justify-center gap-4 py-4 px-4 text-sm md:text-base md:gap-8">
-                <Link href="/" className="text-[#67472C] hover:text-[#99735A] transition-colors flex items-center">
+                <Link href="/" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
                   {MenuIcons.home} Tuis
                 </Link>
-                <Link href="/ons-storie" className="text-[#67472C] hover:text-[#99735A] transition-colors flex items-center">
+                <Link href="/ons-storie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
                   {MenuIcons.story} Meer oor Ons
                 </Link>
-                <Link href="/besonderhede" className="text-[#67472C] hover:text-[#99735A] transition-colors flex items-center">
+                <Link href="/besonderhede" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
                   {MenuIcons.details} Besonderhede
                 </Link>
-                <Link href="/rsvp" className="text-[#67472C] hover:text-[#99735A] transition-colors flex items-center">
+                <Link href="/rsvp" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
                   {MenuIcons.rsvp} RSVP
                 </Link>
-                <Link href="/foto-gallery" className="text-[#67472C] hover:text-[#99735A] transition-colors flex items-center">
+                <Link href="/foto-gallery" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
                   {MenuIcons.photos} Foto&apos;s
                 </Link>
-                <Link href="/akkomodasie" className="text-[#67472C] hover:text-[#99735A] transition-colors flex items-center">
+                <Link href="/akkomodasie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
                   {MenuIcons.accommodation} Akkomodasie
                 </Link>
-                <Link href="/faq" className="text-[#67472C] hover:text-[#99735A] transition-colors flex items-center">
+                <Link href="/faq" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center"> {/* ✅ Verander teks kleur */}
                   {MenuIcons.faq} FAQs
                 </Link>
               </div>
 
               {/* Mobile Navigation */}
               <div className="md:hidden flex justify-between items-center py-4 px-4">
-                <div className="text-[#67472C] text-lg">Nickie & Chané</div>
+                <div className="text-[#3d251e] text-lg">Nickie & Chané</div> {/* ✅ Verander teks kleur */}
                 <button 
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="text-[#67472C] p-2"
-                >
+                  className="text-[#3d251e] p-2" >{/* ✅ Verander teks kleur */}
+                
                   <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
                     {isMenuOpen ? (
                       <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
@@ -107,27 +107,27 @@ export default function RootLayout({
 
               {/* Mobile Menu Dropdown */}
               {isMenuOpen && (
-                <div className="md:hidden bg-white border-t border-[#BB9F88]">
+                <div className="md:hidden bg-white border-t border-gray-200"> {/* ✅ Verander agtergrond en border */}
                   <div className="flex flex-col py-4 space-y-4 px-4">
-                    <Link href="/" className="text-[#67472C] hover:text-[#99735A] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
                       {MenuIcons.home} Tuis
                     </Link>
-                    <Link href="/ons-storie" className="text-[#67472C] hover:text-[#99735A] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/ons-storie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
                       {MenuIcons.story} Meer oor Ons
                     </Link>
-                    <Link href="/besonderhede" className="text-[#67472C] hover:text-[#99735A] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/besonderhede" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
                       {MenuIcons.details} Besonderhede
                     </Link>
-                    <Link href="/rsvp" className="text-[#67472C] hover:text-[#99735A] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/rsvp" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
                       {MenuIcons.rsvp} RSVP
                     </Link>
-                    <Link href="/foto-gallery" className="text-[#67472C] hover:text-[#99735A] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/foto-gallery" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
                       {MenuIcons.photos} Foto&apos;s
                     </Link>
-                    <Link href="/akkomodasie" className="text-[#67472C] hover:text-[#99735A] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/akkomodasie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
                       {MenuIcons.accommodation} Akkomodasie
                     </Link>
-                    <Link href="/faq" className="text-[#67472C] hover:text-[#99735A] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
+                    <Link href="/faq" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center" onClick={() => setIsMenuOpen(false)}>
                       {MenuIcons.faq} FAQs
                     </Link>
                   </div>
@@ -136,18 +136,18 @@ export default function RootLayout({
             </div>
           </nav>
 
-          <main className="flex-grow">
+          <main className="flex-grow bg-white"> {/* ✅ Verander agtergrond */}
             {children}
           </main>
 
-          <footer className="bg-[#E8DBC5] border-t border-[#BB9F88] py-8 px-4">
+          <footer className="bg-white border-t border-gray-200 py-8 px-4"> {/* ✅ Verander agtergrond en border */}
             <div className="max-w-4xl mx-auto">
               <div className="max-w-md mx-auto mb-6">
-                <div className="h-1 bg-[#97A887] mb-2"></div>
-                <div className="h-1 bg-[#BB9F88] mb-2"></div>
-                <div className="h-1 bg-[#656E5D]"></div>
+                <div className="h-1 bg-[#8b6c5c] mb-2"></div> {/* ✅ Ligter bruin */}
+                <div className="h-1 bg-[#5c4033] mb-2"></div> {/* ✅ Medium bruin */}
+                <div className="h-1 bg-[#3d251e]"></div> {/* ✅ Donker bruin */}
               </div>
-              <div className="text-center text-[#656E5D] text-sm">
+              <div className="text-center text-[#5c4033] text-sm"> {/* ✅ Verander teks kleur */}
                 <p className="mb-2">Ontwerp deur Nickie • Gebou met Liefde</p>
                 <p>© 2025 Nickie & Chané • Hosted on Vercel</p>
               </div>

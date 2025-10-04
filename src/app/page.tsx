@@ -43,12 +43,12 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#E8DBC5]">
+    <main className="min-h-screen bg-white">
       {/* Floating Scroll Down Indicator */}
       {showScrollIndicator && (
         <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 animate-bounce">
-          <div className="bg-white rounded-full shadow-lg border border-[#BB9F88] p-3">
-            <div className="text-center text-[#656E5D]">
+          <div className="bg-white rounded-full shadow-lg border border-gray p-3">
+            <div className="text-center text-[#5c4033]">
               <p className="text-xs mb-1">Scroll af</p>
               <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -63,9 +63,9 @@ export default function Home() {
         <div className="fixed bottom-8 right-8 z-50">
           <button
             onClick={scrollToTop}
-            className="bg-white rounded-full shadow-lg border border-[#BB9F88] p-3 hover:bg-[#FFF7E3] transition-colors"
+            className="bg-white rounded-full shadow-lg border border-gray-300 p-3 hover:bg-gray-50 transition-colors"
           >
-            <div className="text-center text-[#656E5D]">
+            <div className="text-center text-[#5c4033]">
               <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
               </svg>
@@ -78,17 +78,17 @@ export default function Home() {
       <div className="text-center py-12 px-4">
         {/* Name in mooi boksie */}
         <div className="max-w-lg mx-auto mb-8 bg-white rounded-2xl shadow-lg border border-[#BB9F88] p-8">
-          <h1 className="text-4xl sm:text-5xl md:text-5xl text-[#67472C]">Nickie & Chané</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-5xl text-[#3d251e]">Nickie & Chané</h1>
         </div>
 
         {/* Datum */}
-        <p className="text-lg sm:text-xl md:text-2xl text-[#67472C] mb-8 font-semibold">28 Maart 2026</p>
+        <p className="text-lg sm:text-xl md:text-2xl text-[#3d251e] mb-8 font-semibold">28 Maart 2026</p>
 
         {/* Decorative lines between name and photo */}
-        <div className="max-w-md mx-auto mb-12 px-4">
-          <div className="h-1 bg-[#97A887] mb-2"></div>
-          <div className="h-1 bg-[#BB9F88] mb-2"></div>
-          <div className="h-1 bg-[#656E5D]"></div>
+        <div className="max-w-md mx-auto mb-12 px-1">
+          <div className="h-1 bg-[#8b6c5c] mb-2"></div>
+          <div className="h-1 bg-[#5c4033] mb-2"></div>
+          <div className="h-1 bg-[#3d251e]"></div>
         </div>
 
         {/* Main Photo met border */}
@@ -106,10 +106,10 @@ export default function Home() {
         </div>
 
         {/* Hashtag Social media corner*/}
-        <div className="text-center bg-white p-8 rounded-lg shadow-sm border">
+        <div className="text-center bg-white p-8 rounded-lg shadow-sm border border-gray-300">
           {/* Hoof Titel */}
-          <h3 className="text-2xl font-bold mb-2 text-[#5C4033]">Deel Ons Avontuur</h3>
-          <p className="text-gray-600 mb-8">Gebruik die #hashtags en events om jou fotos en videos te deel</p>
+          <h3 className="text-2xl font-bold mb-2 text-[#3d251e]">Deel Ons Avontuur</h3>
+          <p className="text-[#5c4033] mb-8">Gebruik die #hashtags en events om jou fotos en videos te deel</p>
 
           {/* Knoppies */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -143,14 +143,14 @@ export default function Home() {
 
         {/* Een blok vir meer inligting */}
         <div className="max-w-2xl mx-auto mt-20">
-          <div className="bg-white rounded-2xl shadow-lg border border-[#BB9F88] p-8 text-center">
-            <h2 className="text-2xl text-[#67472C] mb-4">Meer Inligting</h2>
-            <p className="text-[#656E5D] mb-6">
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-300 p-8 text-center">
+            <h2 className="text-2xl text-[#3d251e] mb-4">Meer Inligting</h2>
+            <p className="text-[#5c4033] mb-6">
               Vir volledige besonderhede oor ons troudag, besoek die ander bladsye deur die Navigasie Menu te gebruik.
             </p>
             <button
               onClick={handleMenuButtonClick}
-              className="bg-[#67472C] text-white px-6 py-3 rounded-lg hover:bg-[#99735A] transition-colors font-semibold"
+              className="bg-[#3d251e] text-white px-6 py-3 rounded-lg hover:bg-[#5c4033] transition-colors font-semibold"
             >
               {typeof window !== 'undefined' && window.innerWidth < 768 ? 'Navigasie Menu' : 'Sien Meer Inligting'}
             </button>

@@ -433,8 +433,8 @@ export default function AdminPage() {
       if (error) throw error;
 
       // Calculate new totals
-      const total_adults = familyGuests.filter((g: {is_adult: boolean}) => g.is_adult).length;
-      const total_children = familyGuests.filter((g: {is_adult: boolean}) => !g.is_adult).length;
+      const total_adults = familyGuests.filter((g: { is_adult: boolean }) => g.is_adult).length;
+      const total_children = familyGuests.filter((g: { is_adult: boolean }) => !g.is_adult).length;
 
       // Update family record
       const { error: updateError } = await supabase
@@ -459,12 +459,12 @@ export default function AdminPage() {
   // Toon login screen as nie geauthentiseer nie
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
+      <div className="min-h-screen bg-white flex items-center justify-center p-8"> {/* ✅ Verander na bg-white */}
         <div className="max-w-md w-full">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8"> {/* ✅ Verander border */}
             <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Trou Admin</h1>
-              <p className="text-gray-600">Voer die admin wagwoord in</p>
+              <h1 className="text-3xl font-bold text-[#3d251e] mb-2">Trou Admin</h1> {/* ✅ Verander teks kleur */}
+              <p className="text-[#5c4033]">Voer die admin wagwoord in</p> {/* ✅ Verander teks kleur */}
             </div>
 
             <form onSubmit={(e) => {
@@ -474,14 +474,14 @@ export default function AdminPage() {
               handleLogin(password);
             }} className="space-y-6">
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-[#3d251e] mb-2"> {/* ✅ Verander teks kleur */}
                   Admin Wagwoord
                 </label>
                 <input
                   id="password"
                   name="password"
                   type="password"
-                  className="w-full p-3 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-gray-800 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg text-[#3d251e] focus:ring-2 focus:ring-[#3d251e] focus:border-transparent" //{/* ✅ Verander teks en focus kleur */}
                   placeholder="Voer wagwoord in"
                   autoFocus
                   required
@@ -490,7 +490,7 @@ export default function AdminPage() {
 
               <button
                 type="submit"
-                className="w-full bg-gray-800 text-white py-3 rounded-lg hover:bg-gray-900 transition-colors font-medium"
+                className="w-full bg-[#3d251e] text-white py-3 rounded-lg hover:bg-[#5c4033] transition-colors font-medium" // {/* ✅ Verander agtergrond kleur */}
               >
                 Teken In
               </button>
@@ -503,28 +503,27 @@ export default function AdminPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-xl text-gray-800">Laai...</div>
+      <div className="min-h-screen bg-white flex items-center justify-center"> {/* ✅ Verander na bg-white */}
+        <div className="text-xl text-[#3d251e]">Laai...</div> {/* ✅ Verander teks kleur */}
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-white p-8"> {/* ✅ Verander na bg-white */}
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Trou Admin Paneel</h1>
+          <h1 className="text-3xl font-bold text-[#3d251e]">Trou Admin Paneel</h1> {/* ✅ Verander teks kleur */}
           <div className="flex space-x-4">
             <button
               onClick={openAddFamilyModal}
-              className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors"
-            >
+              className="bg-[#3d251e] text-white px-4 py-2 rounded-lg hover:bg-[#5c4033] transition-colors"> {/* ✅ Verander agtergrond kleur */}
+            
               Voeg Gesin By
             </button>
             <button
               onClick={handleLogout}
-              className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
-            >
+              className="bg-[#8b6c5c] text-white px-4 py-2 rounded-lg hover:bg-[#5c4033] transition-colors"> {/* ✅ Verander na ligter bruin */}
               Teken Uit
             </button>
           </div>
@@ -538,6 +537,8 @@ export default function AdminPage() {
           paymentsCount={payments.length}
         />
 
+        {/* Die res van die content - FamilyList, GuestList, PaymentsList 
+            sal hul eie kleurskema hê wat ons volgende sal update */}
         {activeTab === 'families' && (
           <FamilyList
             families={families}
