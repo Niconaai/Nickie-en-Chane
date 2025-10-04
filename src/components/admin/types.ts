@@ -7,6 +7,7 @@ export interface Family {
   total_adults: number;
   total_children: number;
   created_at: string;
+  deposit_option?: 'gift' | 'refund';
 }
 
 export interface Guest {
@@ -18,6 +19,21 @@ export interface Guest {
   dietary_requirements: string;
   meal_preference: string;
   created_at: string;
+}
+
+export interface Payment {
+  id: string;
+  family_id: string;
+  amount: number;
+  payment_method: 'ikhoka' | 'eft';
+  payment_status: 'pending' | 'paid' | 'failed';
+  paid_amount?: number;
+  paid_at?: string;
+  payment_proof?: string;
+  paid_by?: string;
+  deposit_option?: 'gift' | 'refund';
+  created_at: string;
+  updated_at: string;
 }
 
 export interface FamilyFormData {
@@ -37,4 +53,4 @@ export interface GuestFormData {
   meal_preference: string;
 }
 
-export type ModalType = 'add-family' | 'edit-family' | 'edit-guest';
+export type ModalType = 'add-family' | 'edit-family' | 'edit-guest' | 'manage-payment';

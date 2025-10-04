@@ -5,9 +5,9 @@ import { supabase } from '@/lib/supabase';
 import FamilyModal from '@/components/admin/FamilyModal';
 import FamilyList from '@/components/admin/FamilyList';
 import GuestList from '@/components/admin/GuestList';
+import PaymentsList from '@/components/admin/PaymentsList';
 import AdminTabs from '@/components/admin/AdminTabs';
-import AdminLogin from '@/components/admin/AdminLogin';
-import { Family, Guest, FamilyFormData, GuestFormData, ModalType } from '@/components/admin/types';
+import { Family, Guest, Payment, FamilyFormData, GuestFormData, ModalType } from '@/components/admin/types';
 
 // Hard-coded admin wagwoord - verander dit na iets veilig!
 const ADMIN_PASSWORD = 'ThunderMerwe2026';
@@ -16,8 +16,9 @@ export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [families, setFamilies] = useState<Family[]>([]);
   const [guests, setGuests] = useState<Guest[]>([]);
+  const [payments, setPayments] = useState<Payment[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<'families' | 'guests'>('families');
+  const [activeTab, setActiveTab] = useState<'families' | 'guests' | 'payments'>('families');
   
   // Modal states
   const [showModal, setShowModal] = useState(false);
@@ -57,18 +58,27 @@ export default function AdminPage() {
   const loadData = async () => {
     setLoading(true);
     
+    // Load families
     const { data: familiesData } = await supabase
       .from('families')
       .select('*')
       .order('created_at', { ascending: false });
 
+    // Load guests
     const { data: guestsData } = await supabase
       .from('guests')
       .select('*')
       .order('name');
 
+    // Load payments
+    const { data: paymentsData } = await supabase
+      .from('payments')
+      .select('*')
+      .order('created_at', { ascending: false });
+
     if (familiesData) setFamilies(familiesData);
     if (guestsData) setGuests(guestsData);
+    if (paymentsData) setPayments(paymentsData);
     setLoading(false);
   };
 
@@ -217,6 +227,46 @@ export default function AdminPage() {
     }
   };
 
+  // Update payment
+  const handleUpdatePayment = async (paymentId: string, updates: Partial<Payment>) => {
+    try {
+      const { error } = await supabase
+        .from('payments')
+        .update(updates)
+        .eq('id', paymentId);
+
+      if (error) throw error;
+
+      // Update local state
+      setPayments(payments.map(p => 
+        p.id === paymentId ? { ...p, ...updates } : p
+      ));
+
+      alert('Betaling suksesvol opgedateer!');
+
+      // If payment marked as paid, also update family RSVP status
+      if (updates.payment_status === 'paid') {
+        const payment = payments.find(p => p.id === paymentId);
+        if (payment) {
+          // Update family RSVP status to submitted
+          const { error: familyError } = await supabase
+            .from('families')
+            .update({ rsvp_status: 'submitted' })
+            .eq('id', payment.family_id);
+
+          if (!familyError) {
+            setFamilies(families.map(f => 
+              f.id === payment.family_id ? { ...f, rsvp_status: 'submitted' } : f
+            ));
+          }
+        }
+      }
+
+    } catch (error) {
+      alert('Fout met opdateer betaling: ' + error);
+    }
+  };
+
   // Delete operations
   const deleteFamily = async (id: string) => {
     if (!confirm('Is jy seker jy wil hierdie gesin skrap? Dit sal al die gaste ook skrap.')) {
@@ -278,7 +328,47 @@ export default function AdminPage() {
 
   // Toon login screen as nie geauthentiseer nie
   if (!isAuthenticated) {
-    return <AdminLogin onLogin={handleLogin} />;
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
+        <div className="max-w-md w-full">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Trou Admin</h1>
+              <p className="text-gray-600">Voer die admin wagwoord in</p>
+            </div>
+
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const password = formData.get('password') as string;
+              handleLogin(password);
+            }} className="space-y-6">
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                  Admin Wagwoord
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  className="w-full p-3 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-gray-800 focus:border-transparent"
+                  placeholder="Voer wagwoord in"
+                  autoFocus
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-gray-800 text-white py-3 rounded-lg hover:bg-gray-900 transition-colors font-medium"
+              >
+                Teken In
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   if (loading) {
@@ -292,7 +382,6 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header met logout knoppie */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Trou Admin Paneel</h1>
           <div className="flex space-x-4">
@@ -316,6 +405,7 @@ export default function AdminPage() {
           onTabChange={setActiveTab}
           familiesCount={families.length}
           guestsCount={guests.length}
+          paymentsCount={payments.length}
         />
 
         {activeTab === 'families' && (
@@ -334,6 +424,14 @@ export default function AdminPage() {
           <GuestList
             guests={guests}
             families={families}
+          />
+        )}
+
+        {activeTab === 'payments' && (
+          <PaymentsList
+            payments={payments}
+            families={families}
+            onUpdatePayment={handleUpdatePayment}
           />
         )}
 
