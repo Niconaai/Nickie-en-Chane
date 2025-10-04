@@ -227,12 +227,76 @@ export default function AdminPage() {
     }
   };
 
+  // Calculate deposit using family's total_adults (eenvoudig en betroubaar)
+const calculateDeposit = (familyId: string) => {
+  const family = families.find(f => f.id === familyId);
+  if (!family) {
+    console.error('Family not found:', familyId);
+    return 0;
+  }
+  
+  const amount = family.total_adults * 30000;
+  console.log(`Deposit for ${family.family_name}: ${family.total_adults} adults × R300 = R${(amount / 100).toFixed(2)}`);
+  return amount;
+};
+
+// Create payment for a family
+const handleCreatePayment = async (familyId: string) => {
+  try {
+    const family = families.find(f => f.id === familyId);
+    if (!family) {
+      alert('Gesin nie gevind nie.');
+      return;
+    }
+
+    // Check if payment already exists
+    const existingPayment = payments.find(p => p.family_id === familyId);
+    if (existingPayment) {
+      alert(`Betaling bestaan reeds vir ${family.family_name}.`);
+      return;
+    }
+
+    // Bereken deposito gebaseer op total_adults
+    const depositAmount = family.total_adults * 30000;
+
+    if (family.total_adults === 0) {
+      alert(`${family.family_name} het geen volwassene gaste nie. Geen deposito nodig.`);
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from('payments')
+      .insert([{
+        family_id: familyId,
+        amount: depositAmount,
+        payment_method: 'eft',
+        payment_status: 'pending'
+      }])
+      .select();
+
+    if (error) throw error;
+
+    if (data) {
+      setPayments([data[0], ...payments]);
+      alert(`✅ Betaling geskep vir ${family.family_name}!\n${family.total_adults} volwassene(s) × R300 = R${(depositAmount / 100).toFixed(2)}`);
+    }
+
+  } catch (error) {
+    console.error('Full error details:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Onbekende fout';
+    alert('❌ Fout met skep betaling: ' + errorMessage);
+  }
+};
+
   // Update payment
   const handleUpdatePayment = async (paymentId: string, updates: Partial<Payment>) => {
     try {
       const { error } = await supabase
         .from('payments')
-        .update(updates)
+        .update({
+          ...updates,
+          updated_at: new Date().toISOString()
+        })
         .eq('id', paymentId);
 
       if (error) throw error;
@@ -244,11 +308,11 @@ export default function AdminPage() {
 
       alert('Betaling suksesvol opgedateer!');
 
-      // If payment marked as paid, also update family RSVP status
+      // If payment marked as paid, also update family RSVP status to allow RSVP
       if (updates.payment_status === 'paid') {
         const payment = payments.find(p => p.id === paymentId);
         if (payment) {
-          // Update family RSVP status to submitted
+          // Update family RSVP status to submitted (allow them to RSVP)
           const { error: familyError } = await supabase
             .from('families')
             .update({ rsvp_status: 'submitted' })
@@ -412,11 +476,14 @@ export default function AdminPage() {
           <FamilyList
             families={families}
             guests={guests}
+            payments={payments}
             onEditFamily={openEditFamilyModal}
             onEditGuest={openEditGuestModal}
             onDeleteFamily={deleteFamily}
             onDeleteGuest={deleteGuest}
             onAddGuest={addGuest}
+            onCreatePayment={handleCreatePayment}
+            onUpdatePayment={handleUpdatePayment}
           />
         )}
 
