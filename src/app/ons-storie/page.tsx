@@ -151,7 +151,7 @@ export default function OnsStorie() {
   }
 
   return (
-    <div className="min-h-screen bg-[#E8DBC5] py-8 px-4 sm:py-12">
+    <div className="min-h-screen bg-white py-8 px-4 sm:py-12">
       <div className="max-w-4xl mx-auto">
         
 <div className="text-center mb-12">

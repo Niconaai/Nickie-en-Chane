@@ -43,17 +43,17 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#E8DBC5] py-12 px-4">
+    <div className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl  text-[#67472C] text-center mb-4">Vrae & Antwoorde</h1>
         {/* Decorative Strips - Use between sections */}
-<div className="max-w-md mx-auto my-12">
-  <div className="h-1 bg-[#97A887] mb-2"></div>
-  <div className="h-1 bg-[#BB9F88] mb-2"></div>
-  <div className="h-1 bg-[#656E5D]"></div>
-</div>
+        <div className="max-w-md mx-auto my-12">
+          <div className="h-1 bg-[#97A887] mb-2"></div>
+          <div className="h-1 bg-[#BB9F88] mb-2"></div>
+          <div className="h-1 bg-[#656E5D]"></div>
+        </div>
         <p className="text-xl text-[#99735A] text-center mb-12">Alles wat jy nodig het om te weet vir ons spesiale dag</p>
-        
+
         <div className="space-y-6">
           {faqs.map((faq, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg border border-[#BB9F88] overflow-hidden">
@@ -66,7 +66,7 @@ export default function FAQ() {
                     </svg>
                   </div>
                 </summary>
-                <div className="px-6 py-4 bg-[#E8DBC5] border-t border-[#BB9F88]">
+                <div className="px-6 py-4 bg-white border-t border-[#BB9F88]">
                   <p className="text-[#656E5D] leading-relaxed">{faq.answer}</p>
                 </div>
               </details>

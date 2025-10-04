@@ -1,6 +1,6 @@
 export default function Besonderhede() {
   return (
-    <div className="min-h-screen bg-[#E8DBC5] py-12 px-4">
+    <div className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl  text-[#67472C] text-center mb-12">Besonderhede</h1>
         

@@ -85,10 +85,10 @@ export default function Home() {
         <p className="text-lg sm:text-xl md:text-2xl text-[#3d251e] mb-8 font-semibold">28 Maart 2026</p>
 
         {/* Decorative lines between name and photo */}
-        <div className="max-w-md mx-auto mb-12 px-1">
-          <div className="h-1 bg-[#8b6c5c] mb-2"></div>
-          <div className="h-1 bg-[#5c4033] mb-2"></div>
-          <div className="h-1 bg-[#3d251e]"></div>
+        <div className="max-w-md mx-auto my-12">
+          <div className="h-1 bg-[#97A887] mb-2"></div>
+          <div className="h-1 bg-[#BB9F88] mb-2"></div>
+          <div className="h-1 bg-[#656E5D]"></div>
         </div>
 
         {/* Main Photo met border */}

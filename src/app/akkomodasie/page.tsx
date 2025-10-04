@@ -17,73 +17,73 @@ export default function Akkomodasie() {
 
   return (
     <div className="text-center">
-    <div className="min-h-screen bg-[#E8DBC5] py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl  text-[#67472C] text-center mb-12">Akkomodasie</h1>
+      <div className="min-h-screen bg-white py-12 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl  text-[#67472C] text-center mb-12">Akkomodasie</h1>
 
-        {/* Decorative Strips - Use between sections */}
-<div className="max-w-md mx-auto my-12">
-  <div className="h-1 bg-[#97A887] mb-2"></div>
-  <div className="h-1 bg-[#BB9F88] mb-2"></div>
-  <div className="h-1 bg-[#656E5D]"></div>
-</div>
-        
-        {/* Family Accommodation Notice */}
-        <div className="bg-[#97A887] text-white rounded-lg p-6 mb-12 text-center">
-          <h2 className="text-2xl  mb-4">Groep Akkomodasie</h2>
-          <p className="text-lg">
-            Gaste kan Chané kontak voor einde Januarie vir groep akkomodasie by <strong>Blommelot</strong>.
-          </p>
-        </div>
-
-        {/* Naby Onthaal */}
-        <div className="mb-12">
-          <h2 className="text-3xl  text-[#99735A] mb-6 text-center">Naby Onthaal (KF49 Citrus Pakhuis)</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {accommodations.nearReception.map((place, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
-                <h3 className="text-xl  text-[#67472C] mb-2">{place.name}</h3>
-                <p className="text-[#656E5D] mb-4">{place.details}</p>
-                <a 
-                  href={place.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#67472C] text-white px-4 py-2 rounded-lg hover:bg-[#99735A] transition-colors inline-block"
-                >
-                  Sien op Kaart
-                </a>
-              </div>
-            ))}
+          {/* Decorative Strips - Use between sections */}
+          <div className="max-w-md mx-auto my-12">
+            <div className="h-1 bg-[#97A887] mb-2"></div>
+            <div className="h-1 bg-[#BB9F88] mb-2"></div>
+            <div className="h-1 bg-[#656E5D]"></div>
           </div>
-        </div>
 
-        {/* In Dorp */}
-        <div className="mb-12">
-          <h2 className="text-3xl  text-[#99735A] mb-6 text-center">Gastehuise in Brits</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {accommodations.inTown.map((place, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
-                <h3 className="text-xl  text-[#67472C] mb-2">{place.name}</h3>
-                <p className="text-[#656E5D] mb-4">{place.details}</p>
-                <a 
-                  href={place.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#67472C] text-white px-4 py-2 rounded-lg hover:bg-[#99735A] transition-colors inline-block"
-                >
-                  Sien op Kaart
-                </a>
-              </div>
-            ))}
+          {/* Family Accommodation Notice */}
+          <div className="bg-[#656E5D] text-white rounded-lg p-6 mb-12 text-center">
+            <h2 className="text-2xl  mb-4">Groep Akkomodasie</h2>
+            <p className="text-lg">
+              Gaste kan Chané kontak voor einde Januarie vir groep akkomodasie by <strong>Blommelot</strong>.
+            </p>
           </div>
-        </div>
 
-        {/* Contact Info */}
-        <div className="bg-[#CBD0B5] rounded-lg p-8 text-center text-[#656E5D]">
-          <p className="text-lg mb-4">Maak gerus gebruik van akkomodasie van jou keuse. Gesels gerus met Chané oor opsies. Die bogenoemde is net vir verwysing.</p>
+          {/* Naby Onthaal */}
+          <div className="mb-12">
+            <h2 className="text-3xl  text-[#99735A] mb-6 text-center">Naby Onthaal (KF49 Citrus Pakhuis)</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {accommodations.nearReception.map((place, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
+                  <h3 className="text-xl  text-[#67472C] mb-2">{place.name}</h3>
+                  <p className="text-[#656E5D] mb-4">{place.details}</p>
+                  <a
+                    href={place.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#67472C] text-white px-4 py-2 rounded-lg hover:bg-[#99735A] transition-colors inline-block"
+                  >
+                    Sien op Kaart
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* In Dorp */}
+          <div className="mb-12">
+            <h2 className="text-3xl  text-[#99735A] mb-6 text-center">Gastehuise in Brits</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {accommodations.inTown.map((place, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
+                  <h3 className="text-xl  text-[#67472C] mb-2">{place.name}</h3>
+                  <p className="text-[#656E5D] mb-4">{place.details}</p>
+                  <a
+                    href={place.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#67472C] text-white px-4 py-2 rounded-lg hover:bg-[#99735A] transition-colors inline-block"
+                  >
+                    Sien op Kaart
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div className="bg-[#BB9F88] rounded-lg p-8 text-center text-white">
+            <p className="text-lg mb-4">Maak gerus gebruik van akkomodasie van jou keuse. Gesels gerus met Chané oor opsies. Die bogenoemde is net vir verwysing.</p>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   )
 }
