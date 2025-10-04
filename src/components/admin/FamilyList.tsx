@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Family, Guest, GuestFormData } from './types';
 import AddGuestModal from './AddGuestModal';
 

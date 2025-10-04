@@ -50,6 +50,7 @@ export default function RSVPLogin({ onLoginSuccess, onLoadingChange }: RSVPLogin
 
       onLoginSuccess(familyData, guestsData || []);
       
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setError('Iets het verkeerd geloop. Probeer weer.');
     } finally {

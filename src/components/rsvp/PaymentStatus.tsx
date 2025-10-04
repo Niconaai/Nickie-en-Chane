@@ -199,7 +199,7 @@ export default function PaymentStatus({
 
         <div style={{ color: '#8b6c5c' }} className="text-sm mb-4">
           * Hierdie deposito is om jou plek te bevestig en sal na die troue terugbetaal word
-          of as 'n geskenk aanvaar word.
+          of as &apos;n geskenk aanvaar word.
         </div>
       </div>
 

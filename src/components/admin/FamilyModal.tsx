@@ -5,7 +5,9 @@ import { Family, Guest, FamilyFormData, GuestFormData, ModalType } from './types
 interface FamilyModalProps {
   isOpen: boolean;
   modalType: ModalType;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   family: Family | null;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   guest: Guest | null;
   familyForm: FamilyFormData;
   guestForm: GuestFormData;

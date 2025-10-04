@@ -22,6 +22,7 @@ export default function TestEnv() {
     const testSupabase = async () => {
       try {
         const { supabase } = await import('../../lib/supabase');
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { data, error } = await supabase.from('families').select('count');
         
         if (error) throw error;

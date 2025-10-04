@@ -28,6 +28,7 @@ export default function FamilyOverview({ family, guests, onGuestsUpdate }: Famil
         .update({ is_attending: attending })
         .eq('id', guestId);
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       if (error) throw error;
 
       // Update local state
@@ -38,6 +39,7 @@ export default function FamilyOverview({ family, guests, onGuestsUpdate }: Famil
 
       setMessage('Veranderinge gestoor!');
       setTimeout(() => setMessage(''), 3000);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setMessage('Fout met stoor veranderinge. Probeer weer.');
     } finally {

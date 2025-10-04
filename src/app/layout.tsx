@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, createContext, useContext } from 'react'
 
 // Create context for menu state
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const MenuContext = createContext({
   isMenuOpen: false,
   setIsMenuOpen: (open: boolean) => {}
