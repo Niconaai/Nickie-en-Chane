@@ -23,7 +23,7 @@ export default async function FotoGallery() {
   const photos = await getPhotos()
 
   return (
-    <div className="min-h-screen bg-white py-8 px-4 sm:py-12">
+    <div className="min-h-screen bg-transparent py-8 px-4 sm:py-12">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl sm:text-4xl text-[#67472C] text-center mb-8 sm:mb-12">Ons Foto&apos;s</h1>
 

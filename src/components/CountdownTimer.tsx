@@ -42,7 +42,7 @@ export default function CountdownTimer() {
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-[#BB9F88] p-4 sm:p-6 md:p-8 max-w-2xl mx-auto w-full">
       <h3 className="text-xl sm:text-2xl md:text-3xl text-[#3d251e] text-center mb-4 sm:mb-6 font-semibold">
-        Tot Ons Groot Dag!
+        Tot Ons Groot Dag
       </h3>
       
       <div className="flex flex-row justify-between gap-2 sm:gap-3 md:gap-4">
@@ -92,9 +92,7 @@ export default function CountdownTimer() {
       </div>
       
       <div className="mt-4 sm:mt-6 text-center">
-        <p className="text-[#5c4033] text-xs sm:text-sm md:text-base">
-          • 28 Maart 2026 • 
-        </p>
+        
       </div>
     </div>
   )

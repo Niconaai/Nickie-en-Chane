@@ -32,19 +32,17 @@ export default function Home() {
 
   const handleMenuButtonClick = () => {
     if (typeof window !== 'undefined' && window.innerWidth < 768) {
-      // Op mobiel: maak hamburger menu oop
       scrollToTop();
       setTimeout(() => {
         setIsMenuOpen(true);
       }, 600);
     } else {
-      // Op desktop: scroll na bo
       scrollToTop();
     }
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-transparent">
       {/* Floating Scroll Down Indicator */}
       {showScrollIndicator && (
         <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 animate-bounce">
@@ -83,16 +81,16 @@ export default function Home() {
         </div>
 
         {/* Decorative lines between name and photo */}
-        <div className="max-w-md mx-auto my-12">
-          <div className="h-1 bg-[#97A887] mb-2"></div>
-          <div className="h-1 bg-[#BB9F88] mb-2"></div>
-          <div className="h-1 bg-[#656E5D]"></div>
+        <div className="max-w-md mx-auto mb-12 px-1">
+          <div className="h-1 bg-[#8b6c5c] mb-2"></div>
+          <div className="h-1 bg-[#5c4033] mb-2"></div>
+          <div className="h-1 bg-[#3d251e]"></div>
         </div>
-        
-        {/*Countdown Timer */}
-        <CountdownTimer/>
 
-        {/* Decorative lines between name and photo */}
+        {/* Countdown Timer */}
+        <CountdownTimer />
+
+        {/* Decorative lines */}
         <div className="max-w-md mx-auto my-12">
           <div className="h-1 bg-[#97A887] mb-2"></div>
           <div className="h-1 bg-[#BB9F88] mb-2"></div>

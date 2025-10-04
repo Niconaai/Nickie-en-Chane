@@ -43,7 +43,7 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="min-h-screen bg-white py-12 px-4">
+    <div className="min-h-screen bg-transparent py-12 px-4">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl  text-[#67472C] text-center mb-4">Vrae & Antwoorde</h1>
         {/* Decorative Strips - Use between sections */}
