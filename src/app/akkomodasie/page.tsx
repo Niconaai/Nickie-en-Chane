@@ -18,11 +18,11 @@ export default function Akkomodasie() {
   return (
     <div className="text-center">
       <div className="min-h-screen bg-transparent py-12 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl  text-[#67472C] text-center mb-12">Akkomodasie</h1>
+        <div className="max-w-[80vw] md:max-w-[60vw] mx-auto">
+          <h1 className="text-5xl  text-[#67472C] text-center mb-12">Akkomodasie</h1>
 
           {/* Decorative Strips - Use between sections */}
-          <div className="max-w-md mx-auto my-12">
+          <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
             <div className="h-1 bg-[#97A887] mb-2"></div>
             <div className="h-1 bg-[#BB9F88] mb-2"></div>
             <div className="h-1 bg-[#656E5D]"></div>
@@ -39,7 +39,7 @@ export default function Akkomodasie() {
           {/* Naby Onthaal */}
           <div className="mb-12">
             <h2 className="text-3xl  text-[#99735A] mb-6 text-center">Naby Onthaal (KF49 Citrus Pakhuis)</h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               {accommodations.nearReception.map((place, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
                   <h3 className="text-xl  text-[#67472C] mb-2">{place.name}</h3>
@@ -60,7 +60,7 @@ export default function Akkomodasie() {
           {/* In Dorp */}
           <div className="mb-12">
             <h2 className="text-3xl  text-[#99735A] mb-6 text-center">Gastehuise in Brits</h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               {accommodations.inTown.map((place, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
                   <h3 className="text-xl  text-[#67472C] mb-2">{place.name}</h3>

@@ -1,19 +1,19 @@
 export default function Besonderhede() {
   return (
     <div className="min-h-screen bg-transparent py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl  text-[#67472C] text-center mb-12">Besonderhede</h1>
+      <div className="max-w-[80vw] md:max-w-[60vw] mx-auto">
+        <h1 className="text-5xl  text-[#67472C] text-center mb-12">Besonderhede</h1>
 
         {/* Decorative Strips - Use between sections */}
-        <div className="max-w-md mx-auto my-12">
+        <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
           <div className="h-1 bg-[#97A887] mb-2"></div>
           <div className="h-1 bg-[#BB9F88] mb-2"></div>
           <div className="h-1 bg-[#656E5D]"></div>
         </div>
 
         {/* Timeline Section */}
-        <div className="bg-white rounded-lg shadow-lg p-8 border border-[#BB9F88] mb-12">
-          <h2 className="text-3xl  text-[#99735A] text-center mb-8">Tydlyn</h2>
+        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
+          <h2 className="text-4xl  text-[#99735A] text-center mb-8">Tydlyn</h2>
           <div className="max-w-2xl mx-auto">
             <div className="space-y-6">
               <div className="flex items-start">
@@ -56,7 +56,7 @@ export default function Besonderhede() {
         </div>
 
         {/* Decorative Strips - Use between sections */}
-        <div className="max-w-md mx-auto my-12">
+        <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
           <div className="h-1 bg-[#97A887] mb-2"></div>
           <div className="h-1 bg-[#BB9F88] mb-2"></div>
           <div className="h-1 bg-[#656E5D]"></div>
@@ -65,8 +65,8 @@ export default function Besonderhede() {
         {/* Locations */}
         <div className="grid md:grid-cols-2 gap-8">
           {/* Seremonie */}
-          <div className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
-            <h2 className="text-2xl  text-[#99735A] mb-4">Seremonie</h2>
+          <div className="text-center bg-white rounded-lg shadow-lg p-6 ">
+            <h2 className="text-3xl  text-[#99735A] mb-4">Seremonie</h2>
             <div className="space-y-3 text-[#656E5D] mb-4">
               <p className="font-semibold">Datum: 28 Maart 2025</p>
               <p className="font-semibold">Tyd: 15:00</p>
@@ -88,8 +88,8 @@ export default function Besonderhede() {
           </div>
 
           {/* Onthaal */}
-          <div className="bg-white rounded-lg shadow-lg p-6 border border-[#BB9F88]">
-            <h2 className="text-2xl  text-[#99735A] mb-4">Onthaal</h2>
+          <div className="text-center bg-white rounded-lg shadow-lg p-6 ">
+            <h2 className="text-3xl  text-[#99735A] mb-4">Onthaal</h2>
             <div className="space-y-3 text-[#656E5D] mb-4">
               <p className="font-semibold">Datum: 28 Maart 2025</p>
               <p className="font-semibold">Tyd: 18:00</p>

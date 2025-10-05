@@ -17,7 +17,7 @@ export default function CountdownTimer() {
   })
 
   useEffect(() => {
-    const weddingDate = new Date('2026-03-28T14:00:00') // 28 Maart 2026 om 2:00 nm
+    const weddingDate = new Date('2026-03-28T14:00:00')
 
     const calculateTimeLeft = () => {
       const now = new Date()
@@ -40,14 +40,14 @@ export default function CountdownTimer() {
   }, [])
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-[#BB9F88] p-4 sm:p-6 md:p-8 max-w-2xl mx-auto w-full">
-      <h3 className="text-xl sm:text-2xl md:text-3xl text-[#3d251e] text-center mb-4 sm:mb-6 font-semibold">
-        Tot Ons Groot Dag
+    <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 max-w-[80vw] md:max-w-[60vw] mx-auto w-full">
+      <h3 className="text-xl sm:text-2xl md:text-3xl text-[#3d251e] text-center mb-4 sm:mb-6 font-bold">
+        Amptelik net nog
       </h3>
-      
+
       <div className="flex flex-row justify-between gap-2 sm:gap-3 md:gap-4">
         <div className="flex-1 text-center min-w-0">
-          <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88]">
+          <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88] aspect-square flex flex-col items-center justify-center">
             <div className="text-lg sm:text-2xl md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
               {timeLeft.days}
             </div>
@@ -56,9 +56,9 @@ export default function CountdownTimer() {
             </div>
           </div>
         </div>
-        
+
         <div className="flex-1 text-center min-w-0">
-          <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88]">
+          <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88] aspect-square flex flex-col items-center justify-center">
             <div className="text-lg sm:text-2xl md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
               {timeLeft.hours}
             </div>
@@ -67,9 +67,9 @@ export default function CountdownTimer() {
             </div>
           </div>
         </div>
-        
+
         <div className="flex-1 text-center min-w-0">
-          <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88]">
+          <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88] aspect-square flex flex-col items-center justify-center">
             <div className="text-lg sm:text-2xl md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
               {timeLeft.minutes}
             </div>
@@ -78,9 +78,9 @@ export default function CountdownTimer() {
             </div>
           </div>
         </div>
-        
+
         <div className="flex-1 text-center min-w-0">
-          <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88]">
+          <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88] aspect-square flex flex-col items-center justify-center">
             <div className="text-lg sm:text-2xl md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
               {timeLeft.seconds}
             </div>
@@ -90,9 +90,11 @@ export default function CountdownTimer() {
           </div>
         </div>
       </div>
-      
+
       <div className="mt-4 sm:mt-6 text-center">
-        
+        <h3 className="text-xl sm:text-2xl md:text-3xl text-[#3d251e] text-center mb-4 sm:mb-6 font-bold">
+          tot 28 Maart 2026
+        </h3>
       </div>
     </div>
   )

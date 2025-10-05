@@ -103,6 +103,12 @@ export default function RootLayout({
 
   return (
     <html lang="af">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Brittany+Signature&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <MenuContext.Provider value={menuContextValue}>
         <body className="min-h-screen flex flex-col font-serif bg-white">
           {/* Loading Overlay */}
@@ -123,35 +129,38 @@ export default function RootLayout({
           )}
 
           <nav className="bg-white border-b border-gray-200">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-[60vw] mx-auto">
               {/* Desktop Navigation - vervang Link met LoadingLink */}
               <div className="hidden md:flex flex-wrap justify-center gap-4 py-4 px-4 text-sm md:text-base md:gap-8">
-                <LoadingLink href="/" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
+                <LoadingLink href="/" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.home} Tuis
                 </LoadingLink>
-                <LoadingLink href="/ons-storie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
+                <LoadingLink href="/ons-storie" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.story} Meer oor Ons
                 </LoadingLink>
-                <LoadingLink href="/besonderhede" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
+                <LoadingLink href="/besonderhede" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.details} Besonderhede
                 </LoadingLink>
-                <LoadingLink href="/rsvp" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
-                  {MenuIcons.rsvp} RSVP
-                </LoadingLink>
-                <LoadingLink href="/foto-gallery" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
+                <LoadingLink href="/foto-gallery" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.photos} Foto&apos;s
                 </LoadingLink>
-                <LoadingLink href="/akkomodasie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
+                <LoadingLink href="/akkomodasie" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.accommodation} Akkomodasie
                 </LoadingLink>
-                <LoadingLink href="/faq" className="text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
-                  {MenuIcons.faq} FAQs
+                <LoadingLink href="/faq" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
+                  {MenuIcons.faq} V en A
+                </LoadingLink>
+                <LoadingLink
+                  href="/rsvp"
+                  className="text-xl bg-[#3d251e] text-white hover:bg-[#5c4033] transition-colors flex items-center px-4 py-2 rounded-lg"
+                >
+                  {MenuIcons.rsvp} RSVP
                 </LoadingLink>
               </div>
 
               {/* Mobile Navigation */}
-              <div className="md:hidden flex justify-between items-center py-4 px-4">
-                <div className="text-[#3d251e] text-lg">Nickie & Chané</div>
+              <div className="max-w-[80vw] md:hidden flex justify-between items-center py-4 px-4">
+                <div className="text-[#3d251e] text-2xl">Chané & Nickie</div>
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="text-[#3d251e] p-2"
@@ -168,28 +177,31 @@ export default function RootLayout({
 
               {/* Mobile Menu Dropdown - vervang Link met LoadingLink */}
               {isMenuOpen && (
-                <div className="md:hidden bg-white border-t border-gray-200">
-                  <div className="flex flex-col py-4 space-y-4 px-4">
-                    <LoadingLink href="/" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
+                <div className="max-w-[60vw] md:hidden bg-white border-t border-gray-200">
+                  <div className="max-w-[60vw] flex flex-col py-4 space-y-4 px-4">
+                    <LoadingLink href="/" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.home} Tuis
                     </LoadingLink>
-                    <LoadingLink href="/ons-storie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
+                    <LoadingLink href="/ons-storie" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.story} Meer oor Ons
                     </LoadingLink>
-                    <LoadingLink href="/besonderhede" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
+                    <LoadingLink href="/besonderhede" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.details} Besonderhede
                     </LoadingLink>
-                    <LoadingLink href="/rsvp" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
-                      {MenuIcons.rsvp} RSVP
-                    </LoadingLink>
-                    <LoadingLink href="/foto-gallery" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
+                    <LoadingLink href="/foto-gallery" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.photos} Foto&apos;s
                     </LoadingLink>
-                    <LoadingLink href="/akkomodasie" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
+                    <LoadingLink href="/akkomodasie" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
                       {MenuIcons.accommodation} Akkomodasie
                     </LoadingLink>
-                    <LoadingLink href="/faq" className="text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
-                      {MenuIcons.faq} FAQs
+                    <LoadingLink href="/faq" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
+                      {MenuIcons.faq} V en A
+                    </LoadingLink>
+                    <LoadingLink
+                      href="/rsvp"
+                      className="text-xl bg-[#3d251e] text-white hover:bg-[#5c4033] transition-colors py-2 flex items-center px-4 rounded-lg"
+                    >
+                      {MenuIcons.rsvp} RSVP
                     </LoadingLink>
                   </div>
                 </div>
@@ -201,9 +213,10 @@ export default function RootLayout({
             {children}
           </main>
 
+
           <footer className="bg-white border-t border-gray-200 py-8 px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="max-w-md mx-auto my-12">
+            <div className="max-w-[80vw] md:max-w-[60vw] mx-auto">
+              <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
                 <div className="h-1 bg-[#97A887] mb-2"></div>
                 <div className="h-1 bg-[#BB9F88] mb-2"></div>
                 <div className="h-1 bg-[#656E5D]"></div>
