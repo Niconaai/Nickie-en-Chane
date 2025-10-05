@@ -3,6 +3,7 @@ import './globals.css'
 import Link from 'next/link'
 import { useState, createContext, useContext, useEffect } from 'react'
 import { brittany, crimson } from '../lib/fonts'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Create context for menu state
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

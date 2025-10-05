@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useMenu } from './layout';
 import CountdownTimer from '../../src/components/CountdownTimer';
 import { brittany, crimson } from '../lib/fonts'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function Home() {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
