@@ -125,7 +125,7 @@ export default function RootLayout({
               <div className="text-center">
                 <div className="mx-auto mb-4" style={{ width: '200px', height: '125px' }}>
                   <img
-                    src="/cow-walking.gif"
+                    src="/alcohol-bottle.gif"
                     alt="Loading..."
                     className="w-full h-full object-contain"
                   />
@@ -142,7 +142,7 @@ export default function RootLayout({
               <div className="text-center">
                 <div className="mx-auto mb-4" style={{ width: '200px', height: '125px' }}>
                   <img
-                    src="/cow-walking.gif"
+                    src="/alcohol-bottle.gif"
                     alt="Loading..."
                     className="w-full h-full object-contain"
                   />
