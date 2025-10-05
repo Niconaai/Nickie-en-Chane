@@ -1,3 +1,7 @@
+export const metadata = {
+  title: 'C&N | Besonderhede',
+}
+
 export default function Besonderhede() {
   return (
     <div className="min-h-screen bg-transparent py-12 px-4">

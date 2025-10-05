@@ -1,7 +1,7 @@
 'use client'
 import './globals.css'
 import Link from 'next/link'
-import { useState, createContext, useContext } from 'react'
+import { useState, createContext, useContext, useEffect } from 'react'
 
 // Create context for menu state
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -93,6 +93,16 @@ export default function RootLayout({
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [isInitialLoading, setIsInitialLoading] = useState(true)
+
+  // Initial loading effect - VOEG HIERDIE useEffect BY
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsInitialLoading(false)
+    }, 2000) // 2 sekondes loading
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const menuContextValue = {
     isMenuOpen,
@@ -104,6 +114,7 @@ export default function RootLayout({
   return (
     <html lang="af">
       <head>
+        <title>C&N | 28.03.2026</title>
         <link
           href="https://fonts.googleapis.com/css2?family=Brittany+Signature&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
           rel="stylesheet"
@@ -111,6 +122,21 @@ export default function RootLayout({
       </head>
       <MenuContext.Provider value={menuContextValue}>
         <body className="min-h-screen flex flex-col font-serif bg-white">
+          {isInitialLoading && (
+            <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
+              <div className="text-center">
+                <div className="mx-auto mb-4" style={{ width: '200px', height: '125px' }}>
+                  <img
+                    src="/cow-walking.gif"
+                    alt="Loading..."
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <h1 className="text-3xl text-[#3d251e] font-brittany mb-2">Chané & Nickie</h1>
+                <p className="text-[#5c4033]">28 Maart 2026</p>
+              </div>
+            </div>
+          )}
           {/* Loading Overlay */}
           {isLoading && (
             <div className="fixed inset-0 bg-white bg-opacity-90 z-50 flex items-center justify-center">
@@ -123,7 +149,8 @@ export default function RootLayout({
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <p className="text-[#3d251e] text-lg font-semibold">Laai...</p>
+                <h1 className="text-3xl text-[#3d251e] font-brittany mb-2">Chané & Nickie</h1>
+                <p className="text-[#5c4033]">28 Maart 2026</p>
               </div>
             </div>
           )}

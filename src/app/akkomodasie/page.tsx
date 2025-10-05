@@ -1,3 +1,7 @@
+export const metadata = {
+  title: 'C&N | Akkomodasie',
+}
+
 export default function Akkomodasie() {
   const accommodations = {
     nearReception: [

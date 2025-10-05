@@ -19,6 +19,10 @@ async function getPhotos() {
   }
 }
 
+export const metadata = {
+  title: 'C&N | Foto',
+}
+
 export default async function FotoGallery() {
   const photos = await getPhotos()
 

@@ -151,135 +151,138 @@ export default function OnsStorie() {
   }
 
   return (
-    <div className="min-h-screen bg-transparent py-8 px-4 sm:py-12">
-      <div className="max-w-[80vw] md:max-w-[60vw] mx-auto">
+    <>
+      <title>C&N | Meer oor Ons</title>
+      <div className="min-h-screen bg-transparent py-8 px-4 sm:py-12">
+        <div className="max-w-[80vw] md:max-w-[60vw] mx-auto">
 
-        <div className="text-center mb-12">
-          <h1 className="text-5xl  sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Meer oor Ons</h1>
-        </div>
-
-        {/* Decorative Strips - Use between sections */}
-        <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
-          <div className="h-1 bg-[#97A887] mb-2"></div>
-          <div className="h-1 bg-[#BB9F88] mb-2"></div>
-          <div className="h-1 bg-[#656E5D]"></div>
-        </div>
-        {/* Character Profiles - Now at the top */}
-        <div className="text-center mb-12">
-
-
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
-              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
-                <Image
-                  src="/storie/early-chané.jpg"
-                  alt="Chané"
-                  fill
-                  className="object-cover"
-                  sizes="192px"
-                />
-              </div>
-              <div className="flex justify-center mb-4 text-black">
-                {Icons.teacher}
-              </div>
-              <h3 className=" text-[#67472C] text-2xl mb-3">Chané</h3>
-              <p className="text-[#656E5D] text-base">Onderwyser • Liefdevol • Hardloop Maat</p>
-            </div>
-
-            <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
-              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
-                <Image
-                  src="/storie/early-nickie.jpg"
-                  alt="Nickie"
-                  fill
-                  className="object-cover"
-                  sizes="192px"
-                />
-              </div>
-              <div className="flex justify-center mb-4 text-black">
-                {Icons.computer}
-              </div>
-              <h3 className=" text-[#67472C] text-2xl mb-3">Nickie</h3>
-              <p className="text-[#656E5D] text-base">Sagteware Ontwikkelaar • Buitelug • Tegnologie</p>
-            </div>
-
-
+          <div className="text-center mb-12">
+            <h1 className="text-5xl  sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Meer oor Ons</h1>
           </div>
-        </div>
 
-        {/* Decorative Strips - Use between sections */}
-        <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
-          <div className="h-1 bg-[#97A887] mb-2"></div>
-          <div className="h-1 bg-[#BB9F88] mb-2"></div>
-          <div className="h-1 bg-[#656E5D]"></div>
-        </div>
-
-        {/* Storybook Header - Now comes after profiles */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Storieboek</h1>
-          <div className="flex justify-center space-x-2">
-            {storyPages.map((_, index) => (
-              <div
-                key={index}
-                className={`w-3 h-3 rounded-full transition-all ${index === currentPage ? 'bg-[#67472C]' : 'bg-[#CBD0B5]'
-                  }`}
-              />
-            ))}
+          {/* Decorative Strips - Use between sections */}
+          <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
+            <div className="h-1 bg-[#97A887] mb-2"></div>
+            <div className="h-1 bg-[#BB9F88] mb-2"></div>
+            <div className="h-1 bg-[#656E5D]"></div>
           </div>
-        </div>
+          {/* Character Profiles - Now at the top */}
+          <div className="text-center mb-12">
 
-        {/* Storybook Page */}
-        <div className="relative">
-          {/* Navigation Arrows */}
-          {currentPage > 0 && (
-            <button
-              onClick={prevPage}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 sm:-translate-x-8 bg-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg border border-[#BB9F88] text-[#67472C] hover:bg-[#E8DBC5] transition-colors z-10"
-            >
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
-                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-              </svg>
-            </button>
-          )}
 
-          {currentPage < storyPages.length - 1 && (
-            <button
-              onClick={nextPage}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 sm:translate-x-8 bg-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg border border-[#BB9F88] text-[#67472C] hover:bg-[#E8DBC5] transition-colors z-10"
-            >
-              <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-              </svg>
-            </button>
-          )}
-
-          {/* Current Page Content */}
-          <div className={`${storyPages[currentPage].color} ${storyPages[currentPage].textColor} ${storyPages[currentPage].border || ''} rounded-2xl shadow-2xl p-6 sm:p-8 transition-all duration-500`}>
-
-            {/* Smart Photo Layout */}
-            <SmartPhotoLayout photos={storyPages[currentPage].photos} />
-
-            <div className="text-center">
-              <div className="flex justify-center mb-4 text-black">
-                {storyPages[currentPage].icon}
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
+                <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
+                  <Image
+                    src="/storie/early-chané.jpg"
+                    alt="Chané"
+                    fill
+                    className="object-cover"
+                    sizes="192px"
+                  />
+                </div>
+                <div className="flex justify-center mb-4 text-black">
+                  {Icons.teacher}
+                </div>
+                <h3 className=" text-[#67472C] text-2xl mb-3">Chané</h3>
+                <p className="text-[#656E5D] text-base">Onderwyser • Liefdevol • Hardloop Maat</p>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl  mb-4">{storyPages[currentPage].title}</h2>
 
-              <p className="text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-6">
-                {storyPages[currentPage].content}
-              </p>
+              <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
+                <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
+                  <Image
+                    src="/storie/early-nickie.jpg"
+                    alt="Nickie"
+                    fill
+                    className="object-cover"
+                    sizes="192px"
+                  />
+                </div>
+                <div className="flex justify-center mb-4 text-black">
+                  {Icons.computer}
+                </div>
+                <h3 className=" text-[#67472C] text-2xl mb-3">Nickie</h3>
+                <p className="text-[#656E5D] text-base">Sagteware Ontwikkelaar • Buitelug • Tegnologie</p>
+              </div>
 
-              {/* Page Indicator */}
-              <div className="opacity-70">
-                <p className="text-sm sm:text-base">
-                  Bladsy {currentPage + 1} van {storyPages.length}
+
+            </div>
+          </div>
+
+          {/* Decorative Strips - Use between sections */}
+          <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
+            <div className="h-1 bg-[#97A887] mb-2"></div>
+            <div className="h-1 bg-[#BB9F88] mb-2"></div>
+            <div className="h-1 bg-[#656E5D]"></div>
+          </div>
+
+          {/* Storybook Header - Now comes after profiles */}
+          <div className="text-center mb-8 sm:mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Storieboek</h1>
+            <div className="flex justify-center space-x-2">
+              {storyPages.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-all ${index === currentPage ? 'bg-[#67472C]' : 'bg-[#CBD0B5]'
+                    }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Storybook Page */}
+          <div className="relative">
+            {/* Navigation Arrows */}
+            {currentPage > 0 && (
+              <button
+                onClick={prevPage}
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 sm:-translate-x-8 bg-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg border border-[#BB9F88] text-[#67472C] hover:bg-[#E8DBC5] transition-colors z-10"
+              >
+                <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+              </button>
+            )}
+
+            {currentPage < storyPages.length - 1 && (
+              <button
+                onClick={nextPage}
+                className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 sm:translate-x-8 bg-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-lg border border-[#BB9F88] text-[#67472C] hover:bg-[#E8DBC5] transition-colors z-10"
+              >
+                <svg fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+                  <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                </svg>
+              </button>
+            )}
+
+            {/* Current Page Content */}
+            <div className={`${storyPages[currentPage].color} ${storyPages[currentPage].textColor} ${storyPages[currentPage].border || ''} rounded-2xl shadow-2xl p-6 sm:p-8 transition-all duration-500`}>
+
+              {/* Smart Photo Layout */}
+              <SmartPhotoLayout photos={storyPages[currentPage].photos} />
+
+              <div className="text-center">
+                <div className="flex justify-center mb-4 text-black">
+                  {storyPages[currentPage].icon}
+                </div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl  mb-4">{storyPages[currentPage].title}</h2>
+
+                <p className="text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-6">
+                  {storyPages[currentPage].content}
                 </p>
+
+                {/* Page Indicator */}
+                <div className="opacity-70">
+                  <p className="text-sm sm:text-base">
+                    Bladsy {currentPage + 1} van {storyPages.length}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
-    </div>
+    </>
   )
 }

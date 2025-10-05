@@ -1,3 +1,7 @@
+export const metadata = {
+  title: 'C&N | V en A',
+}
+
 export default function FAQ() {
   const faqs = [
     {
