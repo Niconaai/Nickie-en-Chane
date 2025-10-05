@@ -51,7 +51,7 @@ export default function CountdownTimer() {
             <div className="text-lg sm:text-2xl md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
               {timeLeft.days}
             </div>
-            <div className="text-xs sm:text-sm md:text-base text-[#5c4033] font-medium whitespace-nowrap">
+            <div className="text-xs md:text-xl md:text-base text-[#5c4033] font-medium whitespace-nowrap">
               Dae
             </div>
           </div>
@@ -59,10 +59,10 @@ export default function CountdownTimer() {
 
         <div className="flex-1 text-center min-w-0">
           <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88] aspect-square flex flex-col items-center justify-center">
-            <div className="text-lg sm:text-2xl md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
+            <div className="text-lg md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
               {timeLeft.hours}
             </div>
-            <div className="text-xs sm:text-sm md:text-base text-[#5c4033] font-medium whitespace-nowrap">
+            <div className="text-xs md:text-xl md:text-base text-[#5c4033] font-medium whitespace-nowrap">
               Ure
             </div>
           </div>
@@ -70,10 +70,10 @@ export default function CountdownTimer() {
 
         <div className="flex-1 text-center min-w-0">
           <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88] aspect-square flex flex-col items-center justify-center">
-            <div className="text-lg sm:text-2xl md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
+            <div className="text-lg md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
               {timeLeft.minutes}
             </div>
-            <div className="text-xs sm:text-sm md:text-base text-[#5c4033] font-medium whitespace-nowrap">
+            <div className="text-xs md:text-xl md:text-base text-[#5c4033] font-medium whitespace-nowrap">
               Minute
             </div>
           </div>
@@ -81,10 +81,10 @@ export default function CountdownTimer() {
 
         <div className="flex-1 text-center min-w-0">
           <div className="bg-[#E8DBC5] rounded-lg p-3 sm:p-4 md:p-6 border border-[#BB9F88] aspect-square flex flex-col items-center justify-center">
-            <div className="text-lg sm:text-2xl md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
+            <div className="text-lg md:text-4xl font-bold text-[#3d251e] mb-1 sm:mb-2 leading-tight">
               {timeLeft.seconds}
             </div>
-            <div className="text-xs sm:text-sm md:text-base text-[#5c4033] font-medium whitespace-nowrap">
+            <div className="text-xs md:text-xl md:text-base text-[#5c4033] font-medium whitespace-nowrap">
               Sekondes
             </div>
           </div>

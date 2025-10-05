@@ -5,12 +5,12 @@ export const metadata = {
 export default function FAQ() {
   const faqs = [
     {
-      question: "Wat is die kleredrag?",
-      answer: "Formeel. Ons versoek vriendelik dat al die mans om 'n das sal dra, en die dames 'n formele rok/kleredrag sal aantrek - geen cocktail rokke nie asseblief. Sien die Besonderhede bladsy vir ons kleur kaart en meer inligting oor die kleredrag."
+      question: "Wat is die kleredrag-kode?",
+      answer: "Streng formeel. Ons verwag vriendelik van al die mans om 'n langmou-hemp en 'n das te dra. Ons versoek ook van die dames om 'n formele rok, of kleredrag aan te trek - geen cocktail rokke nie asseblief. Denim broeke is nie formeel nie. Sien die Besonderhede bladsy vir ons kleur kaart en die moets-en-moenies oor die kleredrag."
     },
     {
       question: "Hoe werk die RSVP?",
-      answer: "Gebruik asseblief die RSVP portaal op hierdie webwerf om jou bespreking te maak voor 31 Januarie 2026."
+      answer: "Gebruik asseblief die RSVP portaal op hierdie webwerf om jou bespreking te maak voor 31 Januarie 2026. Jy moet ook asseblief die RSVP diens gebruik al kom jy nie."
     },
     {
       question: "Wat is die Deposito?",
@@ -22,27 +22,31 @@ export default function FAQ() {
     },
     {
       question: "Is daar parkering beskikbaar?",
-      answer: "Ja, daar is genoeg parkering by beide die kerk en die onthaal."
+      answer: "Ja, daar is genoeg parkering by die kerk en die onthaal."
     },
     {
       question: "Wat is die plan vir die weer?",
-      answer: "Ons seremonie en onthaal is beide binne."
+      answer: "Ons seremonie en onthaal geskiet binnens-huis."
     },
     {
       question: "Kan ek fotos neem tydens die seremonie?",
       answer: "Ons nooi gaste om soveel fotos en videos te neem soos julle kan. Deel dit gerus op sosiale media."
     },
     {
-      question: "Is daar spesiale dieëte?",
+      question: "Wat as ek alergieë het?",
       answer: "Indien jy alergieë het, kontak vir Chané."
     },
     {
       question: "Is daar slaapplek by die onthaal?",
-      answer: "Daar is verskeie akkommodasie opsies naby die onthaal. Sien die Akkommodasie bladsy vir meer besonderhede, of kontak vir Chané."
+      answer: "Nee, maar daar is verskeie akkommodasie opsies naby die onthaal. Sien die Akkommodasie bladsy vir meer besonderhede, of kontak vir Chané."
     },
     {
       question: "Hoe laat eindig die onthaal?",
       answer: "Die onthaal sal om 00:00 eindig."
+    },
+    {
+      question: "Mag ek my eie drank saambring?",
+      answer: "Alhoewel die onthaal op die plaas geskied, versoek ons tog van die gaste om nie jou eie drank tydens die onthaal te gebruik nie. Die bruidspaar gaan 'n kroeg bedryf met minimale winsmarges - wat dan die wittebrood help finansier."
     },
     {
       question: "Kan ek 'n metgesel saambring?",
@@ -84,26 +88,24 @@ export default function FAQ() {
 
         {/* Additional Help */}
         <div className="mt-12 bg-[#CBD0B5] rounded-lg p-8 text-center">
-          <h3 className="md:text-2xl text-3xl text-[#67472C] mb-4">Nog vrae?</h3>
-          <p className="text-[#656E5D] mb-0">Kontak ons gerus.</p>
-          <p className="text-[#656E5D] mb-6">Verkieslik eerste vir Chané.</p>
-          <div className="flex justify-center space-x-4">
+          <h3 className="md:text-5xl text-3xl text-[#67472C] mb-4">Nog vrae?</h3>
+          <p className="md:text-2xl text-xl text-[#656E5D] mb-8">Kontak ons gerus.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <div className="bg-white rounded-lg px-4 py-2 border border-[#BB9F88]">
-              <p className="text-[#67472C] font-semibold">Chané</p>
-              <a href="tel:+27762905997" className="text-[#656E5D] text-sm hover:text-[#99735A] transition-colors">
+              <p className="md:text-2xl text-3xl text-[#67472C] font-semibold">Chané</p>
+              <a href="tel:+27762905997" className="text-[#656E5D] md:text-2xl text-xl hover:text-[#99735A] transition-colors">
                 📞 076 290 5997
               </a>
             </div>
             <div className="bg-white rounded-lg px-4 py-2 border border-[#BB9F88]">
-              <p className="text-[#67472C] font-semibold">Nickie</p>
-              <a href="tel:+27837022612" className="text-[#656E5D] text-sm hover:text-[#99735A] transition-colors">
+              <p className="md:text-2xl text-3xl text-[#67472C] font-semibold">Nickie</p>
+              <a href="tel:+27837022612" className="md:text-2xl text-xl text-[#656E5D] hover:text-[#99735A] transition-colors">
                 📞 083 702 2612
               </a>
             </div>
-            
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

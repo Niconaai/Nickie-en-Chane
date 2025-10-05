@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
+import { brittany, crimson } from '../../lib/fonts'
 
 // Simple black SVG icons
 const Icons = {
@@ -46,7 +47,7 @@ export default function OnsStorie() {
 
   const storyPages = [
     {
-      title: "Ons Begin",
+      title: "Begin",
       icon: Icons.school,
       content: "Ons pad het baie jare gelede by Hoërskool Brits begin, waar ons mekaar ontmoet het. Nickie was Chané se Matriek in 2015. Die liefde het wel eers baie later geblom.",
       color: "bg-[#CBD0B5]",
@@ -56,7 +57,7 @@ export default function OnsStorie() {
       ]
     },
     {
-      title: "Die Herontdekking",
+      title: "Herontdekking",
       icon: Icons.message,
       content: "In Januarie 2022 het Chané 'n Facebook boodskap gestuur. Die gesprek het vinnig gevloei en ons het besef dat daar iets spesiaals is.",
       color: "bg-[#97A887]",
@@ -66,7 +67,7 @@ export default function OnsStorie() {
       ]
     },
     {
-      title: "Ons Reis Begin",
+      title: "Reis Begin",
       icon: Icons.heart,
       content: "In April 2022 het ons amptelik begin uitgaan. Elke dag het ons liefde gegroei en ons het geweet hierdie is anders - hierdie is vir altyd.",
       color: "bg-[#BB9F88]",
@@ -77,7 +78,7 @@ export default function OnsStorie() {
       ]
     },
     {
-      title: "Die Verlowing",
+      title: "Verlowing",
       icon: Icons.ring,
       content: "Nickie, nie een vir groot romantiese gebare nie, het een aand impulsief uit die bloute gevra: 'Dit is tyd... Sal jy met my trou?' Geen kerslig, geen plan - net 'n opregte moment van liefde.",
       color: "bg-[#67472C]",
@@ -88,7 +89,7 @@ export default function OnsStorie() {
       ]
     },
     {
-      title: "Ons Vandag",
+      title: "Vandag",
       icon: Icons.star,
       content: "Vandag is ons twee individue met passies wat ons deel. Nickie, die tegnologie-liefhebber, en Chané, die onderwys-engel, verenig deur ons liefde vir die buitelug, hardloop, en mekaar.",
       color: "bg-[#E8DBC5]",
@@ -172,7 +173,7 @@ export default function OnsStorie() {
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
-                <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
+                <div className="relative w-60 h-60 md:w-85 md:h-85 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
                   <Image
                     src="/storie/early-chané.jpg"
                     alt="Chané"
@@ -184,12 +185,12 @@ export default function OnsStorie() {
                 <div className="flex justify-center mb-4 text-black">
                   {Icons.teacher}
                 </div>
-                <h3 className=" text-[#67472C] text-2xl mb-3">Chané</h3>
-                <p className="text-[#656E5D] text-base">Onderwyser • Liefdevol • Hardloop Maat</p>
+                <h3 className={` text-[#67472C] text-5xl md:text-5xl mb-3 ${brittany.className} `}>Chané</h3>
+                <h3 className="text-[#656E5D] text-xl md:text-xl">Onderwyser • Liefdevol • Hardloop Maat</h3>
               </div>
 
               <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
-                <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
+                <div className="relative w-60 h-60 md:w-85 md:h-85 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
                   <Image
                     src="/storie/early-nickie.jpg"
                     alt="Nickie"
@@ -201,8 +202,8 @@ export default function OnsStorie() {
                 <div className="flex justify-center mb-4 text-black">
                   {Icons.computer}
                 </div>
-                <h3 className=" text-[#67472C] text-2xl mb-3">Nickie</h3>
-                <p className="text-[#656E5D] text-base">Sagteware Ontwikkelaar • Buitelug • Tegnologie</p>
+                <h3 className={` text-[#67472C] text-5xl md:text-5xl mb-3 ${brittany.className} `}>Nickie</h3>
+                <h3 className="text-[#656E5D] text-xl md:text-xl">Sagteware Ontwikkelaar • Buitelug • Tegnologie</h3>
               </div>
 
 
