@@ -36,7 +36,7 @@ export default function Akkomodasie() {
           <div className="bg-[#656E5D] text-white rounded-lg p-6 mb-12 text-center">
             <h2 className="text-2xl  mb-4">Groep Akkomodasie</h2>
             <p className="text-lg">
-              Gaste kan Chané kontak voor einde Januarie vir groep akkomodasie by <strong>Blommelot</strong>.
+              Gaste kan Chané kontak voor einde Januarie 2026 vir moontlike groep akkomodasie.
             </p>
           </div>
 

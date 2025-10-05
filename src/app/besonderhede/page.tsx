@@ -78,7 +78,7 @@ export default function Besonderhede() {
               <p>H/V Kerk- en Reitz Straat</p>
               <p>Brits, Noordwes</p>
             </div>
-            <div className="h-48 bg-gray-200 rounded-lg">
+            <div className="h-75 bg-gray-200 rounded-lg">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4678.916735359521!2d27.77288207645163!3d-25.637954141154136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebe302e4d535d6d%3A0x515903fa8e1d1154!2sNG%20Gemeente%20Brits!5e1!3m2!1sen!2sza!4v1759429459121!5m2!1sen!2sza"
                 width="100%"
@@ -101,7 +101,7 @@ export default function Besonderhede() {
               <p>Kleinfontein</p>
               <p>Brits, Noordwes</p>
             </div>
-            <div className="h-48 bg-gray-200 rounded-lg">
+            <div className="h-75 bg-gray-200 rounded-lg">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4683.338674016627!2d27.768907476448632!3d-25.52489593665522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebe37f9de3dbc31%3A0x37e2318b3b2f00c9!2sKF49%20Citrus%20Packhouse!5e1!3m2!1sen!2sza!4v1759429776057!5m2!1sen!2sza"
                 width="100%"

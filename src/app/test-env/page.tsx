@@ -7,15 +7,19 @@ export default function TestEnv() {
   const [envVars, setEnvVars] = useState({
     supabaseUrl: '',
     supabaseKey: '',
-    ikhokaKey: ''
+    ikhokaKey: '',
+    spotifyID: '',
+    spotifyKey: ''
   });
 
   useEffect(() => {
     // Set environment variables on client side only
     setEnvVars({
       supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-      supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? '✓ Set' : '❌ Not set',
-      ikhokaKey: process.env.IKHOKA_API_KEY ? '✓ Set' : '❌ Not set'
+      supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? '✅ Set' : '❌ Not set',
+      ikhokaKey: process.env.IKHOKA_API_KEY ? '✅ Set' : '❌ Not set',
+      spotifyID: process.env.SPOTIFY_CLIENT_ID || '',
+      spotifyKey: process.env.SPOTIFY_CLIENT_SECRET ? '✅ Set' : '❌ Not set',
     });
 
     // Test Supabase connection
@@ -43,18 +47,20 @@ export default function TestEnv() {
       <div className="space-y-6">
         {/* Environment Variables */}
         <div className="bg-white p-6 rounded-lg shadow-sm border">
-          <h2 className="text-xl font-semibold mb-4">Environment Variables</h2>
-          <div className="space-y-2 text-sm">
+          <h2 className="text-gray-800 text-xl font-semibold mb-4">Environment Variables</h2>
+          <div className="text-gray-800 space-y-2 text-sm">
             <p><strong>NEXT_PUBLIC_SUPABASE_URL:</strong> {envVars.supabaseUrl || 'Loading...'}</p>
             <p><strong>NEXT_PUBLIC_SUPABASE_ANON_KEY:</strong> {envVars.supabaseKey || 'Loading...'}</p>
             <p><strong>IKHOKA_API_KEY:</strong> {envVars.ikhokaKey || 'Loading...'}</p>
+            <p><strong>SPOTIFY_CLIENT_ID:</strong> {envVars.spotifyID || 'Loading...'}</p>
+            <p><strong>SPOTIFY_CLIENT_SECRET:</strong> {envVars.spotifyKey || 'Loading...'}</p>
           </div>
         </div>
 
         {/* Supabase Status */}
         <div className="bg-white p-6 rounded-lg shadow-sm border">
-          <h2 className="text-xl font-semibold mb-4">Supabase Connection</h2>
-          <div className="flex items-center gap-2">
+          <h2 className="text-gray-800 text-xl font-semibold mb-4">Supabase Connection</h2>
+          <div className="text-gray-800 flex items-center gap-2">
             <div className={`w-3 h-3 rounded-full ${
               supabaseStatus === 'loading' ? 'bg-yellow-500' :
               supabaseStatus === 'connected' ? 'bg-green-500' : 'bg-red-500'
@@ -65,7 +71,7 @@ export default function TestEnv() {
 
         {/* Quick Links */}
         <div className="bg-white p-6 rounded-lg shadow-sm border">
-          <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
+          <h2 className="text-gray-800 text-xl font-semibold mb-4">Quick Links</h2>
           <div className="space-y-2">
             <a href="/rsvp" className="block text-blue-600 hover:underline">RSVP Page</a>
             <a href="/akkomodasie" className="block text-blue-600 hover:underline">Akkomodasie Page</a>

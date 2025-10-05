@@ -6,15 +6,15 @@ export default function FAQ() {
   const faqs = [
     {
       question: "Wat is die kleredrag-kode?",
-      answer: "Streng formeel. Ons verwag vriendelik van al die mans om 'n langmou-hemp en 'n das te dra. Ons versoek ook van die dames om 'n formele rok, of kleredrag aan te trek - geen cocktail rokke nie asseblief. Denim broeke is nie formeel nie. Sien die Besonderhede bladsy vir ons kleur kaart en die moets-en-moenies oor die kleredrag."
+      answer: "Streng formeel. Dames, ons vra dat julle asseblief GEEN wit of swart rokke sal dra nie. Ons versoek van die dames om 'n formele rok, of kleredrag aan te trek - GEEN cocktail rokke nie asseblief. Mans, ons vra dat julle asseblief GEEN jeans of kortmou-hemde sal dra nie. Ons versoek al die mans om 'n langmou-hemp en 'n das te dra. Jy is welkom om 'n pak-baadjie ook aan te trek, maar dit is opsioneel. Sien die Besonderhede bladsy vir riglyne met prentjies."
     },
     {
       question: "Hoe werk die RSVP?",
-      answer: "Gebruik asseblief die RSVP portaal op hierdie webwerf om jou bespreking te maak voor 31 Januarie 2026. Jy moet ook asseblief die RSVP diens gebruik al kom jy nie."
+      answer: "Gebruik asseblief die RSVP portaal op hierdie webwerf om jou bespreking te maak voor 31 Januarie 2026. Jy moet ook asseblief die RSVP diens gebruik al kom jy nie. Per persoon gaan jy moet aandui of jy kom, tesame met jou liedjie(s)-versoeke, asook drank voorkeure. Voor jou RSVP kan finaliseer gaan jy 'n deposito per volwassene moet betaal."
     },
     {
       question: "Wat is die Deposito?",
-      answer: "Ons vra vir elke volwasse gas om R300 te betaal as deposito om jou sitplek te bevestig. Jy kan op die RSVP portaal 'n veilige kaartbetaling maak. Jy kan ook aandui as jy na die troue die geld wil terughê, of jy kan dit vir die bruidspaar skenk. As jy RSVP en aandui jy kom, maar jy daag nie op nie gaan jou deposito nie terugbetaalbaar wees nie."
+      answer: "Ons vra vir elke volwasse gas om R300 te betaal as deposito om jou sitplek te bevestig. Jy kan op die RSVP portaal 'n veilige kaartbetaling maak. Jy kan ook aandui as jy na die troue die geld wil terughê, of jy kan dit vir die bruidspaar as geskenk los. As jy RSVP en aandui dat jy kom, maar jy daag nie op nie gaan jou deposito nie terugbetaalbaar wees nie."
     },
     {
       question: "Kan ek my kinders saambring?",
@@ -46,7 +46,7 @@ export default function FAQ() {
     },
     {
       question: "Mag ek my eie drank saambring?",
-      answer: "Alhoewel die onthaal op die plaas geskied, versoek ons tog van die gaste om nie jou eie drank tydens die onthaal te gebruik nie. Die bruidspaar gaan 'n kroeg bedryf met minimale winsmarges - wat dan die wittebrood help finansier."
+      answer: "Alhoewel die onthaal op die plaas geskied, versoek ons tog van die gaste om nie jou eie drank tydens die onthaal te gebruik nie. Die bruidspaar gaan 'n kroeg bedryf met klein winsmarges - wat dan help om die troue te betaal."
     },
     {
       question: "Kan ek 'n metgesel saambring?",

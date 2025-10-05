@@ -80,7 +80,7 @@ export default function OnsStorie() {
     {
       title: "Verlowing",
       icon: Icons.ring,
-      content: "Nickie, nie een vir groot romantiese gebare nie, het een aand impulsief uit die bloute gevra: 'Dit is tyd... Sal jy met my trou?' Geen kerslig, geen plan - net 'n opregte moment van liefde.",
+      content: "Nickie, nie een vir groot romantiese gebare nie, het een aand impulsief uit die bloute gevra: 'Dit is tyd... Sal jy met my trou?' Geen kerslig, geen plan - net 'n opregte moment van liefde. Darem het hy al 'n ring gehad.",
       color: "bg-[#67472C]",
       textColor: "text-white",
       photos: [
@@ -173,7 +173,7 @@ export default function OnsStorie() {
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
-                <div className="relative w-60 h-60 md:w-85 md:h-85 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
+                <div className="relative w-60 h-60 md:w-85 md:h-85 mx-auto mb-12 rounded-full overflow-hidden bg-[#E8DBC5]">
                   <Image
                     src="/storie/early-chané.jpg"
                     alt="Chané"
@@ -182,15 +182,13 @@ export default function OnsStorie() {
                     sizes="192px"
                   />
                 </div>
-                <div className="flex justify-center mb-4 text-black">
-                  {Icons.teacher}
-                </div>
+                
                 <h3 className={` text-[#67472C] text-5xl md:text-5xl mb-3 ${brittany.className} `}>Chané</h3>
-                <h3 className="text-[#656E5D] text-xl md:text-xl">Onderwyser • Liefdevol • Hardloop Maat</h3>
+                <h3 className="text-[#656E5D] text-xl md:text-xl">Onderwyser • Borrellend • Hardloop Maat</h3>
               </div>
 
               <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
-                <div className="relative w-60 h-60 md:w-85 md:h-85 mx-auto mb-6 rounded-full overflow-hidden bg-[#E8DBC5]">
+                <div className="relative w-60 h-60 md:w-85 md:h-85 mx-auto mb-12 rounded-full overflow-hidden bg-[#E8DBC5]">
                   <Image
                     src="/storie/early-nickie.jpg"
                     alt="Nickie"
@@ -199,11 +197,8 @@ export default function OnsStorie() {
                     sizes="192px"
                   />
                 </div>
-                <div className="flex justify-center mb-4 text-black">
-                  {Icons.computer}
-                </div>
                 <h3 className={` text-[#67472C] text-5xl md:text-5xl mb-3 ${brittany.className} `}>Nickie</h3>
-                <h3 className="text-[#656E5D] text-xl md:text-xl">Sagteware Ontwikkelaar • Buitelug • Tegnologie</h3>
+                <h3 className="text-[#656E5D] text-xl md:text-xl">Sagteware Ingenieur • Padwedlope • Tegnologie</h3>
               </div>
 
 
