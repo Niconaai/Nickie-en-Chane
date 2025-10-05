@@ -2,6 +2,7 @@
 import './globals.css'
 import Link from 'next/link'
 import { useState, createContext, useContext, useEffect } from 'react'
+import { brittany, crimson } from '../lib/fonts'
 
 // Create context for menu state
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -95,11 +96,11 @@ export default function RootLayout({
   const [isLoading, setIsLoading] = useState(false)
   const [isInitialLoading, setIsInitialLoading] = useState(true)
 
-  // Initial loading effect - VOEG HIERDIE useEffect BY
+  // Initial loading effect
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsInitialLoading(false)
-    }, 2000) // 2 sekondes loading
+    }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -112,16 +113,13 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="af">
+    <html lang="af" className={`${brittany.variable} ${crimson.variable}`}>
       <head>
         <title>C&N | 28.03.2026</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Brittany+Signature&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <MenuContext.Provider value={menuContextValue}>
-        <body className="min-h-screen flex flex-col font-serif bg-white">
+        <body className={`min-h-screen flex flex-col ${crimson.className} bg-white`}>
+          {/* Initial Loading Screen */}
           {isInitialLoading && (
             <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
               <div className="text-center">
@@ -132,16 +130,16 @@ export default function RootLayout({
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <h1 className="text-3xl text-[#3d251e] font-brittany mb-2">Chané & Nickie</h1>
+                <h1 className={`text-3xl text-[#3d251e] mb-2 ${brittany.className} `}>Chané & Nickie</h1>
                 <p className="text-[#5c4033]">28 Maart 2026</p>
               </div>
             </div>
           )}
-          {/* Loading Overlay */}
+
+          {/* Navigation Loading Overlay */}
           {isLoading && (
             <div className="fixed inset-0 bg-white bg-opacity-90 z-50 flex items-center justify-center">
               <div className="text-center">
-                {/* Local GIF */}
                 <div className="mx-auto mb-4" style={{ width: '200px', height: '125px' }}>
                   <img
                     src="/cow-walking.gif"
@@ -149,7 +147,7 @@ export default function RootLayout({
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <h1 className="text-3xl text-[#3d251e] font-brittany mb-2">Chané & Nickie</h1>
+                <h1 className={`text-3xl text-[#3d251e] mb-2  ${brittany.className} `}>Chané & Nickie</h1>
                 <p className="text-[#5c4033]">28 Maart 2026</p>
               </div>
             </div>
@@ -157,7 +155,7 @@ export default function RootLayout({
 
           <nav className="bg-white border-b border-gray-200">
             <div className="max-w-[60vw] mx-auto">
-              {/* Desktop Navigation - vervang Link met LoadingLink */}
+              {/* Desktop Navigation */}
               <div className="hidden md:flex flex-wrap justify-center gap-4 py-4 px-4 text-sm md:text-base md:gap-8">
                 <LoadingLink href="/" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
                   {MenuIcons.home} Tuis
@@ -202,7 +200,7 @@ export default function RootLayout({
                 </button>
               </div>
 
-              {/* Mobile Menu Dropdown - vervang Link met LoadingLink */}
+              {/* Mobile Menu Dropdown */}
               {isMenuOpen && (
                 <div className="max-w-[60vw] md:hidden bg-white border-t border-gray-200">
                   <div className="max-w-[60vw] flex flex-col py-4 space-y-4 px-4">
@@ -239,7 +237,6 @@ export default function RootLayout({
           <main className="flex-grow bg-white">
             {children}
           </main>
-
 
           <footer className="bg-white border-t border-gray-200 py-8 px-4">
             <div className="max-w-[80vw] md:max-w-[60vw] mx-auto">
