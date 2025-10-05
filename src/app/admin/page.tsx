@@ -41,7 +41,10 @@ export default function AdminPage() {
     is_adult: true,
     is_attending: false,
     dietary_requirements: '',
-    meal_preference: 'standard'
+    meal_preference: 'standard',
+    song_request: '',
+    drink_preferences: [],
+    extra_notes: ''
   });
 
   // Check of gebruiker reeds ingeteken is (bv. na page refresh)
@@ -137,7 +140,10 @@ export default function AdminPage() {
       is_adult: guest.is_adult,
       is_attending: guest.is_attending,
       dietary_requirements: guest.dietary_requirements || '',
-      meal_preference: guest.meal_preference
+      meal_preference: guest.meal_preference,
+      song_request: guest.song_request || '',
+      drink_preferences: guest.drink_preferences || [],
+      extra_notes: guest.extra_notes || ''
     });
     setShowModal(true);
   };
@@ -152,7 +158,7 @@ export default function AdminPage() {
     setFamilyForm((prev: FamilyFormData) => ({ ...prev, [field]: value }));
   };
 
-  const handleGuestFormChange = (field: keyof GuestFormData, value: string | boolean) => {
+  const handleGuestFormChange = (field: keyof GuestFormData, value: string | boolean | string[]) => {
     setGuestForm((prev: GuestFormData) => ({ ...prev, [field]: value }));
   };
 
@@ -399,7 +405,10 @@ export default function AdminPage() {
           name,
           is_adult: isAdult,
           is_attending: false,
-          meal_preference: 'standard'
+          meal_preference: 'standard',
+          song_request: '',
+          drink_preferences: [],
+          extra_notes: ''
         }])
         .select();
 
@@ -518,7 +527,7 @@ export default function AdminPage() {
             <button
               onClick={openAddFamilyModal}
               className="bg-[#3d251e] text-white px-4 py-2 rounded-lg hover:bg-[#5c4033] transition-colors"> {/* ✅ Verander agtergrond kleur */}
-            
+
               Voeg Gesin By
             </button>
             <button

@@ -3,12 +3,15 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Family, Guest } from '@/components/admin/types';
+import { RSVPSessionData } from '@/types/rsvp-session';
 
 interface PaymentStatusProps {
   family: Family;
   guests: Guest[];
+  session: RSVPSessionData;
   onPaymentComplete: () => void;
   onContinueToPayment: () => void;
+  onBack: () => void;
 }
 
 interface PaymentData {
@@ -20,19 +23,21 @@ interface PaymentData {
   paid_at: string;
 }
 
-export default function PaymentStatus({ 
-  family, 
-  guests, 
-  onPaymentComplete, 
-  onContinueToPayment 
+export default function PaymentStatus({
+  family,
+  guests,
+  session,
+  onPaymentComplete,
+  onContinueToPayment,
+  onBack
 }: PaymentStatusProps) {
   const [payment, setPayment] = useState<PaymentData | null>(null);
   const [loading, setLoading] = useState(true);
   const [calculating, setCalculating] = useState(false);
 
-  // Bereken deposito bedrag
+  // Bereken deposito bedrag - gebruik session data
   const calculateDeposit = () => {
-    const attendingAdults = guests.filter(g => g.is_attending && g.is_adult).length;
+    const attendingAdults = session.guests.filter(g => g.is_attending && g.is_adult).length;
     return attendingAdults * 30000; // R300 per volwassene in sent
   };
 
@@ -40,7 +45,7 @@ export default function PaymentStatus({
   useEffect(() => {
     const checkPaymentStatus = async () => {
       setLoading(true);
-      
+
       const { data: paymentData, error } = await supabase
         .from('payments')
         .select('*')
@@ -63,9 +68,9 @@ export default function PaymentStatus({
   // Create or update payment record
   const handlePaymentSetup = async () => {
     setCalculating(true);
-    
+
     const depositAmount = calculateDeposit();
-    const attendingAdults = guests.filter(g => g.is_attending && g.is_adult).length;
+    const attendingAdults = session.guests.filter(g => g.is_attending && g.is_adult).length;
 
     if (attendingAdults === 0) {
       alert('Geen volwassene gaste gaan bywoon nie. Geen deposito nodig.');
@@ -142,8 +147,6 @@ export default function PaymentStatus({
           onClick={onPaymentComplete}
           className="px-8 py-3 rounded-lg font-medium text-white transition-colors"
           style={{ backgroundColor: '#3d251e' }}
-          onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#5c4033'}
-          onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#3d251e'}
         >
           Finaliseer RSVP
         </button>
@@ -176,7 +179,7 @@ export default function PaymentStatus({
 
   // Standaard - Kaart Betaling nodig
   const depositAmount = calculateDeposit();
-  const attendingAdults = guests.filter(g => g.is_attending && g.is_adult).length;
+  const attendingAdults = session.guests.filter(g => g.is_attending && g.is_adult).length;
 
   return (
     <div className="max-w-2xl mx-auto text-center">
@@ -184,7 +187,7 @@ export default function PaymentStatus({
         <h3 className="text-xl font-bold mb-4" style={{ color: '#3d251e' }}>
           Deposito Betaling
         </h3>
-        
+
         <div className="mb-6">
           <p style={{ color: '#5c4033' }} className="mb-2">
             Aantal volwassene gaste: <strong>{attendingAdults}</strong>
@@ -203,16 +206,25 @@ export default function PaymentStatus({
         </div>
       </div>
 
-      <button
-        onClick={handlePaymentSetup}
-        disabled={calculating || attendingAdults === 0}
-        className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-        style={{ backgroundColor: '#3d251e' }}
-        onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#5c4033'}
-        onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#3d251e'}
-      >
-        {calculating ? 'Bereken...' : 'Gaan na Kaart Betaling'}
-      </button>
+      <div className="flex justify-center space-x-4">
+        <button
+          onClick={onBack}
+          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+        >
+          Terug
+        </button>
+
+        <button
+          onClick={handlePaymentSetup}
+          disabled={calculating || attendingAdults === 0}
+          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          style={{ backgroundColor: '#3d251e' }}
+          onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#5c4033'}
+          onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#3d251e'}
+        >
+          {calculating ? 'Bereken...' : 'Gaan na Kaart Betaling'}
+        </button>
+      </div>
 
       {attendingAdults === 0 && (
         <p style={{ color: '#8b6c5c' }} className="mt-4 text-sm">

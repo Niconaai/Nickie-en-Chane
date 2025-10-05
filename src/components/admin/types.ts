@@ -18,6 +18,9 @@ export interface Guest {
   is_attending: boolean;
   dietary_requirements: string;
   meal_preference: string;
+  song_request: string; // ✅ NUUT
+  drink_preferences: string[]; // ✅ NUUT - JSON array van drink IDs
+  extra_notes: string; // ✅ NUUT
   created_at: string;
 }
 
@@ -51,6 +54,9 @@ export interface GuestFormData {
   is_attending: boolean;
   dietary_requirements: string;
   meal_preference: string;
+  song_request: string; 
+  drink_preferences: string[]; 
+  extra_notes: string; 
 }
 
 export type ModalType = 'add-family' | 'edit-family' | 'edit-guest' | 'manage-payment';

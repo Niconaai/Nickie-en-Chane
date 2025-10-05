@@ -1,19 +1,51 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RSVPLogin from '../../components/rsvp/RSVPLogin';
 import FamilyOverview from '../../components/rsvp/FamilyOverview';
 import { Family, Guest } from '../../components/admin/types';
+import { 
+  getRSVPSession, 
+  saveRSVPSession, 
+  createNewSession, 
+  clearRSVPSession 
+} from '../../utils/rsvp-session';
+import { RSVPSessionData } from '../../types/rsvp-session';
 
 export default function RSVPPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [family, setFamily] = useState<Family | null>(null);
   const [guests, setGuests] = useState<Guest[]>([]);
   const [loading, setLoading] = useState(false);
+  const [session, setSession] = useState<RSVPSessionData | null>(null);
+
+  // Check for existing session on component mount
+  useEffect(() => {
+    const existingSession = getRSVPSession();
+    if (existingSession && !existingSession.submitted) {
+      setSession(existingSession);
+      setIsLoggedIn(true);
+      // We'll need to load the family data based on session.familyId
+      // For now, we'll handle this when we implement the full flow
+    }
+  }, []);
 
   const handleSuccessfulLogin = (familyData: Family, guestsData: Guest[]) => {
     setFamily(familyData);
     setGuests(guestsData);
+    
+    // Check if there's an existing session for this family
+    const existingSession = getRSVPSession();
+    if (existingSession && existingSession.familyId === familyData.id && !existingSession.submitted) {
+      // Continue with existing session
+      setSession(existingSession);
+    } else {
+      // Create new session
+      const newSession = createNewSession(familyData.id, familyData.family_name, guestsData);
+      setSession(newSession);
+      saveRSVPSession(newSession);
+    }
+    
     setIsLoggedIn(true);
   };
 
@@ -21,6 +53,17 @@ export default function RSVPPage() {
     setIsLoggedIn(false);
     setFamily(null);
     setGuests([]);
+    setSession(null);
+    clearRSVPSession();
+  };
+
+  const updateSession = (updatedSession: RSVPSessionData) => {
+    setSession(updatedSession);
+    saveRSVPSession(updatedSession);
+  };
+
+  const handleGuestsUpdate = (updatedGuests: Guest[]) => {
+    setGuests(updatedGuests);
   };
 
   if (loading) {
@@ -35,28 +78,7 @@ export default function RSVPPage() {
     <>
       <title>C&N | RSVP</title>
       <div className="min-h-screen bg-transparent">
-        {/* Header - Sentreer die titel */}
-        <div className="bg-white border-b border-gray-200">
-          <div className="max-w-4xl mx-auto px-4 py-6">
-            <div className="flex justify-between items-center">
-              <div className="flex-1 text-center">
-                <h1 className="text-3xl font-bold" style={{ color: '#3d251e' }}>RSVP</h1>
-              </div>
-              {isLoggedIn && family && (
-                <div className="flex items-center space-x-4">
-                  <span style={{ color: '#5c4033' }}>Hallo, {family.family_name}</span>
-                  <button
-                    onClick={handleLogout}
-                    className="text-sm hover:underline"
-                    style={{ color: '#8b6c5c' }}
-                  >
-                    Teken Uit
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+        {/* ... bestaande header ... */}
 
         {/* Main Content */}
         <div className="max-w-4xl mx-auto px-4 py-8">
@@ -65,11 +87,14 @@ export default function RSVPPage() {
               onLoginSuccess={handleSuccessfulLogin}
               onLoadingChange={setLoading}
             />
-          ) : family ? (
+          ) : family && session ? (
             <FamilyOverview
               family={family}
               guests={guests}
-              onGuestsUpdate={setGuests}
+              session={session}
+              onSessionUpdate={updateSession}
+              onGuestsUpdate={handleGuestsUpdate} 
+              onLogout={handleLogout}
             />
           ) : (
             <div className="text-center" style={{ color: '#8b6c5c' }}>

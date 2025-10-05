@@ -1,18 +1,17 @@
 'use client';
 
 import { Family, Guest, FamilyFormData, GuestFormData, ModalType } from './types';
+import { DRINK_OPTIONS } from '@/data/drink-options';
 
 interface FamilyModalProps {
   isOpen: boolean;
   modalType: ModalType;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   family: Family | null;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   guest: Guest | null;
   familyForm: FamilyFormData;
   guestForm: GuestFormData;
   onFamilyFormChange: (field: keyof FamilyFormData, value: string | number) => void;
-  onGuestFormChange: (field: keyof GuestFormData, value: string | boolean) => void;
+  onGuestFormChange: (field: keyof GuestFormData, value: string | boolean | string[]) => void;
   onSave: (e: React.FormEvent) => void;
   onClose: () => void;
   onDeleteGuest?: () => void;
@@ -45,7 +44,7 @@ export default function FamilyModal({
             {modalType === 'edit-family' && 'Wysig Gesin'}
             {modalType === 'edit-guest' && 'Wysig Gas'}
           </h2>
-          
+
           <form onSubmit={onSave} className="space-y-4">
             {/* Family Form Fields */}
             {isFamilyModal && (
@@ -179,6 +178,75 @@ export default function FamilyModal({
                   </label>
                 </div>
 
+                {/* Song Request */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Liedjie Versoek
+                  </label>
+                  <input
+                    type="text"
+                    value={guestForm.song_request || ''}
+                    onChange={(e) => onGuestFormChange('song_request', e.target.value)}
+                    className="w-full p-2 border border-gray-300 rounded text-gray-900"
+                    placeholder="Bv. Sweet Caroline - Neil Diamond"
+                  />
+                </div>
+
+                {/* Drink Preferences */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Drank Voorkeure (Kies tot 3)
+                  </label>
+                  <div className="max-h-40 overflow-y-auto border border-gray-300 rounded p-2">
+                    {DRINK_OPTIONS.map((drink) => (
+                      <label key={drink.id} className="flex items-center mb-2">
+                        <input
+                          type="checkbox"
+                          checked={guestForm.drink_preferences?.includes(drink.id) || false}
+                          onChange={(e) => {
+                            const currentPreferences = guestForm.drink_preferences || [];
+                            let newPreferences: string[];
+
+                            if (e.target.checked) {
+                              // Add drink (max 3)
+                              newPreferences = [...currentPreferences, drink.id].slice(0, 3);
+                            } else {
+                              // Remove drink
+                              newPreferences = currentPreferences.filter(id => id !== drink.id);
+                            }
+
+                            onGuestFormChange('drink_preferences', newPreferences);
+                          }}
+                          disabled={!guestForm.is_attending}
+                          className="mr-2"
+                        />
+                        <span className={`text-sm ${!guestForm.is_attending ? 'text-gray-400' : 'text-gray-700'}`}>
+                          {drink.name} {drink.description && `- ${drink.description}`}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Gekose: {guestForm.drink_preferences?.length || 0}/3
+                    {!guestForm.is_attending && ' (Slegs beskikbaar vir bywonende gaste)'}
+                  </p>
+                </div>
+
+                {/* Extra Notes */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Extra Notas
+                  </label>
+                  <textarea
+                    value={guestForm.extra_notes || ''}
+                    onChange={(e) => onGuestFormChange('extra_notes', e.target.value)}
+                    className="w-full p-2 border border-gray-300 rounded text-gray-900"
+                    rows={3}
+                    placeholder="Bv. Naam verkeerd gespel, allergies, spesiale versoeke, ens."
+                  />
+                </div>
+
+                {/* Oorspronklike velde (dietary requirements en meal preference) */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Dieet Vereistes
@@ -187,7 +255,7 @@ export default function FamilyModal({
                     value={guestForm.dietary_requirements || ''}
                     onChange={(e) => onGuestFormChange('dietary_requirements', e.target.value)}
                     className="w-full p-2 border border-gray-300 rounded text-gray-900"
-                    rows={3}
+                    rows={2}
                     placeholder="Bv. Vegetaries, allergies, ens."
                   />
                 </div>

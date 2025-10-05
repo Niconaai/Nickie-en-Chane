@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Family, Guest, Payment } from './types';
 import AddGuestModal from './AddGuestModal';
+import { getDrinkById } from '@/data/drink-options';
 
 interface FamilyListProps {
   families: Family[];
@@ -109,9 +110,9 @@ export default function FamilyList({
                     <div className="flex items-center space-x-4 mb-3">
                       <h3 className="text-lg font-semibold text-gray-900">{family.family_name}</h3>
                       <span className={`px-2 py-1 rounded text-sm ${family.rsvp_status === 'confirmed' ? 'bg-green-100 text-green-800' :
-                          family.rsvp_status === 'submitted' ? 'bg-blue-100 text-blue-800' :
-                            family.rsvp_status === 'cancelled' ? 'bg-red-100 text-red-800' :
-                              'bg-yellow-100 text-yellow-800'
+                        family.rsvp_status === 'submitted' ? 'bg-blue-100 text-blue-800' :
+                          family.rsvp_status === 'cancelled' ? 'bg-red-100 text-red-800' :
+                            'bg-yellow-100 text-yellow-800'
                         }`}>
                         {family.rsvp_status === 'pending' && 'Hangend'}
                         {family.rsvp_status === 'submitted' && 'Ingedien'}
@@ -133,8 +134,8 @@ export default function FamilyList({
                       {payment ? (
                         <div className="flex items-center space-x-4">
                           <span className={`px-2 py-1 rounded text-sm ${payment.payment_status === 'paid' ? 'bg-green-100 text-green-800' :
-                              payment.payment_status === 'failed' ? 'bg-red-100 text-red-800' :
-                                'bg-yellow-100 text-yellow-800'
+                            payment.payment_status === 'failed' ? 'bg-red-100 text-red-800' :
+                              'bg-yellow-100 text-yellow-800'
                             }`}>
                             {payment.payment_status === 'paid' ? 'Betaal' :
                               payment.payment_status === 'failed' ? 'Misluk' : 'Hangend'}
@@ -191,26 +192,75 @@ export default function FamilyList({
                     {/* Family Guests */}
                     <div className="mt-3">
                       <h4 className="font-medium mb-2 text-gray-900">Gaste:</h4>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="space-y-3">
                         {familyGuests.map((guest) => (
-                          <div key={guest.id} className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded text-sm text-gray-800 border border-gray-300">
-                            <span>
-                              {guest.name} {guest.is_adult ? '(V)' : '(K)'}
-                            </span>
-                            <button
-                              onClick={() => onEditGuest(guest)}
-                              className="text-blue-600 hover:text-blue-800 text-xs ml-1"
-                            >
-                              ✏️
-                            </button>
-                            <button
-                              onClick={() => onDeleteGuest(guest.id)}
-                              className="text-red-600 hover:text-red-800 text-xs"
-                            >
-                              🗑️
-                            </button>
+                          <div key={guest.id} className="bg-gray-50 border border-gray-200 rounded p-3">
+                            {/* Guest Basic Info */}
+                            <div className="flex items-center justify-between mb-2">
+                              <div className="flex items-center gap-2">
+                                <span className="font-medium text-gray-900">
+                                  {guest.name} {guest.is_adult ? '(V)' : '(K)'}
+                                </span>
+                                <span className={`px-1 py-0.5 rounded text-xs ${guest.is_attending
+                                    ? 'bg-green-100 text-green-800'
+                                    : 'bg-red-100 text-red-800'
+                                  }`}>
+                                  {guest.is_attending ? 'Bywonend' : 'Nie Bywonend'}
+                                </span>
+                              </div>
+                              <div className="flex gap-1">
+                                <button
+                                  onClick={() => onEditGuest(guest)}
+                                  className="text-blue-600 hover:text-blue-800 text-xs"
+                                  title="Wysig Gas"
+                                >
+                                  ✏️
+                                </button>
+                                <button
+                                  onClick={() => onDeleteGuest(guest.id)}
+                                  className="text-red-600 hover:text-red-800 text-xs"
+                                  title="Skrap Gas"
+                                >
+                                  🗑️
+                                </button>
+                              </div>
+                            </div>
+
+                            {/* Song Request */}
+                            {guest.is_attending && guest.song_request && (
+                              <div className="text-xs mb-1">
+                                <span className="font-medium text-gray-700">Liedjie: </span>
+                                <span className="text-gray-600">{guest.song_request}</span>
+                              </div>
+                            )}
+
+                            {/* Drink Preferences */}
+                            {guest.is_attending && guest.drink_preferences && guest.drink_preferences.length > 0 && (
+                              <div className="text-xs mb-1">
+                                <span className="font-medium text-gray-700">Drank: </span>
+                                <span className="text-gray-600">
+                                  {guest.drink_preferences.map((drinkId, index) => {
+                                    const drink = getDrinkById(drinkId);
+                                    return drink ? (
+                                      <span key={drinkId} className="mr-1">
+                                        {drink.name}{index < guest.drink_preferences.length - 1 ? ',' : ''}
+                                      </span>
+                                    ) : null;
+                                  })}
+                                </span>
+                              </div>
+                            )}
+
+                            {/* Extra Notes */}
+                            {guest.is_attending && guest.extra_notes && (
+                              <div className="text-xs">
+                                <span className="font-medium text-gray-700">Notas: </span>
+                                <span className="text-gray-600">{guest.extra_notes}</span>
+                              </div>
+                            )}
                           </div>
                         ))}
+
                         <button
                           onClick={() => handleAddGuestClick(family.id)}
                           className="bg-gray-800 text-white px-2 py-1 rounded text-sm hover:bg-gray-900 transition-colors"
