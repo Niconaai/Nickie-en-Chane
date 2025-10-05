@@ -76,6 +76,11 @@ export default function Home() {
 
       <div className="text-center py-12 px-4">
 
+        {/* Troue se naam */}
+        <div className="max-w-[90vw] md:max-w-[60vw] mx-auto mb-6 bg-white rounded-xl  p-2">
+          <h1 className="text-1xl md:text-4xl text-[#3d251e] font-brittany">Welkom by die van der Merwe Troue</h1>
+        </div>
+
         {/* Datum Fotos */}
         <div className="max-w-[90vw] md:max-w-[60vw] mx-auto grid grid-cols-3 md:gap-4 gap-0 md:mb-8 mb-1">
           <div className="bg-white rounded-2xl shadow-lg border-4 border-white p-2">
@@ -110,8 +115,8 @@ export default function Home() {
         </div>
 
         {/* Name in mooi boksie */}
-        <div className="max-w-[80vw] md:max-w-[60vw] mx-auto mb-8 bg-white rounded-2xl  p-8">
-          <h1 className="text-2xl sm:text-5xl md:text-5xl text-[#3d251e] font-brittany">Chané & Nickie</h1>
+        <div className="max-w-[90vw] md:max-w-[60vw] mx-auto mb-8 bg-white rounded-2xl  p-8">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl text-[#3d251e] font-brittany">Chané & Nickie</h1>
         </div>
 
         {/* Decorative lines between name and photo */}
