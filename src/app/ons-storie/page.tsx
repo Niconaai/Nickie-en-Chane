@@ -172,7 +172,7 @@ export default function OnsStorie() {
 
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
+              <div className="bg-white rounded-lg p-8 shadow-lg p-6 text-center">
                 <div className="relative w-60 h-60 md:w-85 md:h-85 mx-auto mb-12 rounded-full overflow-hidden bg-[#E8DBC5]">
                   <Image
                     src="/storie/early-chané.jpg"
@@ -187,7 +187,7 @@ export default function OnsStorie() {
                 <h3 className="text-[#656E5D] text-xl md:text-xl">Onderwyser • Borrellend • Hardloop Maat</h3>
               </div>
 
-              <div className="bg-white rounded-lg p-8 border border-[#BB9F88] text-center">
+              <div className="bg-white rounded-lg p-8 shadow-lg p-6 text-center">
                 <div className="relative w-60 h-60 md:w-85 md:h-85 mx-auto mb-12 rounded-full overflow-hidden bg-[#E8DBC5]">
                   <Image
                     src="/storie/early-nickie.jpg"

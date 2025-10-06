@@ -139,7 +139,7 @@ export default function Home() {
         </div>
 
         {/* Main Photo met border */}
-        <div className="max-w-[80vw] md:max-w-[60vw] mx-auto mb-16 px-4">
+        <div className="max-w-[90vw] md:max-w-[60vw] mx-auto mb-16 px-4">
           <div className="rounded-2xl shadow-2xl border-4 border-white p-4 bg-white">
             <Image
               src="/hoof-foto.jpg"

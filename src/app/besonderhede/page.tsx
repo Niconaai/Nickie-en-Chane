@@ -1,4 +1,5 @@
 import WeatherForecast from '@/components/weather-forcast/WeatherForecast';
+import Image from "next/image";
 
 export const metadata = {
   title: 'C&N | Besonderhede',
@@ -8,7 +9,7 @@ export default function Besonderhede() {
   return (
     <div className="min-h-screen bg-transparent py-12 px-4">
       <div className="max-w-[80vw] md:max-w-[60vw] mx-auto">
-        <h1 className="text-5xl  text-[#67472C] text-center mb-12">Besonderhede</h1>
+        <h1 className="text-5xl  text-[#67472C] font-semibold text-center mb-12">Besonderhede</h1>
 
         {/* Decorative Strips - Use between sections */}
         <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
@@ -19,7 +20,7 @@ export default function Besonderhede() {
 
         {/* Timeline Section */}
         <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-4xl  text-[#99735A] text-center mb-8">Tydlyn</h2>
+          <h2 className="text-4xl  text-[#67472C] text-center mb-8">Tydlyn</h2>
           <div className="max-w-2xl mx-auto">
             <div className="space-y-6">
               <div className="flex items-start">
@@ -69,7 +70,9 @@ export default function Besonderhede() {
         </div>
 
         {/* Locations */}
+        <h2 className="text-4xl text-[#67472C] font-semibold text-center mb-8 " style={{ marginTop: '40px' }}>Maps en Weervoorspelling</h2 >
         <div className="grid md:grid-cols-2 gap-8">
+          
           {/* Seremonie */}
           <div className="text-center bg-white rounded-lg shadow-lg p-6 ">
             <h2 className="text-3xl  text-[#99735A] mb-4">Seremonie</h2>
@@ -120,6 +123,61 @@ export default function Besonderhede() {
         <div style={{ marginTop: '40px' }}>
           {/* Other content */}
           <WeatherForecast />
+        </div>
+
+        {/* Decorative Strips - Use between sections */}
+        <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
+          <div className="h-1 bg-[#97A887] mb-2"></div>
+          <div className="h-1 bg-[#BB9F88] mb-2"></div>
+          <div className="h-1 bg-[#656E5D]"></div>
+        </div>
+
+        <h2 className="text-4xl text-[#67472C] font-semibold text-center mb-8 " style={{ marginTop: '40px' }}>Kleredrag Riglyne</h2 >
+        <div className="mx-auto space-y-16 px-4" >
+          <div>
+            <h2 className="text-3xl text-[#67472C] font-bold text-center mb-8">Kleur Palet</h2>
+            <div className=" rounded-2xl shadow-2xl border-0 border-white p-2 bg-white">
+              <Image
+                src="/besonderhede/kleur-palette.jpg"
+                alt="kleur-palette"
+                width={1400}
+                height={1000}
+                className="max-w-[90vw] md:max-w-[60vw] rounded-lg mx-auto w-full h-auto"
+              />
+            </div>
+          </div>
+
+          {/* MOETS Section */}
+          <div>
+            <h2 className="text-3xl text-[#67472C] font-bold text-center mb-8">MOETS</h2>
+            <div className="max-w-[90vw] md:max-w-[60vw] grid grid-cols-1 md:grid-cols-1 gap-6">
+              {[1, 2, 3].map((num) => (
+                <div key={num} className="rounded-2xl shadow-2xl border-4 border-white p-4 bg-white">
+                  <Image
+                    src={`/besonderhede/Moets${num}.jpg`}
+                    alt={`Moets ${num}`}
+                    width={1400}
+                    height={1000}
+                    className="max-w-[90vw] md:max-w-[60vw] rounded-lg mx-auto w-full h-auto"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* MOENIES Section */}
+          <div>
+            <h2 className="text-3xl font-bold text-[#67472C] text-center mb-8 line-through">MOENIES</h2>
+            <div className="rounded-2xl shadow-2xl border-4 border-white p-4 bg-white">
+              <Image
+                src="/besonderhede/Moenies.jpg"
+                alt="Moenies"
+                width={1400}
+                height={1000}
+                className="rounded-lg mx-auto w-full h-auto"
+              />
+            </div>
+          </div>
         </div>
 
       </div>
