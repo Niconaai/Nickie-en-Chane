@@ -1,3 +1,5 @@
+import WeatherForecast from '@/components/weather-forcast/WeatherForecast';
+
 export const metadata = {
   title: 'C&N | Besonderhede',
 }
@@ -114,6 +116,13 @@ export default function Besonderhede() {
             </div>
           </div>
         </div>
+
+        <div>
+          <h1>Your Page Content</h1>
+          {/* Other content */}
+          <WeatherForecast />
+        </div>
+
       </div>
     </div>
   )
