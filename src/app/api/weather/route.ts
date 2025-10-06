@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
       // Historical weather data for Brits in late March (autumn season)
       const historicalData = {
         temperature: 26,
-        description: 'Mooiweer en warm',
+        description: 'Gedeeltelik bewolk en warm',
         icon: '02d',
         rainfallProbability: 20, // 15% chance of rain based on historical data
         humidity: 45, // Average humidity
@@ -116,7 +116,7 @@ export async function POST(request: NextRequest) {
       };
       
       const weather: WeatherData = {
-        location: 'Brits, South Africa',
+        location: 'Brits, Suid-Afrika',
         temperature: historicalData.temperature,
         description: historicalData.description,
         date: date,

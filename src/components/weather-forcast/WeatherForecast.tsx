@@ -8,8 +8,7 @@ const WeatherForecast = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Fixed date - March 26, 2026
-  const targetDate = '2026-03-26T15:00:00';
+  const targetDate = '2026-03-28T15:00:00';
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -46,7 +45,7 @@ const WeatherForecast = () => {
     fetchWeather();
   }, []);
 
-  const formattedDate = new Date(targetDate).toLocaleDateString('en-US', {
+  const formattedDate = new Date(targetDate).toLocaleDateString('af-ZA', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
@@ -103,14 +102,14 @@ const WeatherForecast = () => {
             {/* Weather Details Grid */}
             <div className="grid grid-cols-2 gap-4 mt-4 text-sm">
               <div className="bg-blue-50 p-3 rounded-lg">
-                <div className="text-blue-600 font-semibold">Rainfall</div>
+                <div className="text-blue-600 font-semibold">Kans vir Reën</div>
                 <div className="text-xl font-bold text-blue-800">
                   {weather.rainfallProbability}%
                 </div>
               </div>
               
               <div className="bg-green-50 p-3 rounded-lg">
-                <div className="text-green-600 font-semibold">Humidity</div>
+                <div className="text-green-600 font-semibold">Humiditeit</div>
                 <div className="text-xl font-bold text-green-800">
                   {weather.humidity}%
                 </div>

@@ -117,8 +117,7 @@ export default function Besonderhede() {
           </div>
         </div>
 
-        <div>
-          <h1>Your Page Content</h1>
+        <div style={{ marginTop: '40px' }}>
           {/* Other content */}
           <WeatherForecast />
         </div>
