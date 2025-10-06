@@ -29,7 +29,7 @@ export default async function FotoGallery() {
   return (
     <div className="min-h-screen bg-transparent py-8 px-4 sm:py-12">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-5xl sm:text-5xl text-[#67472C] text-center mb-8 sm:mb-12">Ons Foto&apos;s</h1>
+        <h1 className="text-5xl font-semibold sm:text-5xl text-[#67472C] text-center mb-8 sm:mb-12">Ons Foto&apos;s</h1>
 
         {/* Decorative Strips - Use between sections */}
         <div className="md:max-w-[60vw] max-w-[80vw] mx-auto my-12">

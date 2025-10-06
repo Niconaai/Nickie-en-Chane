@@ -158,7 +158,7 @@ export default function OnsStorie() {
         <div className="max-w-[80vw] md:max-w-[60vw] mx-auto">
 
           <div className="text-center mb-12">
-            <h1 className="text-5xl  sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Meer oor Ons</h1>
+            <h1 className="text-5xl font-semibold sm:text-4xl md:text-5xl  text-[#67472C] mb-4">Meer oor Ons</h1>
           </div>
 
           {/* Decorative Strips - Use between sections */}

@@ -5,11 +5,13 @@ export const metadata = {
   title: 'C&N | Besonderhede',
 }
 
+const kleredrag = `Streng formeel. Dames, ons vra dat julle asseblief GEEN wit of swart rokke sal dra nie. Ons versoek van die dames om 'n formele rok, of kleredrag aan te trek - GEEN cocktail rokke nie asseblief. Mans, ons vra dat julle asseblief GEEN jeans of kortmou-hemde sal dra nie. Ons versoek al die mans om 'n langmou-hemp en ''n das te dra. Jy is welkom om 'n pak-baadjie ook aan te trek, maar dit is opsioneel.`
+
 export default function Besonderhede() {
   return (
     <div className="min-h-screen bg-transparent py-12 px-4">
       <div className="max-w-[80vw] md:max-w-[60vw] mx-auto">
-        <h1 className="text-5xl  text-[#67472C] font-semibold text-center mb-12">Besonderhede</h1>
+        <h1 className="text-5xl font-semibold text-[#67472C] font-semibold text-center mb-12">Besonderhede</h1>
 
         {/* Decorative Strips - Use between sections */}
         <div className="max-w-[80vw] md:max-w-[60vw] mx-auto my-12">
@@ -19,46 +21,15 @@ export default function Besonderhede() {
         </div>
 
         {/* Timeline Section */}
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-          <h2 className="text-4xl  text-[#67472C] text-center mb-8">Tydlyn</h2>
-          <div className="max-w-2xl mx-auto">
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="bg-[#97A887] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">1</div>
-                <div className="ml-4">
-                  <p className="font-semibold text-[#67472C]">15:00 - Seremonie</p>
-                  <p className="text-[#656E5D]">NG Kerk Brits</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-[#97A887] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">2</div>
-                <div className="ml-4">
-                  <p className="font-semibold text-[#67472C]">16:30 - Foto Sessie</p>
-                  <p className="text-[#656E5D]">Op die Plaas</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-[#97A887] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">3</div>
-                <div className="ml-4">
-                  <p className="font-semibold text-[#67472C]">18:00 - Aankoms by Onthaal</p>
-                  <p className="text-[#656E5D]">KF49 Citrus Pakhuis</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-[#97A887] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">4</div>
-                <div className="ml-4">
-                  <p className="font-semibold text-[#67472C]">18:30 - Ete</p>
-                  <p className="text-[#656E5D]">Hoofmaaltyd</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-[#97A887] text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">5</div>
-                <div className="ml-4">
-                  <p className="font-semibold text-[#67472C]">20:00 - Dansvloer oop</p>
-                  <p className="text-[#656E5D]">Party tyd!</p>
-                </div>
-              </div>
-            </div>
+        <div>
+          <div className="max-w-[90vw] md:max-w-[60vw] mx-auto md:mb-8 mb-1 rounded-2xl shadow-lg border-1">
+            <Image
+              src="/besonderhede/tydlyn.svg"
+              alt="tydlyn"
+              width={1400}
+              height={1000}
+              className="rounded-lg mx-auto w-full h-auto"
+            />
           </div>
         </div>
 
@@ -72,7 +43,7 @@ export default function Besonderhede() {
         {/* Locations */}
         <h2 className="text-4xl text-[#67472C] font-semibold text-center mb-8 " style={{ marginTop: '40px' }}>Maps en Weervoorspelling</h2 >
         <div className="grid md:grid-cols-2 gap-8">
-          
+
           {/* Seremonie */}
           <div className="text-center bg-white rounded-lg shadow-lg p-6 ">
             <h2 className="text-3xl  text-[#99735A] mb-4">Seremonie</h2>
@@ -133,10 +104,27 @@ export default function Besonderhede() {
         </div>
 
         <h2 className="text-4xl text-[#67472C] font-semibold text-center mb-8 " style={{ marginTop: '40px' }}>Kleredrag Riglyne</h2 >
-        <div className="mx-auto space-y-16 px-4" >
+
+        <div className="bg-white rounded-lg shadow-lg border border-[#BB9F88] overflow-hidden">
+          <details className="group">
+            <summary className="list-none cursor-pointer">
+              <div className="px-6 py-4 flex justify-between items-center hover:bg-[#E8DBC5] transition-colors">
+                <h3 className="md:text-3xl text-2xl text-[#67472C] pr-4">Detail</h3>
+                <svg className="w-5 h-5 text-[#99735A] transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div className="px-6 py-4 bg-white border-t border-[#BB9F88]">
+              <p className="md:text-2xl text-xl text-[#656E5D] leading-relaxed">{kleredrag}</p>
+            </div>
+          </details>
+        </div>
+
+        <div className="mx-auto space-y-16" style={{ marginTop: '20px' }} >
           <div>
-            <h2 className="text-3xl text-[#67472C] font-bold text-center mb-8">Kleur Palet</h2>
-            <div className=" rounded-2xl shadow-2xl border-0 border-white p-2 bg-white">
+            <h2 className="text-3xl text-[#67472C] font-bold text-center mb-8">Kleurpalet</h2>
+            <div className="max-w-[80vw] md:w-[60vw] rounded-2xl shadow-2xl border-0 border-white p-2 bg-white">
               <Image
                 src="/besonderhede/kleur-palette.jpg"
                 alt="kleur-palette"
