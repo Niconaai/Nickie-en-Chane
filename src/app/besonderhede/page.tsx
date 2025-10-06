@@ -5,7 +5,7 @@ export const metadata = {
   title: 'C&N | Besonderhede',
 }
 
-const kleredrag = `Streng formeel. Dames, ons vra dat julle asseblief GEEN wit of swart rokke sal dra nie. Ons versoek van die dames om 'n formele rok, of kleredrag aan te trek - GEEN cocktail rokke nie asseblief. Mans, ons vra dat julle asseblief GEEN jeans of kortmou-hemde sal dra nie. Ons versoek al die mans om 'n langmou-hemp en ''n das te dra. Jy is welkom om 'n pak-baadjie ook aan te trek, maar dit is opsioneel.`
+const kleredrag = `Streng formeel. Dames, ons vra dat julle asseblief GEEN wit of swart rokke sal dra nie. Ons versoek van die dames om 'n formele rok, of kleredrag aan te trek - GEEN cocktail rokke nie asseblief. Mans, ons vra dat julle asseblief GEEN jeans of kortmou-hemde sal dra nie. Ons versoek al die mans om 'n langmou-hemp en 'n das te dra. Jy is welkom om 'n pak-baadjie ook aan te trek, maar dit is opsioneel.`
 
 export default function Besonderhede() {
   return (
@@ -109,7 +109,7 @@ export default function Besonderhede() {
           <details className="group">
             <summary className="list-none cursor-pointer">
               <div className="px-6 py-4 flex justify-between items-center hover:bg-[#E8DBC5] transition-colors">
-                <h3 className="md:text-3xl text-2xl text-[#67472C] pr-4">Detail</h3>
+                <h3 className="md:text-3xl text-2xl text-[#67472C] pr-4">Inligting</h3>
                 <svg className="w-5 h-5 text-[#99735A] transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -121,7 +121,7 @@ export default function Besonderhede() {
           </details>
         </div>
 
-        <div className="mx-auto space-y-16" style={{ marginTop: '20px' }} >
+        <div className="mx-auto space-y-16" style={{ marginTop: '40px' }} >
           <div>
             <h2 className="text-3xl text-[#67472C] font-bold text-center mb-8">Kleurpalet</h2>
             <div className="max-w-[80vw] md:w-[60vw] rounded-2xl shadow-2xl border-0 border-white p-2 bg-white">
