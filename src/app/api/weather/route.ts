@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const apiKey = process.env.OPENWEATHER_API_KEY;
-    
+
     if (!apiKey) {
       throw new Error('OpenWeather API key not configured');
     }
@@ -65,9 +65,9 @@ export async function POST(request: NextRequest) {
       const geoResponse = await fetch(
         `http://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${apiKey}`
       );
-      
+
       const geoData: GeoData[] = await geoResponse.json();
-      
+
       if (!geoData || geoData.length === 0) {
         return NextResponse.json({ message: 'City not found' }, { status: 404 });
       }
@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
 
       // Find forecast for the selected date
       const targetDateStr = targetDate.toISOString().split('T')[0];
-      const forecast = weatherData.list.find((item: ForecastItem) => 
+      const forecast = weatherData.list.find((item: ForecastItem) =>
         item.dt_txt.includes(targetDateStr)
       );
 
@@ -106,34 +106,61 @@ export async function POST(request: NextRequest) {
     } else {
       // For dates beyond 5 days, use historical averages for Brits, South Africa
       // Historical weather data for Brits in late March (autumn season)
-      const historicalData = {
-        temperature: 26,
-        description: 'Gedeeltelik bewolk en warm',
-        icon: '02d',
-        rainfallProbability: 20, // 15% chance of rain based on historical data
-        humidity: 45, // Average humidity
-        note: 'Gebasseer op historiese gemiddelde temperature vir laat Maart in Brits'
-      };
-      
-      const weather: WeatherData = {
-        location: 'Brits, Suid-Afrika',
-        temperature: historicalData.temperature,
-        description: historicalData.description,
-        date: date,
-        icon: historicalData.icon,
-        rainfallProbability: historicalData.rainfallProbability,
-        humidity: historicalData.humidity,
-        isHistorical: true,
-        note: historicalData.note,
-      };
-      
-      return NextResponse.json(weather);
+      if (targetDate.getHours() < 20) {
+        const historicalData = {
+          temperature: 27,
+          description: 'Warm middag toestande, gedeeltelik bewolk, met min tot geen kans vir reën.',
+          icon: '02d',
+          rainfallProbability: 25, 
+          humidity: 50, 
+          note: 'Gebasseer op historiese gemiddelde temperature vir laat Maart in Brits'
+        };
+
+        const weather: WeatherData = {
+          location: 'Brits, Suid-Afrika',
+          temperature: historicalData.temperature,
+          description: historicalData.description,
+          date: date,
+          icon: historicalData.icon,
+          rainfallProbability: historicalData.rainfallProbability,
+          humidity: historicalData.humidity,
+          isHistorical: true,
+          note: historicalData.note,
+        };
+
+        return NextResponse.json(weather);
+
+      } else {
+        const historicalData = {
+          temperature: 18,
+          description: 'Koel tot matig, met oop tot bewolkte-aand, met lae kanse vir reën.',
+          icon: '02n',
+          rainfallProbability: 15, // 15% chance of rain based on historical data
+          humidity: 60, // Average humidity
+          note: 'Gebasseer op historiese gemiddelde temperature vir laat Maart in Brits'
+        };
+
+        const weather: WeatherData = {
+          location: 'Brits, Suid-Afrika',
+          temperature: historicalData.temperature,
+          description: historicalData.description,
+          date: date,
+          icon: historicalData.icon,
+          rainfallProbability: historicalData.rainfallProbability,
+          humidity: historicalData.humidity,
+          isHistorical: true,
+          note: historicalData.note,
+        };
+
+        return NextResponse.json(weather);
+
+      }
     }
 
   } catch (error) {
     console.error('Weather API error:', error);
     return NextResponse.json(
-      { message: 'Internal server error' }, 
+      { message: 'Internal server error' },
       { status: 500 }
     );
   }

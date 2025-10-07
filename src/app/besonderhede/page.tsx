@@ -91,9 +91,16 @@ export default function Besonderhede() {
           </div>
         </div>
 
-        <div style={{ marginTop: '40px' }}>
-          {/* Other content */}
-          <WeatherForecast />
+        <div className="grid md:grid-cols-2 gap-8">
+          <div style={{ marginTop: '40px' }}>
+            {/* Other content */}
+            <WeatherForecast targetDate="2026-03-28T15:00:00"/>
+          </div>
+
+          <div style={{ marginTop: '40px' }}>
+            {/* Other content */}
+            <WeatherForecast targetDate="2026-03-28T21:00:00"/>
+          </div>
         </div>
 
         {/* Decorative Strips - Use between sections */}

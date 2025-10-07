@@ -3,12 +3,15 @@
 import { useState, useEffect } from 'react';
 import { WeatherData } from '@/types/weather';
 
-const WeatherForecast = () => {
+interface WeatherForecastProps {
+  targetDate: string; // Add this prop
+  city?: string; // Optional city prop
+}
+
+const WeatherForecast = ({ targetDate, city = 'Brits, ZA' }: WeatherForecastProps) => {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-
-  const targetDate = '2026-03-28T15:00:00';
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -23,7 +26,7 @@ const WeatherForecast = () => {
           },
           body: JSON.stringify({
             date: targetDate,
-            city: 'Brits, ZA',
+            city: city,
           }),
         });
 
@@ -43,7 +46,7 @@ const WeatherForecast = () => {
     };
 
     fetchWeather();
-  }, []);
+  }, [targetDate, city]); // Add dependencies
 
   const formattedDate = new Date(targetDate).toLocaleDateString('af-ZA', {
     weekday: 'long',
@@ -52,17 +55,19 @@ const WeatherForecast = () => {
     day: 'numeric'
   });
 
+  let time = targetDate.substring(11,targetDate.length-3);
+
   return (
     <div className="weather-section max-w-sm mx-auto p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">
-        Weer Voorspelling
+        Weervoorspelling vir {time}
       </h2>
       
       <div className="text-center mb-4">
         <div className="text-lg font-semibold text-gray-700">
           {formattedDate}
         </div>
-        <div className="text-sm text-gray-500 mt-1">Brits, Suid-Afrika</div>
+        <div className="text-sm text-gray-500 mt-1">{city}</div>
       </div>
 
       {loading && (

@@ -80,7 +80,8 @@ export default function Home() {
 
         {/* Troue se naam */}
         <div className="max-w-[100vw] md:max-w-[60vw] mx-auto mb-6 bg-white rounded-xl  p-2">
-          <h1 className={`text-2xl md:text-5xl text-[#3d251e] ${brittany.className} `}>Welkom by die van der Merwe Troue</h1>
+          <h1 className={`text-2xl ms:text-3xl md:text-5xl text-[#3d251e] ${brittany.className} mb-3`}>Welkom by die van der Merwe Troue</h1>
+          <h1 className={`text-2xl ms:text-3xl md:text-4xl text-[#3d251e] ${brittany.className} `}>#thunderMerweFees</h1>
         </div>
 
         {/* Datum Fotos */}
