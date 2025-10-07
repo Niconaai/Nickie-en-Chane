@@ -18,6 +18,7 @@ interface SongStepProps {
   session: RSVPSessionData;
   onSessionUpdate: (session: RSVPSessionData) => void;
   onBack: () => void;
+  onCancelRSVP: () => void;
 }
 
 interface SpotifyTrack {
@@ -63,13 +64,13 @@ async function getToken(): Promise<string> {
   }
 }
 
-export default function SongStep({ session, onSessionUpdate, onBack }: SongStepProps) {
+export default function SongStep({ session, onSessionUpdate, onBack, onCancelRSVP }: SongStepProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<SpotifyTrack[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedGuest, setSelectedGuest] = useState<string | null>(null);
   const [message, setMessage] = useState('');
-  const [albumArtUrls, setAlbumArtUrls] = useState<{[guestId: string]: string}>({});
+  const [albumArtUrls, setAlbumArtUrls] = useState<{ [guestId: string]: string }>({});
 
   // Slegs gaste wat bywoon
   const attendingGuests = session.guests.filter(guest => guest.is_attending);
@@ -286,21 +287,30 @@ export default function SongStep({ session, onSessionUpdate, onBack }: SongStepP
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <button
           onClick={onBack}
-          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors w-35 h-12"
+          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
         >
           Terug
         </button>
 
-        <button
-          onClick={handleContinue}
-          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors w-35 h-12"
-          style={{ backgroundColor: '#3d251e' }}
-        >
-          Volgende
-        </button>
+        <div className="flex space-x-4">
+          <button
+            onClick={onCancelRSVP}
+            className="px-4 py-3 text-red-600 hover:text-red-800 underline"
+          >
+            Kanselleer RSVP
+          </button>
+
+          <button
+            onClick={handleContinue}
+            className="px-8 py-3 rounded-lg font-medium text-white text-lg"
+            style={{ backgroundColor: '#3d251e' }}
+          >
+            Volgende
+          </button>
+        </div>
       </div>
 
       {/* Add Powered by Spotify at the very bottom */}

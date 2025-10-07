@@ -85,8 +85,8 @@ export default function PaymentStatus({
         const { error } = await supabase
           .from('payments')
           .update({
-            amount: depositAmount,
-            updated_at: new Date().toISOString()
+            amount: depositAmount
+            //updated_at: new Date().toISOString()
           })
           .eq('id', payment.id);
 
@@ -131,6 +131,7 @@ export default function PaymentStatus({
     return (
       <div className="max-w-2xl mx-auto text-center">
         <div className="bg-green-50 border border-green-200 rounded-lg p-8 mb-6">
+          <div className="text-green-600 text-4xl mb-4">✓</div>
           <h3 className="text-xl font-bold mb-2" style={{ color: '#3d251e' }}>
             Betaling Bevestig!
           </h3>
@@ -142,13 +143,18 @@ export default function PaymentStatus({
           </p>
         </div>
 
-        <button
-          onClick={onPaymentComplete}
-          className="px-8 py-3 rounded-lg font-medium text-white transition-colors"
-          style={{ backgroundColor: '#3d251e' }}
-        >
-          Finaliseer RSVP
-        </button>
+        {/* AUTO-finaliseer - geen knoppie nodig nie */}
+        {(() => {
+          // Auto-finaliseer na 2 sekondes
+          setTimeout(() => {
+            onPaymentComplete();
+          }, 2000);
+          return (
+            <p style={{ color: '#8b6c5c' }} className="text-sm">
+              Finaliseer RSVP...
+            </p>
+          );
+        })()}
       </div>
     );
   }

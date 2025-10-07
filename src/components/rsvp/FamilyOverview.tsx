@@ -18,6 +18,7 @@ interface FamilyOverviewProps {
   onSessionUpdate: (updatedSession: RSVPSessionData) => void;
   onGuestsUpdate: (guests: Guest[]) => void;
   onLogout: () => void;
+  onCancelRSVP: () => void;
 }
 
 type RSVPStep = 'attendance' | 'songs' | 'drinks' | 'notes' | 'payment' | 'complete';
@@ -28,7 +29,8 @@ export default function FamilyOverview({
   session,
   onSessionUpdate,
   onGuestsUpdate: _onGuestsUpdate,
-  onLogout: _onLogout
+  onLogout: _onLogout,
+  onCancelRSVP
 }: FamilyOverviewProps) {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
@@ -47,6 +49,34 @@ export default function FamilyOverview({
       setMessage('Fout met stoor veranderinge. Probeer weer.');
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleCancelRSVP = async () => {
+    if (confirm('Is jy seker jy wil hierdie RSVP kanselleer? Alle veranderinge sal verlore gaan.')) {
+      try {
+        // 1. Reset familie status na "pending"
+        const { error: familyError } = await supabase
+          .from('families')
+          .update({
+            rsvp_status: 'pending'
+          })
+          .eq('id', family.id);
+
+        if (familyError) throw familyError;
+
+        // 2. Clear session
+        clearRSVPSession();
+
+        // 3. Reset local state - gaan terug na login
+        onCancelRSVP();
+
+        setMessage('RSVP gekanselleer. Jy kan weer begin wanneer jy gereed is.');
+
+      } catch (error) {
+        console.error('Cancel RSVP error:', error);
+        setMessage('Fout met kanselleer RSVP. Probeer weer.');
+      }
     }
   };
 
@@ -85,12 +115,13 @@ export default function FamilyOverview({
     setMessage('');
 
     try {
+      console.log('Starting final submission for family:', family.id);
+
       // 1. Update familie RSVP status
       const { error: familyError } = await supabase
         .from('families')
         .update({
-          rsvp_status: 'submitted',
-          updated_at: new Date().toISOString()
+          rsvp_status: 'submitted'
         })
         .eq('id', family.id);
 
@@ -104,37 +135,41 @@ export default function FamilyOverview({
             is_attending: guest.is_attending,
             song_request: guest.songRequest,
             drink_preferences: guest.drinkPreferences,
-            extra_notes: guest.extraNotes,
-            updated_at: new Date().toISOString()
+            extra_notes: guest.extraNotes
           })
           .eq('id', guest.id);
 
         if (guestError) throw guestError;
       }
 
-      // 3. Merk session as submitted en clear dit
+      // 3. Merk session as submitted
       const updatedSession: RSVPSessionData = {
         ...session,
         submitted: true,
-        currentStep: 'complete' as const 
+        currentStep: 'complete' as const
       };
       onSessionUpdate(updatedSession);
 
       setMessage('RSVP suksesvol ingedien! Dankie!');
+      console.log('Final submission completed successfully');
 
-      // 4. Clear session na 'n paar sekondes
+      // 4. Na 3 sekondes, gaan terug na login screen
       setTimeout(() => {
         clearRSVPSession();
+        // Roep logout om terug te gaan na login
+        onCancelRSVP(); // Of onLogout() as jy dit verkies
       }, 3000);
 
     } catch (error) {
-      console.error('Fout met final submission:', error);
-      setMessage('Fout met indien RSVP. Probeer weer.');
+      console.error('Final submission error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Onbekende fout';
+      setMessage(`Fout: ${errorMessage}. Probeer weer.`);
     } finally {
       setSaving(false);
     }
   };
 
+  // Final RSVP Complete Step
   // Final RSVP Complete Step
   if (session.currentStep === 'complete') {
     const attendingGuests = session.guests.filter(g => g.is_attending);
@@ -143,7 +178,7 @@ export default function FamilyOverview({
     return (
       <div className="max-w-2xl mx-auto text-center">
         <div className="bg-green-50 border border-green-200 rounded-lg p-8 mb-6">
-          <div className="text-green-600 text-4xl mb-4">🎉</div>
+          <div className="text-green-600 text-4xl mb-4"></div>
           <h2 className="text-2xl font-bold mb-4" style={{ color: '#3d251e' }}>
             {noOneAttending ? 'RSVP Ontvang' : 'RSVP Voltooi!'}
           </h2>
@@ -177,7 +212,9 @@ export default function FamilyOverview({
           )}
 
           <p style={{ color: '#8b6c5c' }} className="text-sm mt-4">
-            Ons sien uit daarna om hierdie spesiale dag met julle te deel!
+            {session.submitted
+              ? 'Hierdie blad sluit binnekort...'
+              : 'Klik hieronder om jou RSVP te finaliseer.'}
           </p>
         </div>
 
@@ -193,9 +230,17 @@ export default function FamilyOverview({
         )}
 
         {session.submitted && (
-          <p style={{ color: '#8b6c5c' }} className="text-sm">
-            Jou RSVP is suksesvol gestoor. Hierdie blad sal binnekort sluit.
-          </p>
+          <div className="text-center">
+            <p style={{ color: '#8b6c5c' }} className="text-sm mb-4">
+              RSVP gestoor! Terug na login...
+            </p>
+            <button
+              onClick={onCancelRSVP}
+              className="px-6 py-2 text-blue-600 hover:text-blue-800 underline"
+            >
+              Gaan dadelik terug
+            </button>
+          </div>
         )}
       </div>
     );
@@ -222,6 +267,7 @@ export default function FamilyOverview({
         session={session}
         onSessionUpdate={onSessionUpdate}
         onBack={handleBack}
+        onCancelRSVP={onCancelRSVP}
       />
     );
   }
@@ -236,6 +282,7 @@ export default function FamilyOverview({
           const updatedSession = updateSessionStep(session, 'songs');
           onSessionUpdate(updatedSession);
         }}
+        onCancelRSVP={onCancelRSVP}
       />
     );
   }
@@ -250,6 +297,7 @@ export default function FamilyOverview({
           const updatedSession = updateSessionStep(session, 'drinks');
           onSessionUpdate(updatedSession);
         }}
+        onCancelRSVP={onCancelRSVP}
       />
     );
   }
@@ -362,6 +410,14 @@ export default function FamilyOverview({
           onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#3d251e'}
         >
           {saving ? 'Stoor...' : 'Volgende'}
+        </button>
+      </div>
+      <div className="text-center mt-6">
+        <button
+          onClick={handleCancelRSVP}
+          className="px-4 py-2 text-red-600 hover:text-red-800 text-sm underline"
+        >
+          Kanselleer RSVP
         </button>
       </div>
     </div>

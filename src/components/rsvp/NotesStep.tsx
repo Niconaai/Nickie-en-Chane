@@ -8,9 +8,10 @@ interface NotesStepProps {
   session: RSVPSessionData;
   onSessionUpdate: (session: RSVPSessionData) => void;
   onBack: () => void;
+  onCancelRSVP: () => void;
 }
 
-export default function NotesStep({ session, onSessionUpdate, onBack }: NotesStepProps) {
+export default function NotesStep({ session, onSessionUpdate, onBack, onCancelRSVP }: NotesStepProps) {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -24,11 +25,11 @@ export default function NotesStep({ session, onSessionUpdate, onBack }: NotesSte
 
   const handleContinue = () => {
     setSaving(true);
-    
+
     // Gaan na betaling stap
     const updatedSession = updateSessionStep(session, 'payment');
     onSessionUpdate(updatedSession);
-    
+
     setSaving(false);
   };
 
@@ -68,11 +69,10 @@ export default function NotesStep({ session, onSessionUpdate, onBack }: NotesSte
 
       {/* Message */}
       {message && (
-        <div className={`p-4 rounded-lg mb-6 ${
-          message.includes('Fout') 
+        <div className={`p-4 rounded-lg mb-6 ${message.includes('Fout')
             ? 'bg-red-50 border border-red-200 text-red-600'
             : 'bg-green-50 border border-green-200 text-green-600'
-        }`}>
+          }`}>
           {message}
         </div>
       )}
@@ -85,7 +85,7 @@ export default function NotesStep({ session, onSessionUpdate, onBack }: NotesSte
               <h3 className="text-lg font-medium mb-3" style={{ color: '#3d251e' }}>
                 {guest.name}
               </h3>
-              
+
               <div className="space-y-2">
                 <label htmlFor={`notes-${guest.id}`} className="block text-sm font-medium" style={{ color: '#5c4033' }}>
                   Notas vir {guest.name}:
@@ -123,24 +123,30 @@ export default function NotesStep({ session, onSessionUpdate, onBack }: NotesSte
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <button
           onClick={onBack}
-          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors w-35 h-12"
+          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
         >
           Terug
         </button>
-        
-        <button
-          onClick={handleContinue}
-          disabled={saving}
-          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors w-35 h-12"
-          style={{ backgroundColor: '#3d251e' }}
-          onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#5c4033'}
-          onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#3d251e'}
-        >
-          {saving ? 'Stoor...' : 'Betaling'}
-        </button>
+
+        <div className="flex space-x-4">
+          <button
+            onClick={onCancelRSVP}
+            className="px-4 py-3 text-red-600 hover:text-red-800 underline"
+          >
+            Kanselleer RSVP
+          </button>
+
+          <button
+            onClick={handleContinue}
+            className="px-8 py-3 rounded-lg font-medium text-white text-lg"
+            style={{ backgroundColor: '#3d251e' }}
+          >
+            Volgende
+          </button>
+        </div>
       </div>
     </div>
   );
