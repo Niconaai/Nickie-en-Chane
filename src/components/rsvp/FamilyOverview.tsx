@@ -116,7 +116,7 @@ export default function FamilyOverview({
       const updatedSession: RSVPSessionData = {
         ...session,
         submitted: true,
-        currentStep: 'complete' as const // ✅ FIX: gebruik 'as const'
+        currentStep: 'complete' as const 
       };
       onSessionUpdate(updatedSession);
 
@@ -330,7 +330,7 @@ export default function FamilyOverview({
       </div>
 
       {/* Niemand Gaan Bywoon Nie Button */}
-      <div className="text-center mb-4">
+      <div className="text-center mb-4 ">
         <button
           onClick={() => {
             const confirmNone = confirm('Is jy seker niemand van julle gesin gaan bywoon nie?');
@@ -345,7 +345,7 @@ export default function FamilyOverview({
               setMessage('RSVP as "nie bywonend" gestoor.');
             }
           }}
-          className="px-6 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+          className="px-6 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors w-60 h-12"
         >
           Niemand Gaan Bywoon Nie
         </button>
@@ -356,7 +356,7 @@ export default function FamilyOverview({
         <button
           onClick={handleContinue}
           disabled={saving}
-          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors w-60 h-12"
           style={{ backgroundColor: '#3d251e' }}
           onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#5c4033'}
           onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#3d251e'}

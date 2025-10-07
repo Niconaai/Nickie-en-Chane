@@ -1,8 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { RSVPSessionData } from '@/types/rsvp-session';
 import { updateGuestSongRequest, updateSessionStep } from '@/utils/rsvp-session';
+
+interface TokenCache { //to cache the api token to only get a new one when expired
+  value: string | null;
+  expiry: number | null;
+}
+
+const tokenCache: TokenCache = {
+  value: null,
+  expiry: null
+};
 
 interface SongStepProps {
   session: RSVPSessionData;
@@ -18,12 +28,48 @@ interface SpotifyTrack {
   external_urls: { spotify: string };
 }
 
+async function getToken(): Promise<string> {
+  // Check if we have a valid cached token
+  if (tokenCache.value && tokenCache.expiry && tokenCache.expiry > Date.now()) {
+    return tokenCache.value;
+  }
+
+  try {
+    // Fetch new token
+    const tokenResponse = await fetch('/api/spotify/token');
+
+    if (!tokenResponse.ok) {
+      throw new Error(`Token request failed: ${tokenResponse.status}`);
+    }
+
+    const tokenData = await tokenResponse.json();
+
+    if (!tokenData.access_token || !tokenData.expires_in) {
+      throw new Error('Invalid token response structure');
+    }
+
+    // Cache the token with expiry (usually 1 hour for Spotify)
+    tokenCache.value = tokenData.access_token;
+    tokenCache.expiry = Date.now() + (tokenData.expires_in * 1000) - 60000; // 1 minute buffer
+
+    return tokenCache.value as string;
+
+  } catch (error) {
+    console.error('Error getting token:', error);
+    // Clear cache on error
+    tokenCache.value = null;
+    tokenCache.expiry = null;
+    throw error;
+  }
+}
+
 export default function SongStep({ session, onSessionUpdate, onBack }: SongStepProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<SpotifyTrack[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedGuest, setSelectedGuest] = useState<string | null>(null);
   const [message, setMessage] = useState('');
+  const [albumArtUrls, setAlbumArtUrls] = useState<{[guestId: string]: string}>({});
 
   // Slegs gaste wat bywoon
   const attendingGuests = session.guests.filter(guest => guest.is_attending);
@@ -38,12 +84,11 @@ export default function SongStep({ session, onSessionUpdate, onBack }: SongStepP
     setLoading(true);
     try {
       // Eerstens, kry access token
-      const tokenResponse = await fetch('/api/spotify/token');
-      const { access_token } = await tokenResponse.json();
+      const access_token = await getToken();
 
       // Soek liedjies
       const searchResponse = await fetch(
-        `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=10`,
+        `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=3`,
         {
           headers: {
             'Authorization': `Bearer ${access_token}`
@@ -63,7 +108,15 @@ export default function SongStep({ session, onSessionUpdate, onBack }: SongStepP
 
   const handleSongSelect = (guestId: string, track: SpotifyTrack) => {
     const songString = `${track.name} - ${track.artists.map(artist => artist.name).join(', ')}`;
+    const albumArtUrl = track.album.images[0]?.url || '';
     const updatedSession = updateGuestSongRequest(session, guestId, songString);
+
+    // Store album art URL in local state
+    setAlbumArtUrls(prev => ({
+      ...prev,
+      [guestId]: albumArtUrl
+    }));
+
     onSessionUpdate(updatedSession);
     setSearchTerm('');
     setSearchResults([]);
@@ -73,7 +126,7 @@ export default function SongStep({ session, onSessionUpdate, onBack }: SongStepP
   const handleContinue = () => {
     // Check of elke guest wat bywoon 'n liedjie het
     const guestsWithoutSongs = attendingGuests.filter(guest => !guest.songRequest.trim());
-    
+
     if (guestsWithoutSongs.length > 0) {
       setMessage(`Verskaf asseblief 'n liedjie vir: ${guestsWithoutSongs.map(g => g.name).join(', ')}`);
       return;
@@ -133,18 +186,40 @@ export default function SongStep({ session, onSessionUpdate, onBack }: SongStepP
               <h3 className="text-lg font-medium mb-4" style={{ color: '#3d251e' }}>
                 {guest.name}
               </h3>
-              
+
               {/* Gekose liedjie */}
               {guest.songRequest && (
-                <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-sm font-medium text-green-800">Gekose liedjie:</p>
-                  <p className="text-green-700">{guest.songRequest}</p>
+                <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-sm font-medium text-green-800 mb-2">Gekose liedjie:</p>
+                  <div className="flex items-center space-x-3">
+                    {/* Album Art */}
+                    {albumArtUrls[guest.id] && (
+                      <img
+                        src={albumArtUrls[guest.id]}
+                        alt="Album cover"
+                        className="w-12 h-12 rounded flex-shrink-0"
+                      />
+                    )}
+                    {/* Song Info */}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-green-700 font-medium truncate">{guest.songRequest.split(' - ')[0]}</p>
+                      <p className="text-green-600 text-sm truncate">
+                        {guest.songRequest.split(' - ')[1]}
+                      </p>
+                    </div>
+                  </div>
                   <button
                     onClick={() => {
                       const updatedSession = updateGuestSongRequest(session, guest.id, '');
+                      // Also clear album art from state
+                      setAlbumArtUrls(prev => {
+                        const newUrls = { ...prev };
+                        delete newUrls[guest.id];
+                        return newUrls;
+                      });
                       onSessionUpdate(updatedSession);
                     }}
-                    className="text-sm text-green-600 hover:text-green-800 mt-1"
+                    className="text-sm text-green-600 hover:text-green-800 mt-2"
                   >
                     Verander liedjie
                   </button>
@@ -153,7 +228,7 @@ export default function SongStep({ session, onSessionUpdate, onBack }: SongStepP
 
               {/* Soek veld */}
               {(!guest.songRequest || selectedGuest === guest.id) && (
-                <div>
+                <div className="relative h-70">
                   <input
                     type="text"
                     value={selectedGuest === guest.id ? searchTerm : ''}
@@ -167,7 +242,7 @@ export default function SongStep({ session, onSessionUpdate, onBack }: SongStepP
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-transparent"
                     style={{ color: '#3d251e' }}
                   />
-                  
+
                   {/* Search Results */}
                   {selectedGuest === guest.id && searchResults.length > 0 && (
                     <div className="mt-2 border border-gray-200 rounded-lg max-h-60 overflow-y-auto">
@@ -178,8 +253,8 @@ export default function SongStep({ session, onSessionUpdate, onBack }: SongStepP
                           className="w-full p-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-b-0 flex items-center space-x-3"
                         >
                           {track.album.images[0] && (
-                            <img 
-                              src={track.album.images[0].url} 
+                            <img
+                              src={track.album.images[0].url}
                               alt={track.album.name}
                               className="w-10 h-10 rounded"
                             />
@@ -204,15 +279,7 @@ export default function SongStep({ session, onSessionUpdate, onBack }: SongStepP
                 </div>
               )}
 
-              {/* Begin soek knoppie */}
-              {!guest.songRequest && !selectedGuest && (
-                <button
-                  onClick={() => setSelectedGuest(guest.id)}
-                  className="w-full p-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  Klik om &apos;n liedjie te soek
-                </button>
-              )}
+
             </div>
           </div>
         ))}
@@ -222,18 +289,27 @@ export default function SongStep({ session, onSessionUpdate, onBack }: SongStepP
       <div className="flex justify-between">
         <button
           onClick={onBack}
-          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors w-35 h-12"
         >
           Terug
         </button>
-        
+
         <button
           onClick={handleContinue}
-          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors w-35 h-12"
           style={{ backgroundColor: '#3d251e' }}
         >
           Volgende
         </button>
+      </div>
+
+      {/* Add Powered by Spotify at the very bottom */}
+      <div className="mt-15 flex items-center justify-center border rounded-lg space-x-2 text-sm">
+        <span style={{ color: '#000000' }}>Powered by Spotify</span>
+        {/* Spotify logo SVG */}
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#1DB954">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-2-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+        </svg>
       </div>
     </div>
   );

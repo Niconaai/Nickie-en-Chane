@@ -126,7 +126,7 @@ export default function NotesStep({ session, onSessionUpdate, onBack }: NotesSte
       <div className="flex justify-between">
         <button
           onClick={onBack}
-          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors w-35 h-12"
         >
           Terug
         </button>
@@ -134,12 +134,12 @@ export default function NotesStep({ session, onSessionUpdate, onBack }: NotesSte
         <button
           onClick={handleContinue}
           disabled={saving}
-          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors w-35 h-12"
           style={{ backgroundColor: '#3d251e' }}
           onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#5c4033'}
           onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#3d251e'}
         >
-          {saving ? 'Stoor...' : 'Gaan na Betaling'}
+          {saving ? 'Stoor...' : 'Betaling'}
         </button>
       </div>
     </div>

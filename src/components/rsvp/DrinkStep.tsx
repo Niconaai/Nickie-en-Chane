@@ -173,7 +173,7 @@ export default function DrinkStep({ session, onSessionUpdate, onBack }: DrinkSte
       <div className="flex justify-between mt-8">
         <button
           onClick={onBack}
-          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+          className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors w-35 h-12"
         >
           Terug
         </button>
@@ -181,7 +181,7 @@ export default function DrinkStep({ session, onSessionUpdate, onBack }: DrinkSte
         <button
           onClick={handleContinue}
           disabled={saving}
-          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors w-35 h-12"
           style={{ backgroundColor: '#3d251e' }}
           onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#5c4033'}
           onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#3d251e'}

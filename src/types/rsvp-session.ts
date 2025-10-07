@@ -7,6 +7,7 @@ export interface GuestSessionData {
   songRequest: string;
   drinkPreferences: string[];
   extraNotes: string;
+  songAlbumArt?: string;
 }
 
 export interface RSVPSessionData {

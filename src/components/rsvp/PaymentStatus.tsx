@@ -131,7 +131,6 @@ export default function PaymentStatus({
     return (
       <div className="max-w-2xl mx-auto text-center">
         <div className="bg-green-50 border border-green-200 rounded-lg p-8 mb-6">
-          <div className="text-green-600 text-4xl mb-4">✓</div>
           <h3 className="text-xl font-bold mb-2" style={{ color: '#3d251e' }}>
             Betaling Bevestig!
           </h3>
@@ -163,7 +162,7 @@ export default function PaymentStatus({
             EFT Betaling
           </h3>
           <p style={{ color: '#5c4033' }} className="mb-4">
-            Jou betaling word as EFT hanteer. Ons sal jou kontak vir bank besonderhede.
+            Jou betaling word as EFT hanteer. Jy kan ons kontak vir bank besonderhede.
           </p>
           <p style={{ color: '#8b6c5c' }} className="text-sm">
             Deposito bedrag: R{(payment.amount / 100).toFixed(2)}
