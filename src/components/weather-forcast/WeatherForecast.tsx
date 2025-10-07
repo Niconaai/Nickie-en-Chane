@@ -55,7 +55,7 @@ const WeatherForecast = ({ targetDate, city = 'Brits, ZA' }: WeatherForecastProp
     day: 'numeric'
   });
 
-  let time = targetDate.substring(11,targetDate.length-3);
+  const time = targetDate.substring(11,targetDate.length-3);
 
   return (
     <div className="weather-section max-w-sm mx-auto p-6 bg-white rounded-lg shadow-md">
