@@ -91,3 +91,10 @@ export const updateSessionStep = (session: RSVPSessionData, step: RSVPStep): RSV
     currentStep: step
   };
 };
+
+export const updateDepositOption = (session: RSVPSessionData, depositOption: 'gift' | 'refund'): RSVPSessionData => {
+  return {
+    ...session,
+    depositOption
+  };
+};

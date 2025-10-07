@@ -16,6 +16,7 @@ export interface RSVPSessionData {
   guests: GuestSessionData[];
   currentStep: 'attendance' | 'songs' | 'drinks' | 'notes' | 'payment' | 'complete';
   submitted: boolean;
+  depositOption?: 'gift' | 'refund';
 }
 
 export type RSVPStep = RSVPSessionData['currentStep'];

@@ -49,9 +49,7 @@ export default function NotesStep({ session, onSessionUpdate, onBack, onCancelRS
           }}
           className="px-6 py-2 rounded-lg text-white"
           style={{ backgroundColor: '#3d251e' }}
-        >
-          Gaan na Betaling
-        </button>
+        >Gaan na Betaling</button>
       </div>
     );
   }
@@ -106,20 +104,6 @@ export default function NotesStep({ session, onSessionUpdate, onBack, onCancelRS
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Family Notes (Optional) */}
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
-        <h3 className="font-medium mb-3" style={{ color: '#3d251e' }}>Gesin Notas (Opsioneel)</h3>
-        <p className="text-sm mb-4" style={{ color: '#5c4033' }}>
-          Enige algemene notas vir die hele gesin?
-        </p>
-        <textarea
-          placeholder="Bv. Ons sal laat wees, spesiale dieet vereistes vir die hele gesin, ens."
-          rows={3}
-          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-transparent resize-none"
-          style={{ color: '#3d251e' }}
-        />
       </div>
 
       {/* Navigation */}

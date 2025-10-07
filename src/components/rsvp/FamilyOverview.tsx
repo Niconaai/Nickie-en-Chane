@@ -89,6 +89,13 @@ export default function FamilyOverview({
       return;
     }
 
+    //Check vir deposit opsie
+    const attendingAdults = session.guests.filter(g => g.is_attending && g.is_adult).length;
+    if (attendingAdults > 0 && !session.depositOption) {
+      setMessage('Kies asseblief of jy die deposito as geskenk wil gee of terugbetaal wil hê.');
+      return;
+    }
+
     // Gaan na volgende stap
     const updatedSession = updateSessionStep(session, 'songs');
     onSessionUpdate(updatedSession);
@@ -121,7 +128,8 @@ export default function FamilyOverview({
       const { error: familyError } = await supabase
         .from('families')
         .update({
-          rsvp_status: 'submitted'
+          rsvp_status: 'submitted',
+          deposit_option: session.depositOption
         })
         .eq('id', family.id);
 
@@ -371,9 +379,52 @@ export default function FamilyOverview({
           {session.guests.filter(g => g.is_attending).length} van {session.guests.length} gaste gaan bywoon
         </p>
         {session.guests.filter(g => g.is_attending && g.is_adult).length > 0 && (
-          <p style={{ color: '#5c4033' }} className="mt-1">
-            Deposito benodig: R{session.guests.filter(g => g.is_attending && g.is_adult).length * 300}
-          </p>
+          <>
+            <p style={{ color: '#5c4033' }} className="mt-1">
+              Deposito benodig: R{session.guests.filter(g => g.is_attending && g.is_adult).length * 300}
+            </p>
+
+            {/* ✅ DEPOSITO OPSIE */}
+            <div className="mt-4">
+              <h4 className="font-medium mb-3" style={{ color: '#3d251e' }}>
+                Deposito Opsie:
+              </h4>
+              <div className="flex space-x-4">
+                <button
+                  onClick={() => {
+                    const updatedSession = { ...session, depositOption: 'gift' as const };
+                    onSessionUpdate(updatedSession);
+                  }}
+                  className={`px-4 py-2 rounded-lg border ${session.depositOption === 'gift'
+                    ? 'bg-green-100 border-green-300 text-green-700'
+                    : 'bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100'
+                    }`}
+                >
+                  💝 Gee as Geskenk
+                </button>
+                <button
+                  onClick={() => {
+                    const updatedSession = { ...session, depositOption: 'refund' as const };
+                    onSessionUpdate(updatedSession);
+                  }}
+                  className={`px-4 py-2 rounded-lg border ${session.depositOption === 'refund'
+                    ? 'bg-blue-100 border-blue-300 text-blue-700'
+                    : 'bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100'
+                    }`}
+                >
+                  💰 Laat Terugbetaal
+                </button>
+              </div>
+              {session.depositOption && (
+                <p className="text-sm mt-2" style={{ color: '#8b6c5c' }}>
+                  {session.depositOption === 'gift'
+                    ? 'Dankie! Die deposito sal as \'n addisionele geskenk aanvaar word.'
+                    : 'Die deposito sal na die troue terugbetaal word.'
+                  }
+                </p>
+              )}
+            </div>
+          </>
         )}
       </div>
 

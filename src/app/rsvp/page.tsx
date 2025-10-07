@@ -239,19 +239,20 @@ export default function RSVPPage() {
             <div className="flex justify-between items-center">
               <div className="flex-1 text-center">
                 <h1 className="text-3xl font-bold" style={{ color: '#3d251e' }}>RSVP</h1>
+                {isLoggedIn && family && (
+                  <div className="flex items-center space-x-4">
+                    <span style={{ color: '#5c4033' }}>Hallo, hierdie moet regs wees {family.family_name}</span> 
+                    <button
+                      onClick={handleLogout}
+                      className="text-sm hover:underline"
+                      style={{ color: '#8b6c5c' }}
+                    >
+                      Teken Uit
+                    </button>
+                  </div>
+                )}
               </div>
-              {isLoggedIn && family && (
-                <div className="flex items-center space-x-4">
-                  <span style={{ color: '#5c4033' }}>Hallo, {family.family_name}</span>
-                  <button
-                    onClick={handleLogout}
-                    className="text-sm hover:underline"
-                    style={{ color: '#8b6c5c' }}
-                  >
-                    Teken Uit
-                  </button>
-                </div>
-              )}
+
             </div>
           </div>
         </div>
