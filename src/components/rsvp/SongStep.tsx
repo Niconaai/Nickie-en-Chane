@@ -110,13 +110,21 @@ export default function SongStep({ session, onSessionUpdate, onBack, onCancelRSV
   const handleSongSelect = (guestId: string, track: SpotifyTrack) => {
     const songString = `${track.name} - ${track.artists.map(artist => artist.name).join(', ')}`;
     const albumArtUrl = track.album.images[0]?.url || '';
-    const updatedSession = updateGuestSongRequest(session, guestId, songString);
 
-    // Store album art URL in local state
-    setAlbumArtUrls(prev => ({
-      ...prev,
-      [guestId]: albumArtUrl
-    }));
+    // Update session met alle Spotify data - gebruik die bestaande velde
+    const updatedSession = {
+      ...session,
+      guests: session.guests.map(guest =>
+        guest.id === guestId
+          ? {
+            ...guest,
+            songRequest: songString,
+            spotifyTrackId: track.id,
+            songAlbumArt: albumArtUrl
+          }
+          : guest
+      )
+    };
 
     onSessionUpdate(updatedSession);
     setSearchTerm('');
@@ -193,10 +201,10 @@ export default function SongStep({ session, onSessionUpdate, onBack, onCancelRSV
                 <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
                   <p className="text-sm font-medium text-green-800 mb-2">Gekose liedjie:</p>
                   <div className="flex items-center space-x-3">
-                    {/* Album Art */}
-                    {albumArtUrls[guest.id] && (
+                    {/* Album Art - gebruik guest.songAlbumArt direk */}
+                    {guest.songAlbumArt && (
                       <img
-                        src={albumArtUrls[guest.id]}
+                        src={guest.songAlbumArt}
                         alt="Album cover"
                         className="w-12 h-12 rounded flex-shrink-0"
                       />
@@ -211,13 +219,19 @@ export default function SongStep({ session, onSessionUpdate, onBack, onCancelRSV
                   </div>
                   <button
                     onClick={() => {
-                      const updatedSession = updateGuestSongRequest(session, guest.id, '');
-                      // Also clear album art from state
-                      setAlbumArtUrls(prev => {
-                        const newUrls = { ...prev };
-                        delete newUrls[guest.id];
-                        return newUrls;
-                      });
+                      const updatedSession = {
+                        ...session,
+                        guests: session.guests.map(g =>
+                          g.id === guest.id
+                            ? {
+                              ...g,
+                              songRequest: '',
+                              spotifyTrackId: undefined,
+                              songAlbumArt: undefined
+                            }
+                            : g
+                        )
+                      };
                       onSessionUpdate(updatedSession);
                     }}
                     className="text-sm text-green-600 hover:text-green-800 mt-2"

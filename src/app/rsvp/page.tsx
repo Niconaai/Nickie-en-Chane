@@ -45,7 +45,6 @@ export default function RSVPPage() {
         .select('*')
         .order('created_at', { ascending: false });
 
-      // ✅ KORREK - gebruik setFamily vir 'n enkele familie
       if (familiesData && familiesData.length > 0) {
         // As ons net een familie nodig het, gebruik die eerste een
         // Maar in RSVP konteks, werk ons net met een familie per sessie
@@ -184,7 +183,8 @@ export default function RSVPPage() {
           extraNotes: guest.extra_notes || ''
         })),
         currentStep: 'complete' as const,
-        submitted: true
+        submitted: true,
+        depositOption: familyData.deposit_option as 'gift' | 'refund'
       };
       setSession(summarySession);
       setIsLoggedIn(true);

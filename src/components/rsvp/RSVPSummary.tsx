@@ -94,15 +94,30 @@ export default function RSVPSummary({ familyName, session, familyId, payments, o
                     {/* Liedjie Versoeke */}
                     {attendingGuests.some(g => g.songRequest) && (
                         <div>
-                            <h4 className="font-medium mb-1" style={{ color: '#5c4033', marginTop: '30px' }}>
+                            <h4 className="font-medium mb-2" style={{ color: '#5c4033' }}>
                                 Liedjie Versoeke
                             </h4>
-                            <ul className="space-y-2">
+                            <ul className="space-y-3">
                                 {attendingGuests
                                     .filter(g => g.songRequest)
                                     .map((guest) => (
-                                        <li key={guest.id} className="text-sm" style={{ color: '#8b6c5c' }}>
-                                            <span className="font-medium">{guest.name}:</span> {guest.songRequest}
+                                        <li key={guest.id} className="flex items-center space-x-3">
+                                            {/* Album Art - gebruik guest.songAlbumArt direk */}
+                                            {guest.songAlbumArt && (
+                                                <img
+                                                    src={guest.songAlbumArt}
+                                                    alt="Album cover"
+                                                    className="w-12 h-12 rounded flex-shrink-0"
+                                                />
+                                            )}
+                                            <div className="flex-1">
+                                                <p className="text-sm font-medium" style={{ color: '#3d251e' }}>
+                                                    {guest.name}
+                                                </p>
+                                                <p className="text-sm" style={{ color: '#8b6c5c' }}>
+                                                    {guest.songRequest}
+                                                </p>
+                                            </div>
                                         </li>
                                     ))
                                 }
@@ -159,10 +174,10 @@ export default function RSVPSummary({ familyName, session, familyId, payments, o
 
             {/* Betaling Status */}
             <div className={`border rounded-lg p-4 mb-6 ${hasPaidDeposit
-                    ? 'bg-green-50 border-green-200'
-                    : needsDeposit
-                        ? 'bg-yellow-50 border-yellow-200'
-                        : 'bg-blue-50 border-blue-200'
+                ? 'bg-green-50 border-green-200'
+                : needsDeposit
+                    ? 'bg-yellow-50 border-yellow-200'
+                    : 'bg-blue-50 border-blue-200'
                 }`}>
                 <h4 className="font-medium mb-2" style={{ color: '#3d251e' }}>Betaling Status</h4>
 
@@ -176,12 +191,30 @@ export default function RSVPSummary({ familyName, session, familyId, payments, o
                                 Betaal op: {new Date(familyPayment.paid_at).toLocaleDateString('af-ZA')}
                             </p>
                         )}
+                        {/* DEPOSITO OPSIE - gebruik session.depositOption direk */}
+                        {session.depositOption && (
+                            <p style={{ color: '#8b6c5c' }} className="text-xs mt-1">
+                                {session.depositOption === 'gift'
+                                    ? 'Deposito word as \'n geskenk gegee.'
+                                    : 'Aangedui dat die deposito terug betaal moet word.'
+                                }
+                            </p>
+                        )}
                     </div>
                 ) : needsDeposit ? (
                     <div>
                         <p style={{ color: '#5c4033' }} className="text-sm">
                             Deposito benodig: R{depositAmount}
                         </p>
+                        {/* DEPOSITO OPSIE - gebruik session.depositOption direk */}
+                        {session.depositOption && (
+                            <p style={{ color: '#8b6c5c' }} className="text-xs mt-1">
+                                {session.depositOption === 'gift'
+                                    ? 'Sal as geskenk gegee word'
+                                    : 'Sal terugbetaal word na troue'
+                                }
+                            </p>
+                        )}
                         <p style={{ color: '#8b6c5c' }} className="text-xs mt-1">
                             Kontak die bruidspaar vir betalingsbesonderhede.
                         </p>

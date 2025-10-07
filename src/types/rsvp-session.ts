@@ -8,6 +8,7 @@ export interface GuestSessionData {
   drinkPreferences: string[];
   extraNotes: string;
   songAlbumArt?: string;
+  spotifyTrackId?: string;
 }
 
 export interface RSVPSessionData {

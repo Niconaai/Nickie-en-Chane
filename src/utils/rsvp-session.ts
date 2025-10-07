@@ -1,4 +1,5 @@
 // src/utils/rsvp-session.ts
+import { Guest } from '@/components/admin/types';
 import { RSVPSessionData, GuestSessionData, RSVPStep } from '@/types/rsvp-session';
 
 const SESSION_KEY = 'rsvp_session';
@@ -30,7 +31,7 @@ export const clearRSVPSession = (): void => {
 };
 
 // Hulp funksie om nuwe session te skep (per guest data)
-export const createNewSession = (familyId: string, familyName: string, guests: { id: string; name: string; is_adult: boolean; is_attending?: boolean }[]): RSVPSessionData => {
+export const createNewSession = (familyId: string, familyName: string, guests: Guest[]): RSVPSessionData => {
   return {
     familyId,
     familyName,
@@ -41,7 +42,9 @@ export const createNewSession = (familyId: string, familyName: string, guests: {
       is_attending: guest.is_attending || false,
       songRequest: '',
       drinkPreferences: [],
-      extraNotes: ''
+      extraNotes: '',
+      spotifyTrackId: undefined, 
+      songAlbumArt: undefined 
     })),
     currentStep: 'attendance',
     submitted: false
@@ -52,17 +55,30 @@ export const createNewSession = (familyId: string, familyName: string, guests: {
 export const updateGuestAttendance = (session: RSVPSessionData, guestId: string, attending: boolean): RSVPSessionData => {
   return {
     ...session,
-    guests: session.guests.map(guest => 
+    guests: session.guests.map(guest =>
       guest.id === guestId ? { ...guest, is_attending: attending } : guest
     )
   };
 };
 
-export const updateGuestSongRequest = (session: RSVPSessionData, guestId: string, songRequest: string): RSVPSessionData => {
+export const updateGuestSongRequest = (
+  session: RSVPSessionData,
+  guestId: string,
+  songRequest: string,
+  spotifyTrackId?: string,
+  songAlbumArt?: string
+): RSVPSessionData => {
   return {
     ...session,
-    guests: session.guests.map(guest => 
-      guest.id === guestId ? { ...guest, songRequest } : guest
+    guests: session.guests.map(guest =>
+      guest.id === guestId
+        ? {
+          ...guest,
+          songRequest,
+          spotifyTrackId,
+          songAlbumArt
+        }
+        : guest
     )
   };
 };
@@ -70,7 +86,7 @@ export const updateGuestSongRequest = (session: RSVPSessionData, guestId: string
 export const updateGuestDrinkPreferences = (session: RSVPSessionData, guestId: string, drinkPreferences: string[]): RSVPSessionData => {
   return {
     ...session,
-    guests: session.guests.map(guest => 
+    guests: session.guests.map(guest =>
       guest.id === guestId ? { ...guest, drinkPreferences } : guest
     )
   };
@@ -79,7 +95,7 @@ export const updateGuestDrinkPreferences = (session: RSVPSessionData, guestId: s
 export const updateGuestNotes = (session: RSVPSessionData, guestId: string, extraNotes: string): RSVPSessionData => {
   return {
     ...session,
-    guests: session.guests.map(guest => 
+    guests: session.guests.map(guest =>
       guest.id === guestId ? { ...guest, extraNotes } : guest
     )
   };

@@ -142,6 +142,8 @@ export default function FamilyOverview({
           .update({
             is_attending: guest.is_attending,
             song_request: guest.songRequest,
+            spotify_track_id: guest.spotifyTrackId,
+            album_art_url: guest.songAlbumArt,
             drink_preferences: guest.drinkPreferences,
             extra_notes: guest.extraNotes
           })
@@ -161,12 +163,44 @@ export default function FamilyOverview({
       setMessage('RSVP suksesvol ingedien! Dankie!');
       console.log('Final submission completed successfully');
 
+      const spotifyTrackIds = session.guests
+        .filter(guest => guest.is_attending && guest.spotifyTrackId)
+        .map(guest => guest.spotifyTrackId)
+        .filter(Boolean);
+
+      if (spotifyTrackIds.length > 0) {
+        try {
+          const playlistId = process.env.SPOTIFY_PLAYLIST_ID; // Jou playlist ID
+          const addResponse = await fetch('/api/spotify/add-to-playlist', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              trackIds: spotifyTrackIds,
+              playlistId: playlistId
+            })
+          });
+
+          if (addResponse.ok) {
+            console.log('Liedjies suksesvol by playlist gevoeg');
+          } else {
+            console.warn('Kon nie liedjies by playlist voeg nie');
+          }
+        } catch (error) {
+          console.warn('Spotify playlist error (non-critical):', error);
+        }
+      }
+
       // 4. Na 3 sekondes, gaan terug na login screen
       setTimeout(() => {
         clearRSVPSession();
         // Roep logout om terug te gaan na login
-        onCancelRSVP(); // Of onLogout() as jy dit verkies
+        //onCancelRSVP(); // Of 
+        //onLogout();// as jy dit verkies
       }, 3000);
+
+
 
     } catch (error) {
       console.error('Final submission error:', error);
@@ -384,7 +418,7 @@ export default function FamilyOverview({
               Deposito benodig: R{session.guests.filter(g => g.is_attending && g.is_adult).length * 300}
             </p>
 
-            {/* ✅ DEPOSITO OPSIE */}
+            {/* DEPOSITO OPSIE */}
             <div className="mt-4">
               <h4 className="font-medium mb-3" style={{ color: '#3d251e' }}>
                 Deposito Opsie:
@@ -400,7 +434,7 @@ export default function FamilyOverview({
                     : 'bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100'
                     }`}
                 >
-                  💝 Gee as Geskenk
+                  Gee as Geskenk
                 </button>
                 <button
                   onClick={() => {
@@ -412,7 +446,7 @@ export default function FamilyOverview({
                     : 'bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100'
                     }`}
                 >
-                  💰 Laat Terugbetaal
+                  Laat Terugbetaal
                 </button>
               </div>
               {session.depositOption && (
