@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const clientId = process.env.SPOTIFY_CLIENT_ID!;
-const redirectUri = 'https://thundermerwefees.co.za/api/spotify/callback';
+const redirectUri = 'https://www.thundermerwefees.co.za/api/spotify/callback';
 const scope = 'playlist-modify-public playlist-modify-private';
 
 export async function GET() {

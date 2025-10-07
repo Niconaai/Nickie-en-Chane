@@ -10,7 +10,7 @@ export async function GET(request: Request) {
 
   const clientId = process.env.SPOTIFY_CLIENT_ID!;
   const clientSecret = process.env.SPOTIFY_CLIENT_SECRET!;
-  const redirectUri = 'http://thundermerwefees.co.za/api/spotify/callback';
+  const redirectUri = 'http://www.thundermerwefees.co.za/api/spotify/callback';
 
   const response = await fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
