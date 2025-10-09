@@ -46,13 +46,13 @@ export default function Besonderhede() {
 
           {/* Seremonie */}
           <div className="text-center bg-white rounded-lg shadow-lg p-6 ">
-            <h2 className="text-3xl  text-[#99735A] mb-4">Seremonie</h2>
+            <h2 className="text-3xl font-semibold text-[#99735A] mb-4">Seremonie</h2>
             <div className="space-y-3 text-[#656E5D] mb-4">
-              <p className="font-semibold">Datum: 28 Maart 2025</p>
-              <p className="font-semibold">Tyd: 15:00</p>
-              <p>NG Kerk Brits</p>
-              <p>H/V Kerk- en Reitz Straat</p>
-              <p>Brits, Noordwes</p>
+              <p className="font-semibold mb-1">Datum: 28 Maart 2026</p>
+              <p className="font-semibold mb-1">Tyd: 15:00</p>
+              <p className=" mb-1">NG Kerk Brits</p>
+              <p className=" mb-1">H/V Kerk- en Reitz Straat</p>
+              <p className=" mb-1">Brits, Noordwes</p>
             </div>
             <div className="h-75 bg-gray-200 rounded-lg">
               <iframe
@@ -69,13 +69,13 @@ export default function Besonderhede() {
 
           {/* Onthaal */}
           <div className="text-center bg-white rounded-lg shadow-lg p-6 ">
-            <h2 className="text-3xl  text-[#99735A] mb-4">Onthaal</h2>
+            <h2 className="text-3xl font-semibold text-[#99735A] mb-4">Onthaal</h2>
             <div className="space-y-3 text-[#656E5D] mb-4">
-              <p className="font-semibold">Datum: 28 Maart 2025</p>
-              <p className="font-semibold">Tyd: 18:00</p>
-              <p>KF49 Citrus Pakhuis</p>
-              <p>Kleinfontein</p>
-              <p>Brits, Noordwes</p>
+              <p className="font-semibold mb-1">Datum: 28 Maart 2026</p>
+              <p className="font-semibold mb-1">Tyd: 18:00</p>
+              <p className=" mb-1">KF49 Citrus Pakhuis</p>
+              <p className=" mb-1">Kleinfontein</p>
+              <p className=" mb-1">Brits, Noordwes</p>
             </div>
             <div className="h-75 bg-gray-200 rounded-lg">
               <iframe

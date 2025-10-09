@@ -293,10 +293,9 @@ export default function FamilyOverview({
     return (
       <PaymentStatus
         family={family}
-        guests={guests}
         session={session}
         onPaymentComplete={handlePaymentComplete}
-        onContinueToPayment={handleContinueToPayment}
+        //onContinueToPayment={handleContinueToPayment}
         onBack={handleBack}
       />
     );

@@ -2,15 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import { Family, Guest } from '@/components/admin/types';
+import { Family } from '@/components/admin/types';
 import { RSVPSessionData } from '@/types/rsvp-session';
 
 interface PaymentStatusProps {
   family: Family;
-  guests: Guest[];
   session: RSVPSessionData;
   onPaymentComplete: () => void;
-  onContinueToPayment: () => void;
   onBack: () => void;
 }
 
@@ -23,29 +21,19 @@ interface PaymentData {
   paid_at: string;
 }
 
-export default function PaymentStatus({
-  family,
-  guests,
-  session,
-  onPaymentComplete,
-  onContinueToPayment,
-  onBack
-}: PaymentStatusProps) {
+export default function PaymentStatus({ family, session, onPaymentComplete, onBack }: PaymentStatusProps) {
   const [payment, setPayment] = useState<PaymentData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [calculating, setCalculating] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Bereken deposito bedrag - gebruik session data
   const calculateDeposit = () => {
     const attendingAdults = session.guests.filter(g => g.is_attending && g.is_adult).length;
-    return attendingAdults * 30000; // R300 per volwassene in sent
+    return attendingAdults * 30000; // R300 in cents
   };
 
-  // Check payment status
   useEffect(() => {
     const checkPaymentStatus = async () => {
       setLoading(true);
-
       const { data: paymentData, error } = await supabase
         .from('payments')
         .select('*')
@@ -54,67 +42,78 @@ export default function PaymentStatus({
         .limit(1)
         .single();
 
-      if (error && error.code !== 'PGRST116') { // PGRST116 is "not found"
-        console.error('Error fetching payment:', error);
-      }
-
+      if (error && error.code !== 'PGRST116') console.error('Error fetching payment:', error);
+      
       setPayment(paymentData);
       setLoading(false);
+
+      if (paymentData?.payment_status === 'paid') {
+        setTimeout(() => onPaymentComplete(), 2000);
+      }
     };
-
     checkPaymentStatus();
-  }, [family.id]);
+  }, [family.id, onPaymentComplete]);
+  
+  // src/components/rsvp/PaymentStatus.tsx
 
-  // Create or update payment record
-  const handlePaymentSetup = async () => {
-    setCalculating(true);
+  //... inside the PaymentStatus component
 
-    const depositAmount = calculateDeposit();
-    const attendingAdults = session.guests.filter(g => g.is_attending && g.is_adult).length;
+  const handlePayment = async () => {
+    setIsSubmitting(true);
+    const depositAmount = calculateDeposit(); // This is in cents
 
-    if (attendingAdults === 0) {
-      alert('Geen volwassene gaste gaan bywoon nie. Geen deposito nodig.');
+    if (depositAmount <= 0) {
       onPaymentComplete();
       return;
     }
 
     try {
-      // Check if payment record already exists
-      if (payment) {
-        // Update existing payment
-        const { error } = await supabase
-          .from('payments')
-          .update({
-            amount: depositAmount
-            //updated_at: new Date().toISOString()
-          })
-          .eq('id', payment.id);
+      // 1. Create a "pending" payment record in our database to get a paymentId
+      const { data: newPayment, error: dbError } = await supabase
+        .from('payments')
+        .insert([{
+          family_id: family.id,
+          amount: depositAmount,
+          payment_method: 'yoco',
+          payment_status: 'pending'
+        }])
+        .select()
+        .single();
 
-        if (error) throw error;
-      } else {
-        // Create new payment record
-        const { data, error } = await supabase
-          .from('payments')
-          .insert([{
-            family_id: family.id,
-            amount: depositAmount,
-            payment_method: 'ikhoka',
-            payment_status: 'pending'
-          }])
-          .select();
+      if (dbError || !newPayment) {
+        throw new Error(dbError?.message || "Failed to create payment record in database.");
+      }
+      
+      // 2. Call our backend API to create a Yoco checkout session
+      const response = await fetch('/api/yoco/create-checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: depositAmount,
+          paymentId: newPayment.id,
+          email: family.email,
+        }),
+      });
 
-        if (error) throw error;
-        setPayment(data[0]);
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to initiate Yoco payment');
       }
 
-      // Continue to payment
-      onContinueToPayment();
+      // 3. Redirect the user to the Yoco payment page
+      if (data.redirectUrl) {
+        window.location.href = data.redirectUrl;
+      } else {
+        throw new Error("No redirectUrl received from Yoco.");
+      }
 
     } catch (error) {
-      console.error('Error setting up payment:', error);
-      alert('Fout met betaling opset. Probeer weer.');
-    } finally {
-      setCalculating(false);
+      console.error('Error handling payment:', error);
+      alert('Fout met die opstel van betaling. Probeer asseblief weer.');
+      setIsSubmitting(false);
     }
   };
 
@@ -126,88 +125,40 @@ export default function PaymentStatus({
     );
   }
 
-  // As betaling reeds betaal is
   if (payment?.payment_status === 'paid') {
     return (
       <div className="max-w-2xl mx-auto text-center">
         <div className="bg-green-50 border border-green-200 rounded-lg p-8 mb-6">
           <div className="text-green-600 text-4xl mb-4">✓</div>
-          <h3 className="text-xl font-bold mb-2" style={{ color: '#3d251e' }}>
-            Betaling Bevestig!
-          </h3>
+          <h3 className="text-xl font-bold mb-2" style={{ color: '#3d251e' }}>Betaling Bevestig!</h3>
           <p style={{ color: '#5c4033' }} className="mb-4">
-            Jou deposito van R{(payment.paid_amount / 100).toFixed(2)} is suksesvol betaal.
+            Jou deposito van R{((payment.paid_amount || 0) / 100).toFixed(2)} is suksesvol betaal.
           </p>
           <p style={{ color: '#8b6c5c' }} className="text-sm">
             Betaal op: {new Date(payment.paid_at).toLocaleDateString('af-ZA')}
           </p>
         </div>
-
-        {/* AUTO-finaliseer - geen knoppie nodig nie */}
-        {(() => {
-          // Auto-finaliseer na 2 sekondes
-          setTimeout(() => {
-            onPaymentComplete();
-          }, 2000);
-          return (
-            <p style={{ color: '#8b6c5c' }} className="text-sm">
-              Finaliseer RSVP...
-            </p>
-          );
-        })()}
+        <p style={{ color: '#8b6c5c' }} className="text-sm">Finaliseer RSVP...</p>
       </div>
     );
   }
-
-  // As EFT betaling
-  if (payment?.payment_method === 'eft') {
-    return (
-      <div className="max-w-2xl mx-auto text-center">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 mb-6">
-          <h3 className="text-xl font-bold mb-4" style={{ color: '#3d251e' }}>
-            EFT Betaling
-          </h3>
-          <p style={{ color: '#5c4033' }} className="mb-4">
-            Jou betaling word as EFT hanteer. Jy kan ons kontak vir bank besonderhede.
-          </p>
-          <p style={{ color: '#8b6c5c' }} className="text-sm">
-            Deposito bedrag: R{(payment.amount / 100).toFixed(2)}
-          </p>
-        </div>
-
-        <div style={{ color: '#8b6c5c' }} className="text-sm mb-6">
-          * Jou RSVP sal eers gefinaliseer word nadat betaling ontvang is.
-        </div>
-      </div>
-    );
-  }
-
-  // Standaard - Kaart Betaling nodig
+  
   const depositAmount = calculateDeposit();
   const attendingAdults = session.guests.filter(g => g.is_attending && g.is_adult).length;
 
   return (
     <div className="max-w-2xl mx-auto text-center">
       <div className="bg-white border border-gray-200 rounded-lg p-8 mb-6">
-        <h3 className="text-xl font-bold mb-4" style={{ color: '#3d251e' }}>
-          Deposito Betaling
-        </h3>
-
+        <h3 className="text-xl font-bold mb-4" style={{ color: '#3d251e' }}>Deposito Betaling</h3>
         <div className="mb-6">
-          <p style={{ color: '#5c4033' }} className="mb-2">
-            Aantal volwassene gaste: <strong>{attendingAdults}</strong>
-          </p>
-          <p style={{ color: '#5c4033' }} className="mb-2">
-            Deposito per volwassene: <strong>R300</strong>
-          </p>
+          <p style={{ color: '#5c4033' }}>Aantal volwassene gaste: <strong>{attendingAdults}</strong></p>
+          <p style={{ color: '#5c4033' }}>Deposito per volwassene: <strong>R300</strong></p>
           <p style={{ color: '#3d251e' }} className="text-lg font-bold">
             Totaal Deposito: <strong>R{(depositAmount / 100).toFixed(2)}</strong>
           </p>
         </div>
-
         <div style={{ color: '#8b6c5c' }} className="text-sm mb-4">
-          * Hierdie deposito is om jou plek te bevestig en sal na die troue terugbetaal word
-          of as &apos;n geskenk aanvaar word.
+          * Hierdie deposito is om jou plek te bevestig en sal na die troue terugbetaal word of as &apos;n geskenk aanvaar word.
         </div>
       </div>
 
@@ -218,24 +169,15 @@ export default function PaymentStatus({
         >
           Terug
         </button>
-
         <button
-          onClick={handlePaymentSetup}
-          disabled={calculating || attendingAdults === 0}
+          onClick={handlePayment}
+          disabled={isSubmitting || attendingAdults === 0}
           className="px-8 py-3 rounded-lg font-medium text-white text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           style={{ backgroundColor: '#3d251e' }}
-          onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#5c4033'}
-          onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#3d251e'}
         >
-          {calculating ? 'Bereken...' : 'Gaan na Kaart Betaling'}
+          {isSubmitting ? 'Besig...' : 'Gaan na Kaart Betaling'}
         </button>
       </div>
-
-      {attendingAdults === 0 && (
-        <p style={{ color: '#8b6c5c' }} className="mt-4 text-sm">
-          Geen deposito nodig aangesien geen volwassene gaste gaan bywoon nie.
-        </p>
-      )}
     </div>
   );
 }
