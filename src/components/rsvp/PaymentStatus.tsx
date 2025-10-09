@@ -43,7 +43,7 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
         .single();
 
       if (error && error.code !== 'PGRST116') console.error('Error fetching payment:', error);
-      
+
       setPayment(paymentData);
       setLoading(false);
 
@@ -53,7 +53,7 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
     };
     checkPaymentStatus();
   }, [family.id, onPaymentComplete]);
-  
+
   // src/components/rsvp/PaymentStatus.tsx
 
   //... inside the PaymentStatus component
@@ -68,7 +68,6 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
     }
 
     try {
-      // 1. Create a "pending" payment record in our database to get a paymentId
       const { data: newPayment, error: dbError } = await supabase
         .from('payments')
         .insert([{
@@ -83,13 +82,10 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
       if (dbError || !newPayment) {
         throw new Error(dbError?.message || "Failed to create payment record in database.");
       }
-      
-      // 2. Call our backend API to create a Yoco checkout session
+
       const response = await fetch('/api/yoco/create-checkout', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           amount: depositAmount,
           paymentId: newPayment.id,
@@ -103,11 +99,14 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
         throw new Error(data.error || 'Failed to initiate Yoco payment');
       }
 
-      // 3. Redirect the user to the Yoco payment page
-      if (data.redirectUrl) {
-        window.location.href = data.redirectUrl;
+      const { redirectUrl, checkoutId } = data;
+
+      if (redirectUrl && checkoutId) {
+        // THE FIX: Store the checkoutId in sessionStorage before redirecting.
+        sessionStorage.setItem('yocoCheckoutId', checkoutId);
+        window.location.href = redirectUrl;
       } else {
-        throw new Error("No redirectUrl received from Yoco.");
+        throw new Error("Missing redirectUrl or checkoutId from server.");
       }
 
     } catch (error) {
@@ -142,7 +141,7 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
       </div>
     );
   }
-  
+
   const depositAmount = calculateDeposit();
   const attendingAdults = session.guests.filter(g => g.is_attending && g.is_adult).length;
 
