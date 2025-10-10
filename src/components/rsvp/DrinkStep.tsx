@@ -117,7 +117,7 @@ export default function DrinkStep({ session, onSessionUpdate, onBack, onCancelRS
                                 Gekose voorkeure ({guest.drinkPreferences.length}/4):
                             </p>
                             <p className="text-md mb-2" style={{ color: '#5c4033' }}>
-                                Om 'n keuse weg te vat druk op die gekose keuse 'n tweede keer, of druk op die kruisie:
+                                Om &apos;n keuse weg te vat druk op die gekose keuse &apos;n tweede keer, of druk op die kruisie:
                             </p>
                             <div className="flex flex-wrap gap-2">
                             {guest.drinkPreferences.map((drinkId, index) => {
