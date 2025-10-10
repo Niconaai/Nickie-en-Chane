@@ -6,7 +6,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { RSVPSessionData } from '@/types/rsvp-session';
 import { updateGuestDrinkPreferences, updateSessionStep } from '@/utils/rsvp-session';
-// Import the new search function alongside the existing ones.
 import { getDrinkById, DRINK_CATEGORIES, searchDrinksInCategory } from '@/data/drink-options';
 
 interface DrinkStepProps {
@@ -39,7 +38,7 @@ export default function DrinkStep({ session, onSessionUpdate, onBack, onCancelRS
     if (guest.drinkPreferences.includes(drinkId)) {
       newPreferences = guest.drinkPreferences.filter(id => id !== drinkId);
     } else {
-      if (guest.drinkPreferences.length >= 3) return; // Prevent adding more than 3
+      if (guest.drinkPreferences.length >= 4) return; // Prevent adding more than 3
       newPreferences = [...guest.drinkPreferences, drinkId];
     }
 
@@ -49,11 +48,11 @@ export default function DrinkStep({ session, onSessionUpdate, onBack, onCancelRS
 
   const handleContinue = () => {
     const guestsWithoutCompletePreferences = attendingAdultGuests.filter(
-      guest => guest.drinkPreferences.length < 3
+      guest => guest.drinkPreferences.length < 4
     );
 
     if (guestsWithoutCompletePreferences.length > 0) {
-      setMessage(`Kies asseblief 3 drank voorkeure vir: ${guestsWithoutCompletePreferences.map(g => g.name).join(', ')}`);
+      setMessage(`Kies asseblief 4 drank voorkeure vir: ${guestsWithoutCompletePreferences.map(g => g.name).join(', ')}`);
       return;
     }
 
@@ -88,11 +87,14 @@ export default function DrinkStep({ session, onSessionUpdate, onBack, onCancelRS
         <div className="max-w-4xl mx-auto">
             {/* ... (no changes to header or message blocks) ... */}
             <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold mb-2" style={{ color: '#3d251e' }}>
+                <h2 className="text-2xl font-bold mb-4" style={{ color: '#3d251e' }}>
                 Drank Voorkeure
                 </h2>
                 <p style={{ color: '#8b6c5c' }}>
-                Kies jou top 3 drank voorkeure (1ste, 2de, 3de keuse)
+                Kies jou top 4 drank voorkeure (1ste, 2de, 3de, 4de keuse)
+                </p>
+                <p style={{ color: '#8b6c5c' }}>
+                (hierdie keuses gaan ons help om beter voorbereid te wees)
                 </p>
             </div>
 
@@ -106,13 +108,16 @@ export default function DrinkStep({ session, onSessionUpdate, onBack, onCancelRS
                 {attendingAdultGuests.map((guest) => (
                     <div key={guest.id} className="bg-white rounded-lg border border-gray-200 p-6">
                         {/* ... (no changes to guest name, selected summary, or search input) ... */}
-                        <h3 className="text-lg font-medium" style={{ color: '#3d251e' }}>
+                        <h3 className="text-2xl font-medium mb-4" style={{ color: '#3d251e' }}>
                             {guest.name}
                         </h3>
                         
                         <div className="mb-4">
-                            <p className="text-sm mb-2" style={{ color: '#5c4033' }}>
-                                Gekose voorkeure ({guest.drinkPreferences.length}/3):
+                            <p className="text-md mb-2" style={{ color: '#5c4033' }}>
+                                Gekose voorkeure ({guest.drinkPreferences.length}/4):
+                            </p>
+                            <p className="text-md mb-2" style={{ color: '#5c4033' }}>
+                                Om 'n keuse weg te vat druk op die gekose keuse 'n tweede keer, of druk op die kruisie:
                             </p>
                             <div className="flex flex-wrap gap-2">
                             {guest.drinkPreferences.map((drinkId, index) => {
@@ -158,7 +163,7 @@ export default function DrinkStep({ session, onSessionUpdate, onBack, onCancelRS
                                     <h4 className="font-medium mb-3 text-lg" style={{ color: '#3d251e' }}>
                                     {category.name}
                                     </h4>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                                     {displayedDrinks.map((drink) => (
                                         // --- MODIFICATION 2 ---
                                         // We'll change the button to be a flex container
@@ -166,13 +171,13 @@ export default function DrinkStep({ session, onSessionUpdate, onBack, onCancelRS
                                         <button
                                             key={drink.id}
                                             onClick={() => handleDrinkSelection(guest.id, drink.id)}
-                                            disabled={guest.drinkPreferences.length >= 3 && !guest.drinkPreferences.includes(drink.id)}
+                                            disabled={guest.drinkPreferences.length >= 4 && !guest.drinkPreferences.includes(drink.id)}
                                             className={`rounded-lg border text-left transition-colors flex items-center p-2 space-x-3 ${
                                                 guest.drinkPreferences.includes(drink.id)
                                                 ? 'bg-green-50 border-green-300 text-green-800'
                                                 : 'bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100'
                                             } ${
-                                                guest.drinkPreferences.length >= 3 && !guest.drinkPreferences.includes(drink.id)
+                                                guest.drinkPreferences.length >= 4 && !guest.drinkPreferences.includes(drink.id)
                                                 ? 'opacity-50 cursor-not-allowed'
                                                 : ''
                                             }`}

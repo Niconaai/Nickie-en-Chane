@@ -459,24 +459,6 @@
     "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
   },
   {
-    "name": "BOS Peach Flavoured Ice Tea Can 200ml",
-    "price": "R12.99",
-    "volume": "200ml",
-    "department": "Beverages Juices & Cordials",
-    "category": "Soft Drinks",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2dbea5c5e4f0119bae5e8?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
-  },
-  {
-    "name": "BOS Berry Flavoured Ice Tea Can 300ml",
-    "price": "R18.99",
-    "volume": "300ml",
-    "department": "Beverages Juices & Cordials",
-    "category": "Soft Drinks",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/63d9780d5c5e4f0119b1d092?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
-  },
-  {
     "name": "Red Heart Original Rum Bottle 750ml",
     "price": "R239.99",
     "volume": "750ml",
@@ -495,39 +477,12 @@
     "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
   },
   {
-    "name": "BOS Berry Flavoured Ice Tea 200ml",
-    "price": "R12.99",
-    "volume": "200ml",
-    "department": "Beverages Juices & Cordials",
-    "category": "Soft Drinks",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2dc175c5e4f0119bae674?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
-  },
-  {
     "name": "Lipton Peach Flavoured Sugar Free Ice Tea 300ml",
     "price": "R14.99",
     "volume": "300ml",
     "department": "Beverages Juices & Cordials",
     "category": "Soft Drinks",
     "image_url": "https://catalog.sixty60.co.za/v2/files/67fd7d37d2ffd0a02a2ae257?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
-  },
-  {
-    "name": "BOS Tropical Flavoured Sparkling RooiBOS Ice Tea 300ml",
-    "price": "R18.99",
-    "volume": "300ml",
-    "department": "Beverages Juices & Cordials",
-    "category": "Soft Drinks",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/679a565a829c022b13fd0145?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
-  },
-  {
-    "name": "BOS Peach Flavoured Rooibos Ice Tea 300ml",
-    "price": "R18.99",
-    "volume": "300ml",
-    "department": "Beverages Juices & Cordials",
-    "category": "Soft Drinks",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/6771dbcdb918574f004ee633?width=320&height=320",
     "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
   },
   {
@@ -540,57 +495,12 @@
     "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
   },
   {
-    "name": "BOS Lemon Flavoured Sparkling RooiBOS Ice Tea 300ml",
-    "price": "R18.99",
-    "volume": "300ml",
-    "department": "Beverages Juices & Cordials",
-    "category": "Soft Drinks",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/673677859e2ebb29bfbb2ecd?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
-  },
-  {
-    "name": "BOS Lemon Flavoured Sugar Free Ice Tea Can 300ml",
-    "price": "R18.99",
-    "volume": "300ml",
-    "department": "Beverages Juices & Cordials",
-    "category": "Soft Drinks",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/68cc107ca06e27ee359818a1?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
-  },
-  {
-    "name": "BOS Strawberry Flavoured Sparkling RooiBOS Ice Tea 300ml",
-    "price": "R18.99",
-    "volume": "300ml",
-    "department": "Beverages Juices & Cordials",
-    "category": "Soft Drinks",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/679a5659e16b0881282395f6?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
-  },
-  {
     "name": "Lipton Peach Flavoured Ice Tea 300ml",
     "price": "R14.99",
     "volume": "300ml",
     "department": "Beverages Juices & Cordials",
     "category": "Soft Drinks",
     "image_url": "https://catalog.sixty60.co.za/v2/files/6893a84023811946ba8ebf3f?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
-  },
-  {
-    "name": "BOS Lime & Ginger Flavoured Ice Tea Can 300ml",
-    "price": "R18.99",
-    "volume": "300ml",
-    "department": "Beverages Juices & Cordials",
-    "category": "Soft Drinks",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/64c771865184fae71244742d?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
-  },
-  {
-    "name": "BOS Lemon Flavoured Ice Tea Can 300ml",
-    "price": "R18.99",
-    "volume": "300ml",
-    "department": "Beverages Juices & Cordials",
-    "category": "Soft Drinks",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/63d9780d16c7ec5903363a56?width=320&height=320",
     "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
   },
   {
@@ -756,15 +666,6 @@
     "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
   },
   {
-    "name": "Breezer Watermelon Flavoured Alcoholic Drink Bottle 275ml",
-    "price": "R22.99",
-    "volume": "275ml",
-    "department": "Beer and Cider",
-    "category": "Ciders",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/678aa6c673693c04bf74b845?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
-  },
-  {
     "name": "Black Crown Gin & Tonic Spirit Cooler Bottle 275ml",
     "price": "R21.99",
     "volume": "275ml",
@@ -843,24 +744,6 @@
     "department": "Beer and Cider",
     "category": "Ciders",
     "image_url": "https://catalog.sixty60.co.za/v2/files/63d23aaf5c5e4f0119aa5001?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
-  },
-  {
-    "name": "Breezer Blackberry Flavoured Cooler Bottle 275ml",
-    "price": "R22.99",
-    "volume": "275ml",
-    "department": "Beer and Cider",
-    "category": "Ciders",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/63f4b61643707cd2c1e8cad1?width=320&height=320",
-    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
-  },
-  {
-    "name": "Breezer Peach Flavour Spirit Cooler Bottle 275ml",
-    "price": "R22.99",
-    "volume": "275ml",
-    "department": "Beer and Cider",
-    "category": "Ciders",
-    "image_url": "https://catalog.sixty60.co.za/v2/files/64df551e60ee9b5a712516b6?width=320&height=320",
     "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
   },
   {
