@@ -98,7 +98,7 @@ export default function NotesStep({ session, onSessionUpdate, onBack, onCancelRS
                   style={{ color: '#3d251e' }}
                 />
                 <p className="text-xs" style={{ color: '#8b6c5c' }}>
-                  Laat weet ons van enige spesiale notas, allergieë, of as jou naam verkeerd gespel is.
+                  Laatweet ons van enige spesiale notas, allergieë, of as jou naam verkeerd gespel is.
                 </p>
               </div>
             </div>

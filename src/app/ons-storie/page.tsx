@@ -49,7 +49,7 @@ export default function OnsStorie() {
     {
       title: "Begin",
       icon: Icons.school,
-      content: "Ons pad het baie jare gelede by Hoërskool Brits begin, waar ons mekaar ontmoet het. Nickie was Chané se Matriek in 2015. Die liefde het wel eers baie later geblom.",
+      content: "Ons verhaal het baie jare gelede by Hoërskool Brits begin, toe ons paaie vir die eerste keer gekruis het. In 2015 was Nickie in Matriek en Chané in graad 8, maar dit was eers na skool wat die liefde begin blom het.",
       color: "bg-[#CBD0B5]",
       textColor: "text-[#656E5D]",
       photos: [
@@ -59,7 +59,7 @@ export default function OnsStorie() {
     {
       title: "Herontdekking",
       icon: Icons.message,
-      content: "In Januarie 2022 het Chané 'n Facebook boodskap gestuur. Die gesprek het vinnig gevloei en ons het besef dat daar iets spesiaals is.",
+      content: "In Januarie 2022 het Chané 'n Facebook boodskap aan Nickie gestuur. Die gesprek het vinnig gevloei en ons het besef dat daar iets spesiaals is.",
       color: "bg-[#97A887]",
       textColor: "text-white",
       photos: [
@@ -80,7 +80,7 @@ export default function OnsStorie() {
     {
       title: "Verlowing",
       icon: Icons.ring,
-      content: "Nickie, nie een vir groot romantiese gebare nie, het een aand impulsief uit die bloute gevra: 'Dit is tyd... Sal jy met my trou?' Geen kerslig, geen plan - net 'n opregte moment van liefde. Darem het hy al 'n ring gehad.",
+      content: "Nickie, nie een vir groot romantiese gebare nie, het een aand impulsief uit die bloute gevra: 'Dit is tyd... Sal jy met my trou?' Geen kerslig, geen plan - net 'n opregte oomblik van liefde. Die ring het toe reeds 'n gat in sy sak gebrand.",
       color: "bg-[#67472C]",
       textColor: "text-white",
       photos: [
@@ -91,7 +91,7 @@ export default function OnsStorie() {
     {
       title: "Vandag",
       icon: Icons.star,
-      content: "Vandag is ons twee individue met passies wat ons deel. Nickie, die tegnologie-liefhebber, en Chané, die onderwys-engel, verenig deur ons liefde vir die buitelug, hardloop, en mekaar.",
+      content: "Vandag deel ons, as twee unieke individue, die dinge waarvoor ons passievol is.",
       color: "bg-[#E8DBC5]",
       textColor: "text-[#67472C]",
       border: "border border-[#BB9F88]",
@@ -184,7 +184,7 @@ export default function OnsStorie() {
                 </div>
                 
                 <h3 className={` text-[#67472C] text-5xl md:text-5xl mb-3 ${brittany.className} `}>Chané</h3>
-                <h3 className="text-[#656E5D] text-xl md:text-xl">Onderwyser • Borrellend • Hardloop Maat</h3>
+                <h3 className="text-[#656E5D] text-xl md:text-xl">Onderwyser • Stralend • Energiek</h3>
               </div>
 
               <div className="bg-white rounded-lg p-8 shadow-lg p-6 text-center">
@@ -198,7 +198,7 @@ export default function OnsStorie() {
                   />
                 </div>
                 <h3 className={` text-[#67472C] text-5xl md:text-5xl mb-3 ${brittany.className} `}>Nickie</h3>
-                <h3 className="text-[#656E5D] text-xl md:text-xl">Sagteware Ingenieur • Padwedlope • Tegnologie</h3>
+                <h3 className="text-[#656E5D] text-xl md:text-xl">Sagteware Ingenieur • Buitelug • Talentvol</h3>
               </div>
 
 

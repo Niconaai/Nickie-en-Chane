@@ -232,7 +232,7 @@ export default function FamilyOverview({
           ) : (
             <>
               <p style={{ color: '#5c4033' }} className="mb-4">
-                Dankie dat jy gereageer het op ons uitnodiging.
+                Ons sien uit om die dag met julle te spandeer!
               </p>
               <div className="text-left bg-white p-4 rounded border mt-4">
                 <h4 className="font-medium mb-2" style={{ color: '#3d251e' }}>Jou RSVP Opsomming:</h4>
@@ -351,7 +351,7 @@ export default function FamilyOverview({
           Welkom, {family.family_name}!
         </h2>
         <p style={{ color: '#8b6c5c' }}>
-          Kies wie van julle gesin gaan by die troue bywoon
+          Dui aan wie die #thunderMerweFees gaan bywoon.
         </p>
       </div>
 
@@ -445,13 +445,13 @@ export default function FamilyOverview({
                     : 'bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100'
                     }`}
                 >
-                  Laat Terugbetaal
+                  Betaal terug
                 </button>
               </div>
               {session.depositOption && (
                 <p className="text-sm mt-2" style={{ color: '#8b6c5c' }}>
                   {session.depositOption === 'gift'
-                    ? 'Dankie! Die deposito sal as \'n addisionele geskenk aanvaar word.'
+                    ? 'Dankie! Die deposito sal as \'n geskenk aanvaar word.'
                     : 'Die deposito sal na die troue terugbetaal word.'
                   }
                 </p>

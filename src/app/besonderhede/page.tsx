@@ -48,8 +48,8 @@ export default function Besonderhede() {
           <div className="text-center bg-white rounded-lg shadow-lg p-6 ">
             <h2 className="text-3xl font-semibold text-[#99735A] mb-4">Seremonie</h2>
             <div className="space-y-3 text-[#656E5D] mb-4">
-              <p className="font-semibold mb-1">Datum: 28 Maart 2026</p>
-              <p className="font-semibold mb-1">Tyd: 15:00</p>
+              <p className="font-semibold mb-1">Saterdag, 28 Maart 2026</p>
+              <p className="font-semibold mb-1">om 18:00</p>
               <p className=" mb-1">NG Kerk Brits</p>
               <p className=" mb-1">H/V Kerk- en Reitz Straat</p>
               <p className=" mb-1">Brits, Noordwes</p>
@@ -71,8 +71,8 @@ export default function Besonderhede() {
           <div className="text-center bg-white rounded-lg shadow-lg p-6 ">
             <h2 className="text-3xl font-semibold text-[#99735A] mb-4">Onthaal</h2>
             <div className="space-y-3 text-[#656E5D] mb-4">
-              <p className="font-semibold mb-1">Datum: 28 Maart 2026</p>
-              <p className="font-semibold mb-1">Tyd: 18:00</p>
+              <p className="font-semibold mb-1">Saterdag, 28 Maart 2026</p>
+              <p className="font-semibold mb-1">om 18:00</p>
               <p className=" mb-1">KF49 Citrus Pakhuis</p>
               <p className=" mb-1">Kleinfontein</p>
               <p className=" mb-1">Brits, Noordwes</p>
@@ -94,12 +94,12 @@ export default function Besonderhede() {
         <div className="grid md:grid-cols-2 gap-8">
           <div style={{ marginTop: '40px' }}>
             {/* Other content */}
-            <WeatherForecast targetDate="2026-03-28T15:00:00"/>
+            <WeatherForecast targetDate="2026-03-28T15:00:00" />
           </div>
 
           <div style={{ marginTop: '40px' }}>
             {/* Other content */}
-            <WeatherForecast targetDate="2026-03-28T21:00:00"/>
+            <WeatherForecast targetDate="2026-03-28T21:00:00" />
           </div>
         </div>
 
@@ -146,10 +146,10 @@ export default function Besonderhede() {
           <div>
             <h2 className="text-3xl text-[#67472C] font-bold text-center mb-8">MOETS</h2>
             <div className="max-w-[90vw] md:max-w-[60vw] grid grid-cols-1 md:grid-cols-1 gap-6">
-              {[1, 2, 3].map((num) => (
+              {[1, 2, 3, 4].map((num) => (
                 <div key={num} className="rounded-2xl shadow-2xl border-4 border-white p-4 bg-white">
                   <Image
-                    src={`/besonderhede/Moets${num}.jpg`}
+                    src={`/besonderhede/moet-${num}.jpg`}
                     alt={`Moets ${num}`}
                     width={1400}
                     height={1000}
@@ -163,14 +163,18 @@ export default function Besonderhede() {
           {/* MOENIES Section */}
           <div>
             <h2 className="text-3xl font-bold text-[#67472C] text-center mb-8 line-through">MOENIES</h2>
-            <div className="rounded-2xl shadow-2xl border-4 border-white p-4 bg-white">
-              <Image
-                src="/besonderhede/Moenies.jpg"
-                alt="Moenies"
-                width={1400}
-                height={1000}
-                className="rounded-lg mx-auto w-full h-auto"
-              />
+            <div className="max-w-[90vw] md:max-w-[60vw] grid grid-cols-1 md:grid-cols-1 gap-6">
+              {[1, 2].map((num) => (
+                <div key={num} className="rounded-2xl shadow-2xl border-4 border-white p-4 bg-white">
+                  <Image
+                    src={`/besonderhede/moenie-${num}.jpg`}
+                    alt={`Moets ${num}`}
+                    width={1400}
+                    height={1000}
+                    className="max-w-[90vw] md:max-w-[60vw] rounded-lg mx-auto w-full h-auto"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

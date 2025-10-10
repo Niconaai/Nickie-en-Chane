@@ -10,15 +10,15 @@ export default function FAQ() {
     },
     {
       question: "Hoe werk die RSVP?",
-      answer: "Gebruik asseblief die RSVP portaal op hierdie webwerf om jou bespreking te maak voor 31 Januarie 2026. Jy moet ook asseblief die RSVP diens gebruik al kom jy nie. Per persoon gaan jy moet aandui of jy kom, tesame met jou liedjie(s)-versoeke, asook drank voorkeure. Voor jou RSVP kan finaliseer gaan jy 'n deposito per volwassene moet betaal."
+      answer: "Gebruik asseblief die RSVP portaal op hierdie webwerf om jou bespreking te maak voor 31 Januarie 2026. Jy moet ook asseblief die RSVP diens gebruik al kom jy nie. Per persoon gaan jy moet aandui of jy kom, tesame met jou liedjie-versoeke, asook drank voorkeure. Voor jou RSVP kan finaliseer gaan jy 'n deposito per volwassene moet betaal."
     },
     {
       question: "Wat is die Deposito?",
-      answer: "Ons vra vir elke volwasse gas om R300 te betaal as deposito om jou sitplek te bevestig. Jy kan op die RSVP portaal 'n veilige kaartbetaling maak. Jy kan ook aandui as jy na die troue die geld wil terughê, of jy kan dit vir die bruidspaar as geskenk los. As jy RSVP en aandui dat jy kom, maar jy daag nie op nie gaan jou deposito nie terugbetaalbaar wees nie."
+      answer: "Ons vra elke volwasse gas om ’n deposito van R300 te betaal om jou sitplek te bevestig. Jy kan die betaling veilig via die RSVP-portaal met ’n kaart doen. Jy kan ook aandui of jy die deposito ná die troue wil terugkry, of dit as 'n geskenk aan die bruidspaar wil gee. Let asseblief daarop: indien jy RSVP doen en aandui dat jy kom, maar nie opdaag nie, sal die deposito nie terugbetaal word nie."
     },
     {
       question: "Kan ek my kinders saambring?",
-      answer: "Jou uitnodiging en die RSVP portaal sal vir jou aandui of jou kinders deel vorm van jou uitnodiging."
+      answer: "Jou uitnodiging en die RSVP portaal sal vir jou aandui of jou kinders deel vorm van die uitnodiging."
     },
     {
       question: "Is daar parkering beskikbaar?",
@@ -29,12 +29,12 @@ export default function FAQ() {
       answer: "Ons seremonie en onthaal geskiet binnens-huis."
     },
     {
-      question: "Kan ek fotos neem tydens die seremonie?",
-      answer: "Ons nooi gaste om soveel fotos en videos te neem soos julle kan. Deel dit gerus op sosiale media."
+      question: "Kan ek foto's neem tydens die seremonie?",
+      answer: "Ons nooi gaste om soveel foto's en video's te neem soos julle kan. Deel dit gerus op sosiale media."
     },
     {
-      question: "Wat as ek alergieë het?",
-      answer: "Indien jy alergieë het, kontak vir Chané."
+      question: "Wat as ek allergieë het?",
+      answer: "Indien jy allergieë het, kontak vir Chané."
     },
     {
       question: "Is daar slaapplek by die onthaal?",
@@ -46,7 +46,7 @@ export default function FAQ() {
     },
     {
       question: "Mag ek my eie drank saambring?",
-      answer: "Alhoewel die onthaal op die plaas geskied, versoek ons tog van die gaste om nie jou eie drank tydens die onthaal te gebruik nie. Die bruidspaar gaan 'n kroeg bedryf met klein winsmarges - wat dan help om die troue te betaal."
+      answer: "Alhoewel die onthaal op die plaas geskied, versoek ons tog van die gaste om nie jou eie drank tydens die onthaal te gebruik nie. Daar sal 'n kontantkroeg beskikbaar wees."
     },
     {
       question: "Kan ek 'n metgesel saambring?",

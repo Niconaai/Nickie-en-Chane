@@ -18,9 +18,9 @@ export interface Guest {
   is_attending: boolean;
   dietary_requirements: string;
   meal_preference: string;
-  song_request: string; // ✅ NUUT
-  drink_preferences: string[]; // ✅ NUUT - JSON array van drink IDs
-  extra_notes: string; // ✅ NUUT
+  song_request: string; 
+  drink_preferences: string[]; 
+  extra_notes: string; 
   created_at: string;
 }
 
@@ -67,8 +67,6 @@ export interface Product {
   volume: string;
   department: string;
   category: string;
-  subcategory: string;
   image_url: string;
   source_url: string;
-  active: 'yes' | 'no';
 }
