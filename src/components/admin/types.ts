@@ -60,3 +60,15 @@ export interface GuestFormData {
 }
 
 export type ModalType = 'add-family' | 'edit-family' | 'edit-guest' | 'manage-payment';
+
+export interface Product {
+  name: string;
+  price: string;
+  volume: string;
+  department: string;
+  category: string;
+  subcategory: string;
+  image_url: string;
+  source_url: string;
+  active: 'yes' | 'no';
+}

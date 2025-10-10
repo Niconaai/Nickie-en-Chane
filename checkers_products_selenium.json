@@ -1,0 +1,1472 @@
+[
+  {
+    "name": "Grapetiser Red Sparkling Grape Juice 275ml",
+    "price": "R21.99",
+    "volume": "275ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d231f4f8e93eef657fb04f?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/bottles-3-670432427a8738098af92e24"
+  },
+  {
+    "name": "Savanna Non-Alcoholic Cider Bottle 330ml",
+    "price": "R24.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/673fb7ca1e6c1aa67db08fe9?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/bottles-3-670432427a8738098af92e24"
+  },
+  {
+    "name": "Castle Non-Alcoholic Beer Bottle 340ml",
+    "price": "R14.99",
+    "volume": "340ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e0f6b4f8e93eef658e8477?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/bottles-3-670432427a8738098af92e24"
+  },
+  {
+    "name": "Appletiser Sparkling Juice 275ml",
+    "price": "R21.99",
+    "volume": "275ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d2315e16c7ec59032ea0d1?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/bottles-3-670432427a8738098af92e24"
+  },
+  {
+    "name": "Heineken Non-Alcoholic Beer Bottle 330ml",
+    "price": "R17.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e0f6b15c5e4f0119b91150?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/bottles-3-670432427a8738098af92e24"
+  },
+  {
+    "name": "Fanta Orange Flavoured Sparkling Soft Drink Can 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/642d19bf3eb5241fe221bb63?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Cappy Orange Mango Soft Drink 330/300ml",
+    "price": "R17.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d231b7749cf491e8a145c6?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Cappy Breakfst Blend Soft Drink 330/300ml",
+    "price": "R17.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d2310916c7ec59032e9fb6?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Schweppes No Sugar Indian Tonic Water Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d97728f0cbac537c0f4b37?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Blueberry & Cardamom Flavoured Sparkling Tonic Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e0f034f8e93eef658e6850?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Sugar Free Indian Tonic Sparkling Flavoured Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2ca34749cf491e8b1e70c?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Appletiser Original Sparkling Juice 330/300ml",
+    "price": "R21.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/64a68de0c006650f8a9f06aa?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Liqui Fruit Berry Blaze 100% Fruit Juice Blend 300ml",
+    "price": "R15.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6759de908d6eec3fd560b5b2?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Pineapple Lemonade Sparkling Drink 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/672c49174f07afe2304f90b5?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Sparletta Sparberry Flavoured Soft Drink Can 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d2314a749cf491e8a1441d?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Grapefruit Flavoured Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63daba905c5e4f0119b2ff0b?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Schweppes Dry Lemon Soft Drink 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d977425c5e4f0119b1cf4a?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Schweppes Floral Pink Tonic Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d977395c5e4f0119b1cf21?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Liqui Fruit Cranberry Cooler 100% Fruit Juice Blend 300ml",
+    "price": "R15.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6759dea7ffa269e220aac91e?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Pink Tonic Flavoured Sparkling Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e0efc95c5e4f0119b8f42a?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Cappy Sparkling Passion Peach Juice Can 330ml",
+    "price": "R17.99",
+    "volume": "330ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d23184f0cbac537c07b8bd?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Cappy Still Tropical Flavoured Fruit Juice Can 330ml",
+    "price": "R17.99",
+    "volume": "330ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d231aef0cbac537c07b961?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Twist Granadilla Flavoured Soft Drink Can 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d23138f8e93eef657fad5b?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Lemonade Flavoured Sparkling Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63dabaa3f0cbac537c10786f?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Schweppes Soda Water Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d9773033aab7bced316eb5?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Coca-Cola Zero Sugar Soft Drink 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6792314078f816973666528b?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Liqui Fruit Orange 100% Fruit Juice Blend 300ml",
+    "price": "R15.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6759de9fffa269e220aac916?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Liqui Fruit Mango & Orange 100% Fruit Juice Blend 300ml",
+    "price": "R15.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6759dea3958b9be7e6e5ce3d?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Schweppes Grapefruit Flavoured Mixer 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/679bf73ce16b088128249f52?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Sprite Lemon-Lime Flavoured Sparkling Drink 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/66fd956011dc3df4ae404fa7?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Coca-Cola Original Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/669da8e1f2c0c11a5c49856b?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Grapetiser Red Grape Sparkling Juice 330/300ml",
+    "price": "R21.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d2312933aab7bced28e21f?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Indian Tonic Flavoured Sparkling Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2c9e8f0cbac537c185a4b?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Dry Lemon Sparkling Drink 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/67a23f1b81928c6e94206efe?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Ginger Ale Flavoured Sparkling Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2c9fdbb819c5947e1ad78?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Club Soda Flavoured Sparkling Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2c9ff5d93af89d04cb36e?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Sprite Zero Sugar Lemon-Lime Flavoured Drink 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/66fc38f009402a314d151c34?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Cheeky Cranberry Flavoured Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2e62ef8e93eef65905f93?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Liqui Fruit 100% Red Grape Juice 300ml",
+    "price": "R15.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6786822b2cbf7a7d9c13f578?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Sparletta Creme Soda Flavoured Low Kilojoule Soft Drink Can 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d2308ebb819c5947d1095e?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Fitch & Leedes Sugar Free Pink Tonic Rose & Cucumber Flavoured Sparkling Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e1028716c7ec59033dafb5?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Coca-Cola Zero No Sugar Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/669da90e01c9309cf4421c6a?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Schweppes Lemonade Flavoured Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d9774016c7ec5903363964?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Schweppes Indian Tonic Water Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d9771016c7ec5903363908?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Cappy Apple Soft Drink 330/300ml",
+    "price": "R17.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d23152749cf491e8a1443b?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Coca-Cola Original Soft Drink Can 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/68dc56b47e6bdd3282a5e80d?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Schweppes Dry Lemon Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d977415c5e4f0119b1cf3f?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Coca-Cola Zero Sugar Zero Caffeine Soft Drink 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6793904526247cd09ffcf264?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Liqui Fruit Breakfast Punch 100% Fruit Juice Blend 300ml",
+    "price": "R15.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6759de9b958b9be7e6e5ce34?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Schweppes Ginger Ale Low Kilojoule Soft Drink Can 200ml",
+    "price": "R11.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d97725f8e93eef658744cf?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "Stoney Ginger Beer Can 300ml",
+    "price": "R13.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "Cans",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d23106f8e93eef657fac8c?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/soft-drinks/cans-3-670432437a8738098af92e25"
+  },
+  {
+    "name": "BOS Peach Flavoured Ice Tea Can 200ml",
+    "price": "R12.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2dbea5c5e4f0119bae5e8?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "BOS Berry Flavoured Ice Tea Can 300ml",
+    "price": "R18.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d9780d5c5e4f0119b1d092?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "Red Heart Original Rum Bottle 750ml",
+    "price": "R239.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Rum",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/66fd5fe8c03a375540e8889e?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/rum-3-67075e10ff98781136400795"
+  },
+  {
+    "name": "Lipton Lemon Flavoured Ice Tea 300ml",
+    "price": "R14.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/679381f25a8feffc42896fb3?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "BOS Berry Flavoured Ice Tea 200ml",
+    "price": "R12.99",
+    "volume": "200ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2dc175c5e4f0119bae674?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "Lipton Peach Flavoured Sugar Free Ice Tea 300ml",
+    "price": "R14.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/67fd7d37d2ffd0a02a2ae257?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "BOS Tropical Flavoured Sparkling RooiBOS Ice Tea 300ml",
+    "price": "R18.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/679a565a829c022b13fd0145?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "BOS Peach Flavoured Rooibos Ice Tea 300ml",
+    "price": "R18.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6771dbcdb918574f004ee633?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "Lipton Lemon Flavoured Sugar Free Ice Tea 300ml",
+    "price": "R14.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/68e53cd56b5fbbecbb1ddbe4?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "BOS Lemon Flavoured Sparkling RooiBOS Ice Tea 300ml",
+    "price": "R18.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/673677859e2ebb29bfbb2ecd?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "BOS Lemon Flavoured Sugar Free Ice Tea Can 300ml",
+    "price": "R18.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/68cc107ca06e27ee359818a1?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "BOS Strawberry Flavoured Sparkling RooiBOS Ice Tea 300ml",
+    "price": "R18.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/679a5659e16b0881282395f6?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "Lipton Peach Flavoured Ice Tea 300ml",
+    "price": "R14.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6893a84023811946ba8ebf3f?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "BOS Lime & Ginger Flavoured Ice Tea Can 300ml",
+    "price": "R18.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/64c771865184fae71244742d?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "BOS Lemon Flavoured Ice Tea Can 300ml",
+    "price": "R18.99",
+    "volume": "300ml",
+    "department": "Coldrinks",
+    "category": "mix",
+    "subcategory": "mix",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d9780d16c7ec5903363a56?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/beverages-juices-and-cordials/ice-teas-and-ice-coffees-2-6704323f7a8738098af92e1c"
+  },
+  {
+    "name": "Windhoek Premium Draught Beer Bottle 440ml",
+    "price": "R23.99",
+    "volume": "440ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6893ac532252627d2678fce9?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Castle Lager Beer Bottle 330ml",
+    "price": "R15.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/67e420e2fe25dbfbe4b396ce?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Carling Black Label Beer Bottle 330ml",
+    "price": "R13.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d3a56f33aab7bced2b6623?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Stella Artois Pure Malt Lager Beer Bottle 330ml",
+    "price": "R14.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/678630669ece76ca3a981800?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Miller Genuine Draft Beer Bottle 330ml",
+    "price": "R19.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/67ad880acacae3dd688948c6?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Hansa Pilsener Beer Bottle 330ml",
+    "price": "R15.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/67ad8adad4cce7ef81e25baf?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Amstel Premium Lager Beer Bottle 330ml",
+    "price": "R18.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6893accc62bce99fecfa3db3?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Heineken Premium Lager Beer Bottle 330ml",
+    "price": "R21.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d3a56df8e93eef65813477?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Windhoek Premium Lager Beer Bottle 440ml",
+    "price": "R23.99",
+    "volume": "440ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6894cb3c2252627d2679c83c?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Amstel Lager Radler Beer With Lemon Juice Bottle 330ml",
+    "price": "R17.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2e021749cf491e8b1f09d?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Corona Extra Beer Bottle 355ml",
+    "price": "R21.99",
+    "volume": "355ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/66ad065bb063b52046e951b1?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Castle Lite Premium Beer Bottle 330ml",
+    "price": "R16.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/68d6841d106109bdd18e1e2c?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Tafel Finest Lager Beer Bottle 330ml",
+    "price": "R16.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e10246bb819c5947e00da1?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/beer-2-67075e16ff9878113640079b"
+  },
+  {
+    "name": "Flying Fish Pressed Lemon Flavoured Premium Beer Bottle 330ml",
+    "price": "R17.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/678936b273693c04bf73da83?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Savanna Light Premium Cider Bottle 330ml",
+    "price": "R24.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d2414116c7ec59032ebf4a?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Belgravia London Dry Gin & Pink Tonic Bottle 275ml",
+    "price": "R24.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d279c116c7ec59032f1ef2?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Breezer Blueberry Flavoured Spirit Cooler Bottle 275ml",
+    "price": "R22.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/64df55175a76114d186c4efa?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Hunter's Dry Cider Bottle 330ml",
+    "price": "R19.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6707f4e69c4eff3051bdd233?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Breezer Watermelon Flavoured Alcoholic Drink Bottle 275ml",
+    "price": "R22.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/678aa6c673693c04bf74b845?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Black Crown Gin & Tonic Spirit Cooler Bottle 275ml",
+    "price": "R21.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6793f8801a10e04e33f7f1c0?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Tipo Tinto Rum & Raspberry Spirit Cooler Bottle 275ml",
+    "price": "R27.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/679cc8cdaa2329effc056fda?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Belgravia London Dry Gin & Dark Cherry Spirit Cooler Bottle 275ml",
+    "price": "R24.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6527b99defc20f7fae611f17?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Caribbean Twist Tropical Punch Spirit Cooler Bottle 275ml",
+    "price": "R24.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d2298d33aab7bced28d3c9?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Savanna Angry Lemon Premium Cider Bottle 500ml",
+    "price": "R34.99",
+    "volume": "500ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d3a4bdf8e93eef6581329e?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Brutal Fruit Litchi Sèche Spritzer Bottle 275ml",
+    "price": "R17.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6749024661d67a7e215a1150?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Caribbean Twist Piña Colada Spirit Cooler Bottle 275ml",
+    "price": "R24.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d2299fbb819c5947d0fce2?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Caribbean Twist Pineapple Daiquiri Spirit Cooler Bottle 275ml",
+    "price": "R24.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/65683a82c41595ed6aed4cc8?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Savanna Dry Cider Bottle 330ml",
+    "price": "R24.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d23aaf5c5e4f0119aa5001?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Breezer Blackberry Flavoured Cooler Bottle 275ml",
+    "price": "R22.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63f4b61643707cd2c1e8cad1?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Breezer Peach Flavour Spirit Cooler Bottle 275ml",
+    "price": "R22.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/64df551e60ee9b5a712516b6?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Brutal Fruit Strawberry Rouge Spritzer Bottle 275ml",
+    "price": "R17.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6748db0e02b07f838b15c935?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Savanna Angry Lemon Cider Bottle 330ml",
+    "price": "R24.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/678aa64973693c04bf74b828?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Belgravia Special Edition Gin & Dry Lemon Bottle 275ml",
+    "price": "R24.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d279bf33aab7bced2a5e0a?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Belgravia London Dry Gin & Tonic Bottle 275ml",
+    "price": "R24.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d279c05c5e4f0119aabca0?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Hunter's Gold Cider Bottle 330ml",
+    "price": "R21.99",
+    "volume": "330ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/67084607c780f25bec7e8170?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Black Crown Gin & Dry Lemon with Marula Flavour Spirit Cooler Bottle 275ml",
+    "price": "R21.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/67990c62021fc7e334ff0ee0?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Extreme Apple Ale Bottle 275ml",
+    "price": "R24.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6786300c0da3760bb351ed2c?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Brutal Fruit Ruby Apple Spritzer Bottle 275ml",
+    "price": "R17.99",
+    "volume": "275ml",
+    "department": "Beer and Spirits",
+    "category": "bier",
+    "subcategory": "bier",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6748c9bfd4c75bbf850d5975?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/ciders-and-coolers-2-67075e17ff9878113640079c"
+  },
+  {
+    "name": "Southern Comfort Original Liqueur Bottle 750ml",
+    "price": "R189.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Liqueur",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/655c594c233bf07cdfda2d4a?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/liqueur-and-shooters/liqueur-3-67075e0cff9878113640078f"
+  },
+  {
+    "name": "Buffelsfontein Brandewyn Bottle 750ml",
+    "price": "R219.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Br&Y",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e0fea6f0cbac537c16b0ee?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/brandy-3-67075e0fff98781136400793"
+  },
+  {
+    "name": "Klipdrift Premium Brandy Bottle 750ml",
+    "price": "R249.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Br&Y",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d27d2af0cbac537c083c38?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/brandy-3-67075e0fff98781136400793"
+  },
+  {
+    "name": "Wellington VO Brandy Bottle 750ml",
+    "price": "R199.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Br&Y",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/66b39dd3084fcaaf5bb37ef1?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/brandy-3-67075e0fff98781136400793"
+  },
+  {
+    "name": "KWV 3 Year Old Brandy Bottle 750ml",
+    "price": "R179.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Br&Y",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/67863396ff83876b406b125b?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/brandy-3-67075e0fff98781136400793"
+  },
+  {
+    "name": "Richelieu International Premium Brandy Bottle 750ml",
+    "price": "R219.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Br&Y",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63dabab933aab7bced329c98?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/brandy-3-67075e0fff98781136400793"
+  },
+  {
+    "name": "Klipdrift Export Brandy Bottle 750ml",
+    "price": "R209.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Br&Y",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63da2fa7f0cbac537c0fc782?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/brandy-3-67075e0fff98781136400793"
+  },
+  {
+    "name": "Olof Bergh Solera Brandy Bottle 750ml",
+    "price": "R189.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Br&Y",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d365bd33aab7bced2af37a?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/brandy-3-67075e0fff98781136400793"
+  },
+  {
+    "name": "Cape To Rio Pure Cane Spirit Bottle 750ml",
+    "price": "R189.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Cane",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/656836bb4a1911e04aa13058?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/cane-3-67075e12ff98781136400797"
+  },
+  {
+    "name": "Belgravia Pink Gin Bottle 750ml",
+    "price": "R164.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Gin",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/66c35b07c3c60724083ac307?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/gin-3-67075e11ff98781136400796"
+  },
+  {
+    "name": "Belgravia Dark Cherry Flavoured Spirit Aperitif 750ml",
+    "price": "R164.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Gin",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6751b83dfdb3e34cb482cc78?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/gin-3-67075e11ff98781136400796"
+  },
+  {
+    "name": "Gordon's Pink Berry Spirit Aperitif Bottle 750ml",
+    "price": "R199.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Gin",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d1bb8a749cf491e8a0e40c?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/gin-3-67075e11ff98781136400796"
+  },
+  {
+    "name": "Gordon's London Dry Gin Bottle 750ml",
+    "price": "R189.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Gin",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/64f7382d1aac553d531f812e?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/gin-3-67075e11ff98781136400796"
+  },
+  {
+    "name": "Belgravia London Dry Gin Bottle 750ml",
+    "price": "R174.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Gin",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e4e41865ac9679241569dc?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/gin-3-67075e11ff98781136400796"
+  },
+  {
+    "name": "Belgravia Blackberry Gin Bottle 750ml",
+    "price": "R164.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Gin",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/66c35b0c8c2311fbac573d8c?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/gin-3-67075e11ff98781136400796"
+  },
+  {
+    "name": "Captain Morgan Black Jamaica Rum Bottle 750ml",
+    "price": "R239.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Rum",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6786305c9ece76ca3a9817ed?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/rum-3-67075e10ff98781136400795"
+  },
+  {
+    "name": "Captain Morgan Original Spiced Gold Spirit Aperitif Bottle 750ml",
+    "price": "R199.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Rum",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6786303c2cbf7a7d9c137f1a?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/rum-3-67075e10ff98781136400795"
+  },
+  {
+    "name": "Malibu Original Rum Liqueur Bottle 750ml",
+    "price": "R189.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Rum",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d1f14dbb819c5947d0b965?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/rum-3-67075e10ff98781136400795"
+  },
+  {
+    "name": "BACARDÍ Carta Blanca Superior Rum Bottle 750ml",
+    "price": "R229.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Rum",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e0f2ecbb819c5947dfcca1?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/rum-3-67075e10ff98781136400795"
+  },
+  {
+    "name": "El Jimador Blanco Tequila Bottle 750ml",
+    "price": "R399.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Tequila",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e0f7545d93af89d04ae591?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/tequila-3-67075e14ff98781136400799"
+  },
+  {
+    "name": "Jose Cuervo Tradicional Silver Tequila Bottle 750ml",
+    "price": "R449.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Tequila",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/646c882a65d3e19c177d75ac?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/tequila-3-67075e14ff98781136400799"
+  },
+  {
+    "name": "Olmeca Limited Edition Silver Tequila Bottle 750ml",
+    "price": "R329.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Tequila",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/6880e742900d06fbd3bcedb8?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/tequila-3-67075e14ff98781136400799"
+  },
+  {
+    "name": "Ponchos Coffee Tequila Bottle 750ml",
+    "price": "R329.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Tequila",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2a3c633aab7bced3a6a13?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/tequila-3-67075e14ff98781136400799"
+  },
+  {
+    "name": "Cactus Jack Bubblegum Tequila Bottle 750ml",
+    "price": "R209.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Tequila",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d1f0fd5c5e4f0119a9e943?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/tequila-3-67075e14ff98781136400799"
+  },
+  {
+    "name": "Cactus Jack Original Tequila Bottle 750ml",
+    "price": "R169.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Tequila",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e0fdac16c7ec59033d9a2a?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/tequila-3-67075e14ff98781136400799"
+  },
+  {
+    "name": "Olmeca Reposado Tequila Bottle 750ml",
+    "price": "R329.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Tequila",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e102e216c7ec59033db189?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/tequila-3-67075e14ff98781136400799"
+  },
+  {
+    "name": "El Jimador Tequila Reposado Bottle 750ml",
+    "price": "R399.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Tequila",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63e2ab1af8e93eef65904417?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/tequila-3-67075e14ff98781136400799"
+  },
+  {
+    "name": "Red Square Vodka Bottle 750ml",
+    "price": "R179.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Vodka",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/64479f5a91fee0180703e1a8?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/vodka-3-67075e13ff98781136400798"
+  },
+  {
+    "name": "SKYY Vodka Bottle 750ml",
+    "price": "R279.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Vodka",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63da3be8f0cbac537c0fdc9e?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/vodka-3-67075e13ff98781136400798"
+  },
+  {
+    "name": "Absolut Vodka Bottle 750ml",
+    "price": "R329.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Vodka",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/67862ffb25e7c4fbc57a3eb5?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/vodka-3-67075e13ff98781136400798"
+  },
+  {
+    "name": "Russian Bear Original Premium Vodka Bottle 750ml",
+    "price": "R179.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Vodka",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/689bd6efda47b4a220ab1d8c?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/vodka-3-67075e13ff98781136400798"
+  },
+  {
+    "name": "Johnnie Walker Black Label Blended Scotch Whisky Bottle 750ml",
+    "price": "R479.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/672de6c1a5e8fd0e0438a91d?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "VAT 69 Blended Scotch Whisky Bottle 750ml",
+    "price": "R209.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d21b12749cf491e8a11784?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "Jameson Irish Whiskey Bottle 750ml",
+    "price": "R369.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d228da16c7ec59032e8f6a?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "Ballantine's Finest Blended Scotch Whisky Bottle 750ml",
+    "price": "R279.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d21bb0749cf491e8a11a11?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "Black & White Blended Scotch Whisky Bottle 750ml",
+    "price": "R224.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d21afd749cf491e8a11745?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "Glenbrynth 3 Year Old Scotch Whisky Bottle 750ml",
+    "price": "R239.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/64f9ad3aa6e6d5bc45e21c04?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "Highland Reserve Blended Scotch Whisky Bottle 750ml",
+    "price": "R209.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d21b5233aab7bced28b7c8?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "Scottish Leader Original Scottish Blended Whisky Bottle 750ml",
+    "price": "R239.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/650036ac34ddd35cdacbf952?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "Firstwatch Imported Extra Fine Whisky 750ml",
+    "price": "R199.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/63d21bb3f0cbac537c078d05?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "J&B Blended Scotch Whisky Bottle 750ml",
+    "price": "R259.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/68663c36bd0d38ebb1b5c3a6?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "Bell's Extra Special Blended Scotch Whisky Bottle 750ml",
+    "price": "R279.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/686fedb7757b5f6bb65ec6a6?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  },
+  {
+    "name": "Jack Daniel's Old No. 7 Tennessee Whiskey Bottle 750ml",
+    "price": "R349.99",
+    "volume": "750ml",
+    "department": "Beer and Spirits",
+    "category": "spirits",
+    "subcategory": "Whisky",
+    "image_url": "https://catalog.sixty60.co.za/v2/files/67a0ec29cbca68edd19e4c9b?width=320&height=320",
+    "source_url": "https://www.checkers.co.za/department/wine-beers-and-spirits/spirits/whisky-3-67075e10ff98781136400794"
+  }
+]

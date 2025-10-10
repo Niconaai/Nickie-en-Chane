@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { supabase } from '../../lib/supabase';
 import FamilyModal from '../../components/admin/FamilyModal';
 import FamilyList from '../../components/admin/FamilyList';
@@ -524,6 +525,14 @@ export default function AdminPage() {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-[#3d251e]">Trou Admin Paneel</h1> {/* ✅ Verander teks kleur */}
           <div className="flex space-x-4">
+
+            <Link
+              href="/admin/liquor"
+              className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              Manage Liquor
+            </Link>
+
             <button
               onClick={openAddFamilyModal}
               className="bg-[#3d251e] text-white px-4 py-2 rounded-lg hover:bg-[#5c4033] transition-colors"> {/* ✅ Verander agtergrond kleur */}
