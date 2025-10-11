@@ -10,7 +10,7 @@ export function SuccessClient() {
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    // THE FIX: Retrieve the checkoutId from sessionStorage.
+    // Retrieve the checkoutId from sessionStorage.
     const checkoutId = sessionStorage.getItem('yocoCheckoutId');
 
     if (!checkoutId) {

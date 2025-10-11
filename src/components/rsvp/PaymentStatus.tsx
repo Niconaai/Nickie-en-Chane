@@ -54,10 +54,6 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
     checkPaymentStatus();
   }, [family.id, onPaymentComplete]);
 
-  // src/components/rsvp/PaymentStatus.tsx
-
-  //... inside the PaymentStatus component
-
   const handlePayment = async () => {
     setIsSubmitting(true);
     const depositAmount = calculateDeposit(); // This is in cents
@@ -102,7 +98,7 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
       const { redirectUrl, checkoutId } = data;
 
       if (redirectUrl && checkoutId) {
-        // THE FIX: Store the checkoutId in sessionStorage before redirecting.
+        // Store the checkoutId in sessionStorage before redirecting.
         sessionStorage.setItem('yocoCheckoutId', checkoutId);
         window.location.href = redirectUrl;
       } else {

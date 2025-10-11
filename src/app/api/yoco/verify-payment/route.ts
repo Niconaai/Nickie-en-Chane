@@ -33,10 +33,20 @@ export async function POST(request: NextRequest) {
     const paymentId = data.metadata.paymentId;
     const status = data.state || data.status;
 
-    // THE FIX: Add 'completed' to the list of successful statuses.
     if (status === 'successful' || status === 'succeeded' || status === 'completed') {
       if (!paymentId) {
         throw new Error("Payment ID not found in Yoco metadata.");
+      }
+
+      const { data: existingPayment } = await supabase
+        .from('payments')
+        .select('payment_status')
+        .eq('id', paymentId)
+        .single();
+
+      if (existingPayment && existingPayment.payment_status === 'paid') {
+        console.log(`Client-side verification for payment ${paymentId} confirmed status is already 'paid'.`);
+        return NextResponse.json({ success: true, status: 'paid' });
       }
 
       const { error: dbError } = await supabase
