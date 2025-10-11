@@ -17,6 +17,18 @@ interface FamilyModalProps {
   onDeleteGuest?: () => void;
 }
 
+export function generateAlphanumericCode(length: number): string {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let result = '';
+  const charactersLength = characters.length;
+
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+
+  return result;
+}
+
 export default function FamilyModal({
   isOpen,
   modalType,
@@ -31,6 +43,8 @@ export default function FamilyModal({
   onDeleteGuest
 }: FamilyModalProps) {
   if (!isOpen) return null;
+
+  const invite = generateAlphanumericCode(5);
 
   const isFamilyModal = modalType.includes('family');
   const isEdit = modalType.includes('edit');
@@ -67,8 +81,8 @@ export default function FamilyModal({
                     Uitnodigingskode
                   </label>
                   <input
-                    type="text"
-                    value={familyForm.invite_code}
+                    type="text disabled"
+                    value={familyForm.invite_code || invite}
                     onChange={(e) => onFamilyFormChange('invite_code', e.target.value)}
                     className="w-full p-2 border border-gray-300 rounded text-gray-900"
                     required
@@ -88,35 +102,7 @@ export default function FamilyModal({
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Volwassenes
-                    </label>
-                    <input
-                      type="number"
-                      value={familyForm.total_adults}
-                      onChange={(e) => onFamilyFormChange('total_adults', parseInt(e.target.value) || 0)}
-                      className="w-full p-2 border border-gray-300 rounded text-gray-900"
-                      min="0"
-                      required
-                    />
-                  </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Kinders
-                    </label>
-                    <input
-                      type="number"
-                      value={familyForm.total_children}
-                      onChange={(e) => onFamilyFormChange('total_children', parseInt(e.target.value) || 0)}
-                      className="w-full p-2 border border-gray-300 rounded text-gray-900"
-                      min="0"
-                      required
-                    />
-                  </div>
-                </div>
 
                 {isEdit && (
                   <div>
@@ -227,7 +213,7 @@ export default function FamilyModal({
                     ))}
                   </div>
                   <p className="text-xs text-gray-500 mt-1">
-                    Gekose: {guestForm.drink_preferences?.length || 0}/3
+                    Gekose: {guestForm.drink_preferences?.length || 0}/4
                     {!guestForm.is_attending && ' (Slegs beskikbaar vir bywonende gaste)'}
                   </p>
                 </div>

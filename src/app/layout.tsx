@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, createContext, useContext, useEffect } from 'react'
 import { brittany, crimson } from '../lib/fonts'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 
 // Create context for menu state
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -252,6 +253,8 @@ export default function RootLayout({
               </div>
             </div>
           </footer>
+          <Analytics />
+          <SpeedInsights />
         </body>
       </MenuContext.Provider>
     </html>
