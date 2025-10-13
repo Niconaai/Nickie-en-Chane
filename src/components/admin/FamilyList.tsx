@@ -286,7 +286,7 @@ export default function FamilyList({
                     <div className="flex space-x-2">
                       <button
                         onClick={() => {
-                          const message = `Hallo ${family.family_name}!\n\nOns bring goeie nuus! \n\n'n Epos met julle amptelike uitnodiging en RSVP details was gestuur na: ${family.email}. \nJulle unieke uitnodigings kode is ${family.invite_code}. \n\nBesoek ook solank ons trou-webtuiste: https://www.thundermerwefees.co.za/\nGaan loer asseblief in jou inbox (en spam folder miskien!).\n\nOns sien uit om die #thunderMerweFees met julle te deel. \n\nGroete,\nChané en Nickie`;
+                          const message = `Hallo ${family.family_name}!\n\nOns bring goeie nuus! \n\n'n Epos met julle amptelike uitnodiging en RSVP besonderhede was gestuur na: ${family.email}. \nJulle unieke uitnodigings kode is ${family.invite_code}. \n\nBesoek ook solank ons trou-webtuiste: https://www.thundermerwefees.co.za/\nGaan loer asseblief in jou inbox (of miskien Gemorspos).\n\nOns sien uit om die #thunderMerweFees met julle te deel. \n\nGroete,\nChané en Nickie`;
                           navigator.clipboard.writeText(message);
                           //alert('WhatsApp message copied to clipboard!');
                         }}
