@@ -23,7 +23,7 @@ export async function POST(request: Request) {
         family_name,
         invite_code,
         invite_sent,
-        guests ( name )
+        guests ( name, is_adult )
       `)
             .eq('id', familyId)
             .single();
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ message: `Invite already sent to ${family.email}. No new email was sent.` });
         }
 
-        const guestListHtml = family.guests.map((guest: { name: string }) => `<li>${guest.name}</li>`).join('');
+        const guestListHtml = family.guests.map((guest: { name: string, is_adult: boolean }) => `<li>${guest.name}${!guest.is_adult ? ' (kind)' : ''}</li>`).join('');
 
         // Send the email using Resend.
         const { data, error: emailError } = await resend.emails.send({
@@ -45,24 +45,27 @@ export async function POST(request: Request) {
             subject: `Uitnodiging na die #thunderMerweFees!`,
             html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; color: #333;">
-            <img 
-                src="https://www.thundermerwefees.co.za/hoof-foto2.jpg" 
-                alt="Nickie and Chané" 
+          <h2>Hallo ${family.family_name},</h2>
+          <p>Hiermee volg dan die amptelike uitnodiging na ons troue!</p>
+          <p></p>
+
+          <img 
+                src="https://www.thundermerwefees.co.za/uitnodiging.jpg" 
+                alt="thunderMerweFees" 
                 style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px;" 
             />
 
-          <h2>Hallo ${family.family_name},</h2>
-          <p>Hiermee volg dan die amptelike uitnodiging na ons troue! Maak gerus die aangehegte foto oop.</p>
-          <p></p>
           <p>Die volgende persone vorm deel van jou uitnodiging:</p>
           <ul>${guestListHtml}</ul>
-          <p>Die trou-webtuiste vir die #thunderMerweFees is nou lewendig! </p>
-          <p>Druk op die knoppie hieronder:</p>
+          <p>Die trou-webtuiste vir die #thunderMerweFees is nou lewendig. </p>
+          <p>Druk op die knoppie hieronder en gaan deur die bladsye. Al die inligting is daarop saamgevat:</p>
+          <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
           <a href="https://www.thundermerwefees.co.za/" style="display: inline-block; background-color: #3d251e; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px;">
             #thunderMerweFees Webtuiste
           </a>
-          <p>Ons vra dat jy asseblief so gou as moontlik die trou-webtuiste sal besoek vir al die inligting en vrae wat julle oor ons groot dag mag hê.</p>
-          <p>Om die RSVP sisteem te gebruik, besoek ons webtuiste, en gebruik die epos en uitnodigingskode soos hieronder om op die RSVP portaal in te teken.</p>
+          </div>
+          <p>Ons vra dat jy asseblief so gou as moontlik die trou-webtuiste sal besoek, en dan voor 28 Februarie 2026 sal RSVP.</p>
+          <p>Om die RSVP sisteem te gebruik, besoek die webtuiste, en gebruik die epos en uitnodigingskode soos hieronder om op die RSVP portaal in te teken.</p>
           <div style="background-color: #f2f2f2; padding: 15px; border-radius: 8px; text-align: center; margin: 20px 0;">
             <p style="font-size: 24px; font-weight: bold; letter-spacing: 3px; margin: 0;">Uitnodigins Epos: ${family.email}</p>
           </div>
