@@ -27,8 +27,8 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const calculateDeposit = () => {
-    const attendingAdults = session.guests.filter(g => g.is_attending && g.is_adult).length;
-    return attendingAdults * 30000; // R300 in cents
+    //const attendingAdults = session.guests.filter(g => g.is_attending && g.is_adult).length;
+    return 200;//attendingAdults * 30000; // R300 in cents
   };
 
   useEffect(() => {
