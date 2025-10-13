@@ -44,7 +44,7 @@ export default function FamilyModal({
 }: FamilyModalProps) {
   if (!isOpen) return null;
 
-  const invite = generateAlphanumericCode(5);
+  //const invite = generateAlphanumericCode(5);
 
   const isFamilyModal = modalType.includes('family');
   const isEdit = modalType.includes('edit');
@@ -82,7 +82,7 @@ export default function FamilyModal({
                   </label>
                   <input
                     type="text disabled"
-                    value={familyForm.invite_code || invite}
+                    value={familyForm.invite_code}
                     onChange={(e) => onFamilyFormChange('invite_code', e.target.value)}
                     className="w-full p-2 border border-gray-300 rounded text-gray-900"
                     required

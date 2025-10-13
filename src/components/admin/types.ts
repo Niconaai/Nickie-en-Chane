@@ -8,6 +8,7 @@ export interface Family {
   total_children: number;
   created_at: string;
   deposit_option?: 'gift' | 'refund';
+  invite_sent?: boolean; // Add this new optional property
 }
 
 export interface Guest {
@@ -28,7 +29,7 @@ export interface Payment {
   id: string;
   family_id: string;
   amount: number;
-  payment_method: 'ikhoka' | 'eft';
+  payment_method: 'yoco' | 'eft';
   payment_status: 'pending' | 'paid' | 'failed';
   paid_amount?: number;
   paid_at?: string;

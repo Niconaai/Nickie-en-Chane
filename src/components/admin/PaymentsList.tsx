@@ -43,7 +43,7 @@ export default function PaymentsList({ payments, families, onUpdatePayment }: Pa
   };
 
   const handleChangeMethod = async (payment: Payment) => {
-    const newMethod = payment.payment_method === 'ikhoka' ? 'eft' : 'ikhoka';
+    const newMethod = payment.payment_method === 'yoco' ? 'eft' : 'yoco';
     onUpdatePayment(payment.id, { payment_method: newMethod });
   };
 

@@ -14,7 +14,15 @@ export default function FAQ() {
     },
     {
       question: "Wat is die Deposito?",
-      answer: "Ons vra elke volwasse gas om ’n deposito van R300 te betaal om jou sitplek te bevestig. Jy kan die betaling veilig via die RSVP-portaal met ’n kaart doen. Jy kan ook aandui of jy die deposito ná die troue wil terugkry, of dit as 'n geskenk aan die bruidspaar wil gee. Let asseblief daarop: indien jy RSVP doen en aandui dat jy kom, maar nie opdaag nie, sal die deposito nie terugbetaal word nie."
+      answer: "Ons vra elke volwasse gas om 'n deposito van R300 te betaal om jou sitplek te bevestig. Jy kan die betaling veilig via die RSVP-portaal doen. Jy kan ook aandui of jy die deposito ná die troue wil terugkry, of dit as 'n geskenk aan die bruidspaar wil gee. Let asseblief daarop: indien jy RSVP doen en aandui dat jy kom, maar nie opdaag nie, sal die deposito nie terugbetaal word nie."
+    },
+    {
+      question: "Is dit veilig om die betaling op die webtuiste te doen?",
+      answer: "Ja, dit is veilig. Die betaling gebeur deur die YOCO platform wat ten volle veilig is. Dit gee jou die opsie om met óf Apple Pay, óf Google Pay, óf krediet/debiet kaart te betaal."
+    },
+    {
+      question: "Is daar 'n ander manier om die deposito te betaal?",
+      answer: "Ja, jy kan gerus 'n elektroniese oorbetaling doen. Bankbesonderhede:\nNJ VAN DER MERWE\nCapitec Savings Account\nRekening no: 1401663581\nVerwysing: *JOU NAAM EN VAN*."
     },
     {
       question: "Kan ek my kinders saambring?",
@@ -26,11 +34,11 @@ export default function FAQ() {
     },
     {
       question: "Wat is die plan vir die weer?",
-      answer: "Ons seremonie en onthaal geskiet binnens-huis."
+      answer: "Ons seremonie en onthaal geskiet binnens-huis. Loer gerus op die Besonderhede bladsy na die weervoorspelling."
     },
     {
       question: "Kan ek foto's neem tydens die seremonie?",
-      answer: "Ons nooi gaste om soveel foto's en video's te neem soos julle kan. Deel dit gerus op sosiale media."
+      answer: "Ons nooi gaste om soveel foto's en video's te neem soos julle kan. Daar sal 'n Google Drive-link nader aan die tyd beskikbaar gemaak word waar jy alles kan oplaai."
     },
     {
       question: "Wat as ek allergieë het?",
@@ -79,7 +87,11 @@ export default function FAQ() {
                   </div>
                 </summary>
                 <div className="px-6 py-4 bg-white border-t border-[#BB9F88]">
-                  <p className="md:text-2xl text-xl text-[#656E5D] leading-relaxed">{faq.answer}</p>
+                  {faq.answer.split('\n').map((line, i) => (
+                    <p key={i} className="md:text-2xl text-xl text-[#656E5D] leading-relaxed mb-0 last:mb-0">
+                      {line}
+                    </p>
+                  ))}
                 </div>
               </details>
             </div>
