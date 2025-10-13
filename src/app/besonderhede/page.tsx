@@ -49,7 +49,7 @@ export default function Besonderhede() {
             <h2 className="text-3xl font-semibold text-[#99735A] mb-4">Seremonie</h2>
             <div className="space-y-3 text-[#656E5D] mb-4">
               <p className="font-semibold mb-1">Saterdag, 28 Maart 2026</p>
-              <p className="font-semibold mb-1">om 18:00</p>
+              <p className="font-semibold mb-1">om 15:00</p>
               <p className=" mb-1">NG Kerk Brits</p>
               <p className=" mb-1">H/V Kerk- en Reitz Straat</p>
               <p className=" mb-1">Brits, Noordwes</p>
