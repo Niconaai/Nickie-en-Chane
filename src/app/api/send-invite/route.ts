@@ -67,10 +67,10 @@ export async function POST(request: Request) {
           <p>Ons vra dat jy asseblief so gou as moontlik die trou-webtuiste sal besoek, en dan voor 28 Februarie 2026 sal RSVP.</p>
           <p>Om die RSVP sisteem te gebruik, besoek die webtuiste, en gebruik die epos en uitnodigingskode soos hieronder om op die RSVP portaal in te teken.</p>
           <div style="background-color: #f2f2f2; padding: 15px; border-radius: 8px; text-align: center; margin: 20px 0;">
-            <p style="font-size: 24px; font-weight: bold; letter-spacing: 3px; margin: 0;">Uitnodigins Epos: ${family.email}</p>
+            <p style="font-size: 18px; font-weight: bold; letter-spacing: 3px; margin: 0;">Uitnodigins-epos: ${family.email}</p>
           </div>
           <div style="background-color: #f2f2f2; padding: 15px; border-radius: 8px; text-align: center; margin: 20px 0;">
-            <p style="font-size: 24px; font-weight: bold; letter-spacing: 3px; margin: 0;">Uitnodigins Kode: ${family.invite_code}</p>
+            <p style="font-size: 18px; font-weight: bold; letter-spacing: 3px; margin: 0;">Uitnodiginskode: ${family.invite_code}</p>
           </div>
           <p style="margin-top: 20px;">Ons kan nie wag om die groot dag met julle te vier nie!</p>
           <p>Met baie liefde en vreugde,<br>Chané & Nickie</p>
