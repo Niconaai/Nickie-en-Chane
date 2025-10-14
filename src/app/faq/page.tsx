@@ -64,7 +64,7 @@ Dit is noodsaaklik om die korrekte verwysing te gebruik om te verseker dat u bet
     },
     {
       question: "Wat as ek allergieë het?",
-      answer: "Indien u enige dieetvereistes of ernstige allergieë het, geliewe dit asseblief duidelik aan te dui in die toegewysde spasie wanneer u die RSVP-proses voltooi. Vir enige spesifieke of dringende navrae in hierdie verband, kan u Chané direk kontak by [telefoonnommer of e-posadres]. Dit is noodsaaklik dat ons hierdie inligting voor die RSVP-sperdatum ontvang om die nodige spysenieringsreëlings te tref."
+      answer: "Indien u enige dieetvereistes of ernstige allergieë het, geliewe dit asseblief duidelik aan te dui in die toegewysde spasie wanneer u die RSVP-proses voltooi. Vir enige spesifieke of dringende navrae in hierdie verband, kan u Chané direk kontak. Dit is noodsaaklik dat ons hierdie inligting voor die RSVP-sperdatum ontvang om die nodige spysenieringsreëlings te tref."
     },
     {
       question: "Is daar slaapplek by die onthaal?",
