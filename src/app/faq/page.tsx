@@ -6,47 +6,71 @@ export default function FAQ() {
   const faqs = [
     {
       question: "Wat is die kleredrag-kode?",
-      answer: "Streng formeel. Dames, ons vra dat julle asseblief GEEN wit of swart rokke sal dra nie. Ons versoek van die dames om 'n formele rok, of kleredrag aan te trek - GEEN cocktail rokke nie asseblief. Mans, ons vra dat julle asseblief GEEN jeans of kortmou-hemde sal dra nie. Ons versoek al die mans om 'n langmou-hemp en 'n das te dra. Jy is welkom om 'n pak-baadjie ook aan te trek, maar dit is opsioneel. Sien die Besonderhede bladsy vir riglyne met prentjies."
+      answer: `Ter handhawing van die formaliteit van die geleentheid, word gaste beleefd versoek om by die volgende voorskrifte te hou:
+
+Dames:
+Daar word versoek dat dames uitrustings in wit of swart vermy. 'n Formele, vollengte aandrok of ekwivalente formele drag word vereis. Skemerkelkdrag (cocktail) word as onvanpas beskou.
+
+Mans:
+Die voorgeskrewe drag vir here is 'n langmouhemp en 'n das. Gaste word versoek om nie in denim of kortmouhemde geklee te wees nie. Alhoewel 'n pakbaadjie nie verpligtend is nie, word dit aangemoedig.
+
+Visuele riglyne word op die "Besonderhede"-bladsy aangebied.`
     },
     {
       question: "Hoe werk die RSVP?",
-      answer: "Gebruik asseblief die RSVP portaal op hierdie webwerf om jou bespreking te maak voor 28 Februarie 2026. Jy moet ook asseblief die RSVP diens gebruik al kom jy nie. Per persoon gaan jy moet aandui of jy kom, tesame met jou liedjie-versoeke, asook drank voorkeure. Voor jou RSVP kan finaliseer gaan jy 'n deposito per volwassene moet betaal."
+      answer: `Ons versoek u vriendelik om u bywoning voor of op 28 Februarie 2026 te bevestig deur die RSVP-portaal op hierdie webtuiste te gebruik. Hierdie proses is ook nodig indien u die uitnodiging nie kan aanvaar nie.
+
+Gedurende die bevestigingsproses sal u die geleentheid hê om u liedjieversoeke en drankvoorkeure per gas aan te dui.
+
+Neem asseblief kennis dat u RSVP gefinaliseer word met die betaling van die vereiste deposito per volwassene.`
     },
     {
       question: "Wat is die Deposito?",
-      answer: "Ons vra elke volwasse gas om 'n deposito van R300 te betaal om jou sitplek te bevestig. Jy kan die betaling veilig via die RSVP-portaal doen. Jy kan ook aandui of jy die deposito ná die troue wil terugkry, of dit as 'n geskenk aan die bruidspaar wil gee. Let asseblief daarop: indien jy RSVP doen en aandui dat jy kom, maar nie opdaag nie, sal die deposito nie terugbetaal word nie."
+      answer: `'n Deposito van R300 per volwasse gas word vereis om u bespreking te finaliseer. Die betaling kan veilig deur die RSVP-portaal gemaak word.
+
+Gaste het die keuse om aan te dui of die deposito na afloop van die geleentheid terugbetaal moet word, en of dit as 'n bydrae tot die bruidspaar se geskenk aangewend kan word.
+
+Neem asseblief kennis dat die deposito verbeur sal word indien 'n gas, ná bevestiging van bywoning, die geleentheid nie bywoon nie.`
     },
     {
       question: "Is dit veilig om die betaling op die webtuiste te doen?",
-      answer: "Ja, dit is veilig. Die betaling gebeur deur die YOCO platform wat ten volle veilig is. Dit gee jou die opsie om met óf Apple Pay, óf Google Pay, óf krediet/debiet kaart te betaal."
+      answer: `Ja, alle transaksies word deur Yoco, 'n gesertifiseerde en veilige betalingsplatform, hanteer. U kan met gemoedsrus betaal deur van die volgende metodes gebruik te maak: Apple Pay, Google Pay, of 'n krediet- en debietkaart.`
     },
     {
       question: "Is daar 'n ander manier om die deposito te betaal?",
-      answer: "Ja, jy kan gerus 'n elektroniese oorbetaling doen. Bankbesonderhede:\nNJ VAN DER MERWE\nCapitec Savings Account\nRekening no: 1401663581\nVerwysing: *JOU NAAM EN VAN*."
+      answer: `Ja, 'n elektroniese fondsoorplasing (EFT) word ook aanvaar. Gebruik asseblief die volgende bankbesonderhede vir die oorbetaling:\n\n
+Bank: Capitec
+Rekeninghouer: NJ VAN DER MERWE
+Rekeningtipe: Spaar (Savings)
+Rekeningnommer: 1401663581
+Verwysing: U volle naam en van
+Dit is noodsaaklik om die korrekte verwysing te gebruik om te verseker dat u betaling korrek toegewys word.`
     },
     {
       question: "Kan ek my kinders saambring?",
-      answer: "Jou uitnodiging en die RSVP portaal sal vir jou aandui of jou kinders deel vorm van die uitnodiging."
+      answer: "Die uitnodiging is van toepassing op die gaste wie se name spesifiek op u uitnodigingskaart en in die RSVP-portaal gelys word. Slegs die name soos aangedui, is vir die geleentheid op die gastelys voorsien."
     },
     {
       question: "Is daar parkering beskikbaar?",
-      answer: "Ja, daar is genoeg parkering by die kerk en die onthaal."
+      answer: "Ja, voldoende en veilige parkering is by beide die seremonie- en onthaal-venues beskikbaar vir alle gaste."
     },
     {
-      question: "Wat is die plan vir die weer?",
-      answer: "Ons seremonie en onthaal geskiet binnens-huis. Loer gerus op die Besonderhede bladsy na die weervoorspelling."
+      question: "Gaan die weer 'n invloed hê?",
+      answer: "Beide die seremonie en die onthaal word binnenshuis gehou, dus is die verrigtinge nie van die weer afhanklik nie. Vir u persoonlike beplanning kan u die weervoorspelling op die 'Besonderhede'-bladsy raadpleeg."
     },
     {
       question: "Kan ek foto's neem tydens die seremonie?",
-      answer: "Ons nooi gaste om soveel foto's en video's te neem soos julle kan. Daar sal 'n Google Drive-link nader aan die tyd beskikbaar gemaak word waar jy alles kan oplaai."
+      answer: "Ja, gaste word aangemoedig om foto's en video's te neem. 'n Skakel na 'n gedeelde aanlyn album sal op 'n later stadium verskaf word, waar u genooi sal word om u media op te laai as 'n bydrae tot die herinneringe van die dag."
     },
     {
       question: "Wat as ek allergieë het?",
-      answer: "Indien jy allergieë het, kontak vir Chané."
+      answer: "Indien u enige dieetvereistes of ernstige allergieë het, geliewe dit asseblief duidelik aan te dui in die toegewysde spasie wanneer u die RSVP-proses voltooi. Vir enige spesifieke of dringende navrae in hierdie verband, kan u Chané direk kontak by [telefoonnommer of e-posadres]. Dit is noodsaaklik dat ons hierdie inligting voor die RSVP-sperdatum ontvang om die nodige spysenieringsreëlings te tref."
     },
     {
       question: "Is daar slaapplek by die onthaal?",
-      answer: "Nee, maar daar is verskeie akkommodasie opsies naby die onthaal. Sien die Akkommodasie bladsy vir meer besonderhede, of kontak vir Chané."
+      answer: `Verblyf is nie op die perseel van die onthaalvenue beskikbaar nie. Vir u gerief het ons egter 'n lys van aanbevole verblyfopsies in die nabyheid saamgestel. U kan hierdie inligting op die 'Akkommodasie'-bladsy vind.
+
+Indien u verdere bystand of persoonlike aanbevelings benodig, is u welkom om Chané te kontak.`
     },
     {
       question: "Hoe laat eindig die onthaal?",
@@ -54,11 +78,11 @@ export default function FAQ() {
     },
     {
       question: "Mag ek my eie drank saambring?",
-      answer: "Alhoewel die onthaal op die plaas geskied, versoek ons tog van die gaste om nie jou eie drank tydens die onthaal te gebruik nie. Daar sal 'n kontantkroeg beskikbaar wees."
+      answer: "Gaste word beleefd versoek om nie hul eie drank na die onthaal te bring nie. 'n Volledig toegeruste kontantkroeg sal gedurende die geleentheid beskikbaar wees vir die aankoop van verversings."
     },
     {
-      question: "Kan ek 'n metgesel saambring?",
-      answer: "Jou uitnodiging en die RSVP portaal sal vir jou aandui of jy 'n metgesel kan saambring."
+      question: "Mag ek 'n metgesel saambring?",
+      answer: "U uitnodiging is spesifiek gerig aan die gas(te) wie se naam daarop verskyn. Raadpleeg asseblief u uitnodigings-epos, asook die RSVP-portaal, waar dit duidelik aangedui sal wees indien u uitgenooi is om 'n metgesel te bring."
     }
   ];
 
