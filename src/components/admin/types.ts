@@ -8,7 +8,8 @@ export interface Family {
   total_children: number;
   created_at: string;
   deposit_option?: 'gift' | 'refund';
-  invite_sent?: boolean; // Add this new optional property
+  invite_sent?: boolean; 
+  confirmation_sent?: boolean; 
 }
 
 export interface Guest {

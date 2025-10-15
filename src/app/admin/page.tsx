@@ -11,6 +11,7 @@ import GuestList from '../../components/admin/GuestList';
 import PaymentsList from '../../components/admin/PaymentsList';
 import AdminTabs from '../../components/admin/AdminTabs';
 import { Family, Guest, Payment, FamilyFormData, GuestFormData, ModalType } from '../../components/admin/types';
+import { RSVPSessionData } from '@/types/rsvp-session';
 
 const ADMIN_PASSWORD = 'ThunderMerwe2026';
 
@@ -44,6 +45,7 @@ export default function AdminPage() {
     extra_notes: ''
   });
   const [sendingInviteId, setSendingInviteId] = useState<string | null>(null);
+  const [sendingConfirmationId, setSendingConfirmationId] = useState<string | null>(null);
 
   useEffect(() => {
     const savedAuth = localStorage.getItem('adminAuthenticated');
@@ -238,6 +240,62 @@ export default function AdminPage() {
     }
   };
 
+  const handleResendConfirmation = async (familyId: string) => {
+    if (!confirm('Are you sure you want to resend a confirmation email to this family?')) {
+      return;
+    }
+
+    setSendingConfirmationId(familyId);
+    try {
+      // Find the specific family and their associated guests from the state.
+      const family = families.find(f => f.id === familyId);
+      if (!family) throw new Error('Family not found in state.');
+
+      const familyGuests = guests.filter(g => g.family_id === familyId);
+
+      const mockedSession: RSVPSessionData = {
+        familyId: family.id,
+        familyName: family.family_name,
+        guests: familyGuests.map(g => ({
+          id: g.id,
+          name: g.name,
+          is_adult: g.is_adult,
+          is_attending: g.is_attending,
+          songRequest: g.song_request || '',
+          drinkPreferences: g.drink_preferences || [],
+          extraNotes: g.extra_notes || '',
+        })),
+        currentStep: 'complete',
+        submitted: true,
+        depositOption: family.deposit_option,
+      };
+
+      // Call the existing confirmation API with the mocked data.
+      const response = await fetch('/api/send-confirmation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(mockedSession),
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send confirmation.');
+      }
+      alert(result.message);
+
+      // Update the local state to instantly reflect the change in the UI.
+      setFamilies(families.map(f =>
+        f.id === familyId ? { ...f, confirmation_sent: true } : f
+      ));
+
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
+      alert(`Error: ${errorMessage}`);
+    } finally {
+      setSendingConfirmationId(null);
+    }
+  };
+
   if (!isAuthenticated) {
     return (
         <div className="min-h-screen bg-white flex items-center justify-center p-8">
@@ -296,6 +354,8 @@ export default function AdminPage() {
             onUpdatePayment={handleUpdatePayment}
             onSendInvite={handleSendInvite}
             sendingInviteId={sendingInviteId}
+            onResendConfirmation={handleResendConfirmation}
+            sendingConfirmationId={sendingConfirmationId}
           />
         )}
         {activeTab === 'guests' && <GuestList guests={guests} families={families} />}

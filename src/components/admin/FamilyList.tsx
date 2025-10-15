@@ -18,6 +18,8 @@ interface FamilyListProps {
   onUpdatePayment: (paymentId: string, updates: Partial<Payment>) => void;
   onSendInvite: (familyId: string) => void;
   sendingInviteId: string | null;
+  onResendConfirmation: (familyId: string) => void;
+  sendingConfirmationId: string | null;  
 }
 
 export default function FamilyList({
@@ -33,6 +35,8 @@ export default function FamilyList({
   onUpdatePayment,
   onSendInvite,
   sendingInviteId,
+  onResendConfirmation,
+  sendingConfirmationId,
 }: FamilyListProps) {
   const [showGuestModal, setShowGuestModal] = useState(false);
   const [selectedFamilyId, setSelectedFamilyId] = useState<string | null>(null);
@@ -306,6 +310,17 @@ export default function FamilyList({
                           : 'Send Invite'}
                       </button>
                     </div>
+
+                    {family.rsvp_status === 'submitted' && !family.confirmation_sent && (
+                      <button
+                        onClick={() => onResendConfirmation(family.id)}
+                        disabled={sendingConfirmationId === family.id}
+                        className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition-colors text-sm disabled:bg-gray-400 w-full text-center"
+                      >
+                        {sendingConfirmationId === family.id ? 'Sending...' : 'Send Confirmation'}
+                      </button>
+                    )}
+
                     <div className="flex space-x-2">
                       <button
                         onClick={() => onEditFamily(family)}

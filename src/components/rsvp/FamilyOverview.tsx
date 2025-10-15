@@ -152,6 +152,18 @@ export default function FamilyOverview({
         if (guestError) throw guestError;
       }
 
+      //email being sent to the family when confirming RSVP
+      try {
+        await fetch('/api/send-confirmation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(session), // Send the complete session data to the API route.
+        });
+      } catch (emailError) {
+        // Log the error for debugging but do not block the UI.
+        console.error('Non-critical error: Failed to send confirmation email.', emailError);
+      }
+
       // 3. Merk session as submitted
       const updatedSession: RSVPSessionData = {
         ...session,
