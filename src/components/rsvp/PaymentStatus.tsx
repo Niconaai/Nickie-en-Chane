@@ -64,19 +64,37 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
     }
 
     try {
-      const { data: newPayment, error: dbError } = await supabase
+      // 1. Check if a pending payment already exists for this family.
+      let { data: existingPayment, error: fetchError } = await supabase
         .from('payments')
-        .insert([{
-          family_id: family.id,
-          amount: depositAmount,
-          payment_method: 'yoco',
-          payment_status: 'pending'
-        }])
-        .select()
-        .single();
+        .select('id')
+        .eq('family_id', family.id)
+        .eq('payment_status', 'pending')
+        .maybeSingle(); // Use maybeSingle() to return null instead of an error if no row is found.
 
-      if (dbError || !newPayment) {
-        throw new Error(dbError?.message || "Failed to create payment record in database.");
+      if (fetchError) {
+        throw fetchError;
+      }
+
+      let paymentId = existingPayment?.id;
+
+      // 2. If no pending payment exists, create a new one.
+      if (!paymentId) {
+        const { data: newPayment, error: dbError } = await supabase
+          .from('payments')
+          .insert([{
+            family_id: family.id,
+            amount: depositAmount,
+            payment_method: 'yoco', // Keep default as 'yoco' as per original logic
+            payment_status: 'pending'
+          }])
+          .select('id')
+          .single();
+
+        if (dbError || !newPayment) {
+          throw new Error(dbError?.message || "Failed to create payment record in database.");
+        }
+        paymentId = newPayment.id;
       }
 
       const response = await fetch('/api/yoco/create-checkout', {
@@ -84,7 +102,7 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           amount: depositAmount,
-          paymentId: newPayment.id,
+          paymentId: paymentId,
           email: family.email,
         }),
       });

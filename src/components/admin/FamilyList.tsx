@@ -184,6 +184,13 @@ export default function FamilyList({
                               {payment.paid_by && ` • deur ${payment.paid_by}`}
                             </div>
                           )}
+
+                          {payment.payment_status === 'paid' && (
+                            <div className="text-sm text-gray-600">
+                              Deposito Opsie: { family.deposit_option === 'refund' ? 'Terugbetaling' : 'Geskenk'}
+                              {payment.paid_by && ` • deur ${payment.paid_by}`}
+                            </div>
+                          )}
                         </div>
                       ) : (
                         <div className="flex items-center space-x-4">
