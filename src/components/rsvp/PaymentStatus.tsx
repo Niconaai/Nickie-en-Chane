@@ -65,12 +65,12 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
 
     try {
       // 1. Check if a pending payment already exists for this family.
-      let { data: existingPayment, error: fetchError } = await supabase
+      const { data: existingPayment, error: fetchError } = await supabase
         .from('payments')
         .select('id')
         .eq('family_id', family.id)
         .eq('payment_status', 'pending')
-        .maybeSingle(); // Use maybeSingle() to return null instead of an error if no row is found.
+        .maybeSingle(); 
 
       if (fetchError) {
         throw fetchError;
@@ -85,7 +85,7 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
           .insert([{
             family_id: family.id,
             amount: depositAmount,
-            payment_method: 'yoco', // Keep default as 'yoco' as per original logic
+            payment_method: 'yoco', 
             payment_status: 'pending'
           }])
           .select('id')
