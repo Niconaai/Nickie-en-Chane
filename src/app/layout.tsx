@@ -249,7 +249,7 @@ export default function RootLayout({
               </div>
               <div className="text-center text-[#5c4033] text-sm">
                 <p className="mb-2">• Nick van der Merwe •</p>
-                <p>© 2025 Nicolabs Digital ⚛</p>
+                <p>© 2025 Nicolabs Digital</p>
               </div>
             </div>
           </footer>
