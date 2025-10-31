@@ -159,29 +159,29 @@ export default function RootLayout({
             <div className="max-w-[60vw] mx-auto">
               {/* Desktop Navigation */}
               <div className="hidden md:flex flex-wrap justify-center gap-4 py-4 px-4 text-sm md:text-base md:gap-8">
-                <LoadingLink href="/" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
-                  {MenuIcons.home} Tuis
+                <LoadingLink href="/" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                  {MenuIcons.home}Tuis
                 </LoadingLink>
-                <LoadingLink href="/ons-storie" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
-                  {MenuIcons.story} Meer oor Ons
+                <LoadingLink href="/ons-storie" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                  {MenuIcons.story}Meer oor Ons
                 </LoadingLink>
-                <LoadingLink href="/besonderhede" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
-                  {MenuIcons.details} Besonderhede
+                <LoadingLink href="/besonderhede" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                  {MenuIcons.details}Besonderhede
                 </LoadingLink>
-                <LoadingLink href="/foto-gallery" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
-                  {MenuIcons.photos} Foto&apos;s
+                <LoadingLink href="/foto-gallery" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                  {MenuIcons.photos}Foto&apos;s
                 </LoadingLink>
-                <LoadingLink href="/akkomodasie" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
-                  {MenuIcons.accommodation} Akkomodasie
+                <LoadingLink href="/akkomodasie" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                  {MenuIcons.accommodation}Akkomodasie
                 </LoadingLink>
-                <LoadingLink href="/faq" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors flex items-center">
-                  {MenuIcons.faq} V en A
+                <LoadingLink href="/faq" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                  {MenuIcons.faq}V en A
                 </LoadingLink>
                 <LoadingLink
                   href="/rsvp"
-                  className="text-xl bg-[#3d251e] text-white hover:bg-[#5c4033] transition-colors flex items-center px-4 py-2 rounded-lg"
+                  className="text-xl bg-[#3d251e] text-white hover:bg-[#5c4033] transition-colors flex items-center px-4 py-2 rounded-lg hover:-translate-y-1 decoration-2"
                 >
-                  {MenuIcons.rsvp} RSVP
+                  {MenuIcons.rsvp}RSVP
                 </LoadingLink>
               </div>
 
@@ -206,7 +206,7 @@ export default function RootLayout({
               {isMenuOpen && (
                 <div className="max-w-[60vw] md:hidden bg-white border-t border-gray-200">
                   <div className="max-w-[60vw] flex flex-col py-4 space-y-4 px-4">
-                    <LoadingLink href="/" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">
+                    <LoadingLink href="/" className="text-xl text-[#3d251e] hover:text-[#5c4033]  transition-colors py-2 flex items-center">
                       {MenuIcons.home} Tuis
                     </LoadingLink>
                     <LoadingLink href="/ons-storie" className="text-xl text-[#3d251e] hover:text-[#5c4033] transition-colors py-2 flex items-center">

@@ -119,7 +119,7 @@ export default function Home() {
 
         {/* Name in mooi boksie */}
         <div className="max-w-[100vw] md:max-w-[60vw] mx-auto mb-8 bg-white rounded-2xl  p-8">
-          <h1 className={`text-5xl sm:text-6xl md:text-7xl text-[#3d251e] ${brittany.className} `}>Chané & Nickie</h1>
+          <h1 className={`text-5xl sm:text-6xl md:text-7xl text-[#3d251e]  ${brittany.className} `}>Chané & Nickie</h1>
         </div>
 
         {/* Decorative lines between name and photo */}
@@ -156,7 +156,7 @@ export default function Home() {
         
 
         {/* Een blok vir meer inligting */}
-        <div className="max-w-[80vw] md:max-w-[60vw] mx-auto mt-20 max-w-4xl mx-auto w-full">
+        <div className="max-w-[80vw] md:max-w-[60vw] mt-20 max-w-4xl mx-auto w-full">
           <div className="bg-white rounded-2xl shadow-lg border border-gray-300 p-8 text-center">
             <h3 className="text-3xl font-bold text-[#3d251e] mb-4">Meer Inligting</h3>
             <p className="text-xl text-[#5c4033] mb-6">
