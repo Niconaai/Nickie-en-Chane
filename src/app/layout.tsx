@@ -159,22 +159,22 @@ export default function RootLayout({
             <div className="max-w-[60vw] mx-auto">
               {/* Desktop Navigation */}
               <div className="hidden md:flex flex-wrap justify-center gap-4 py-4 px-4 text-sm md:text-base md:gap-8">
-                <LoadingLink href="/" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                <LoadingLink href="/" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:border-b-3 hover:pb-3 hover:border-accent decoration-2">
                   {MenuIcons.home}Tuis
                 </LoadingLink>
-                <LoadingLink href="/ons-storie" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                <LoadingLink href="/ons-storie" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:border-b-3 hover:pb-3 hover:border-accent decoration-2">
                   {MenuIcons.story}Meer oor Ons
                 </LoadingLink>
-                <LoadingLink href="/besonderhede" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                <LoadingLink href="/besonderhede" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:border-b-3 hover:pb-3 hover:border-accent decoration-2">
                   {MenuIcons.details}Besonderhede
                 </LoadingLink>
-                <LoadingLink href="/foto-gallery" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                <LoadingLink href="/foto-gallery" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:border-b-3 hover:pb-3 hover:border-accent decoration-2">
                   {MenuIcons.photos}Foto&apos;s
                 </LoadingLink>
-                <LoadingLink href="/akkomodasie" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                <LoadingLink href="/akkomodasie" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:border-b-3 hover:pb-3 hover:border-accent decoration-2">
                   {MenuIcons.accommodation}Akkomodasie
                 </LoadingLink>
-                <LoadingLink href="/faq" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:underline underline-offset-4 decoration-2">
+                <LoadingLink href="/faq" className="flex items-center gap-2 text-xl text-[#3d251e] transition-all duration-200 hover:-translate-y-1 hover:text-[#5c4033] hover:border-b-3 hover:pb-3 hover:border-accent decoration-2">
                   {MenuIcons.faq}V en A
                 </LoadingLink>
                 <LoadingLink
