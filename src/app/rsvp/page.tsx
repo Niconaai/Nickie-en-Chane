@@ -55,7 +55,7 @@ export default function RSVPPage() {
       if (paymentsData) setPayments(paymentsData);
 
     } catch (error) {
-      console.error('Error loading data:', error);
+      //console.error('Error loading data:', error);
     } finally {
       setLoading(false);
     }
@@ -77,7 +77,7 @@ export default function RSVPPage() {
 
           if (error || !familyData) {
             // Familie nie gevind nie - clear session
-            console.error('Family not found for session:', existingSession.familyId);
+            //console.error('Family not found for session:', existingSession.familyId);
             clearRSVPSession();
             setLoading(false);
             return;
@@ -103,7 +103,7 @@ export default function RSVPPage() {
           setSession(existingSession);
           setIsLoggedIn(true);
         } catch (error) {
-          console.error('Error loading session data:', error);
+          //console.error('Error loading session data:', error);
           clearRSVPSession();
         } finally {
           setLoading(false);
@@ -149,7 +149,7 @@ export default function RSVPPage() {
         alert('RSVP gekanselleer. Jy kan weer begin wanneer jy gereed is.');
 
       } catch (error) {
-        console.error('Cancel error:', error);
+        //console.error('Cancel error:', error);
         alert('Fout met kanselleer. Probeer weer.');
       }
     }

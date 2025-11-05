@@ -26,8 +26,8 @@ export async function GET(request: Request) {
   });
 
   const data = await response.json();
-  console.log('Access Token:', data.access_token);
-  console.log('Refresh Token:', data.refresh_token);
+  //console.log('Access Token:', data.access_token);
+  //console.log('Refresh Token:', data.refresh_token);
 
   return NextResponse.json({
     message: 'Spotify authorization successful',

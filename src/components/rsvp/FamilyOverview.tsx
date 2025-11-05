@@ -74,7 +74,7 @@ export default function FamilyOverview({
         setMessage('RSVP gekanselleer. Jy kan weer begin wanneer jy gereed is.');
 
       } catch (error) {
-        console.error('Cancel RSVP error:', error);
+        //console.error('Cancel RSVP error:', error);
         setMessage('Fout met kanselleer RSVP. Probeer weer.');
       }
     }
@@ -122,7 +122,7 @@ export default function FamilyOverview({
     setMessage('');
 
     try {
-      console.log('Starting final submission for family:', family.id);
+      //console.log('Starting final submission for family:', family.id);
 
       // 1. Update familie RSVP status
       const { error: familyError } = await supabase
@@ -161,7 +161,7 @@ export default function FamilyOverview({
         });
       } catch (emailError) {
         // Log the error for debugging but do not block the UI.
-        console.error('Non-critical error: Failed to send confirmation email.', emailError);
+        //console.error('Non-critical error: Failed to send confirmation email.', emailError);
       }
 
       // 3. Merk session as submitted
@@ -173,7 +173,7 @@ export default function FamilyOverview({
       onSessionUpdate(updatedSession);
 
       setMessage('RSVP suksesvol ingedien! Dankie!');
-      console.log('Final submission completed successfully');
+      //console.log('Final submission completed successfully');
 
       const spotifyTrackIds = session.guests
         .filter(guest => guest.is_attending && guest.spotifyTrackId)
@@ -195,12 +195,12 @@ export default function FamilyOverview({
           });
 
           if (addResponse.ok) {
-            console.log('Liedjies suksesvol by playlist gevoeg');
+            //console.log('Liedjies suksesvol by playlist gevoeg');
           } else {
-            console.warn('Kon nie liedjies by playlist voeg nie');
+            //console.warn('Kon nie liedjies by playlist voeg nie');
           }
         } catch (error) {
-          console.warn('Spotify playlist error (non-critical):', error);
+          //console.warn('Spotify playlist error (non-critical):', error);
         }
       }
 
@@ -215,7 +215,7 @@ export default function FamilyOverview({
 
 
     } catch (error) {
-      console.error('Final submission error:', error);
+      //console.error('Final submission error:', error);
       const errorMessage = error instanceof Error ? error.message : 'Onbekende fout';
       setMessage(`Fout: ${errorMessage}. Probeer weer.`);
     } finally {

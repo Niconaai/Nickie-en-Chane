@@ -29,7 +29,7 @@ export async function GET() {
 
     return NextResponse.json(data);
   } catch (error) {
-    console.error('Spotify token error:', error);
+    //console.error('Spotify token error:', error);
     return NextResponse.json(
       { error: 'Failed to get Spotify token' },
       { status: 500 }

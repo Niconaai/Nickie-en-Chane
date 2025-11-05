@@ -42,7 +42,7 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
         .limit(1)
         .single();
 
-      if (error && error.code !== 'PGRST116') console.error('Error fetching payment:', error);
+      if (error && error.code !== 'PGRST116') //console.error('Error fetching payment:', error);
 
       setPayment(paymentData);
       setLoading(false);
@@ -124,7 +124,7 @@ export default function PaymentStatus({ family, session, onPaymentComplete, onBa
       }
 
     } catch (error) {
-      console.error('Error handling payment:', error);
+      //console.error('Error handling payment:', error);
       alert('Fout met die opstel van betaling. Probeer asseblief weer.');
       setIsSubmitting(false);
     }

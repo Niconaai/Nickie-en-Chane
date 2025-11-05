@@ -32,7 +32,7 @@ export default function TestEnv() {
         if (error) throw error;
         setSupabaseStatus('connected');
       } catch (error) {
-        console.error('Supabase test failed:', error);
+        //console.error('Supabase test failed:', error);
         setSupabaseStatus('error');
       }
     };

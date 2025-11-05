@@ -204,11 +204,11 @@ export default function AdminPage() {
   
   const updateFamilyTotals = async (familyId: string) => {
     const { data: familyGuests, error } = await supabase.from('guests').select('is_adult').eq('family_id', familyId);
-    if (error) { console.error('Error updating family totals:', error); return; }
+    if (error) { console.error('Error updating family totals'); return; }
     const total_adults = familyGuests.filter((g: { is_adult: boolean }) => g.is_adult).length;
     const total_children = familyGuests.filter((g: { is_adult: boolean }) => !g.is_adult).length;
     const { error: updateError } = await supabase.from('families').update({ total_adults, total_children }).eq('id', familyId);
-    if (updateError) { console.error('Error updating family totals:', updateError); return; }
+    if (updateError) { console.error('Error updating family totals'); return; }
     setFamilies(families.map(f => (f.id === familyId ? { ...f, total_adults, total_children } : f)));
   };
 

@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: 'Products updated successfully' }, { status: 200 });
   } catch (error) {
     // 6. If any error occurs during the process, log it and return an error response.
-    console.error('Failed to update products:', error);
+    //console.error('Failed to update products:', error);
     return NextResponse.json({ message: 'Failed to update products', error: (error as Error).message }, { status: 500 });
   }
 }

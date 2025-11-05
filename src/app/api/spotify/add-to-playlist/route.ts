@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     const tokenData = await refreshResponse.json();
 
     if (!refreshResponse.ok) {
-      console.error('Token refresh failed:', tokenData);
+      //console.error('Token refresh failed:', tokenData);
       return NextResponse.json({ error: 'Token refresh failed' }, { status: 500 });
     }
 
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     const data = await addResponse.json();
 
     if (!addResponse.ok) {
-      console.error('Spotify API error:', data);
+      //console.error('Spotify API error');
       return NextResponse.json(
         { error: data.error?.message || 'Failed to add to playlist' },
         { status: addResponse.status }
@@ -63,7 +63,7 @@ export async function POST(request: Request) {
       snapshot_id: data.snapshot_id,
     });
   } catch (error) {
-    console.error('Spotify playlist error:', error);
+    //console.error('Spotify playlist error');
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }

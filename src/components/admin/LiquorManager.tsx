@@ -46,7 +46,7 @@ export default function LiquorManager({ initialProducts }: { initialProducts: Pr
       
       alert('Changes saved successfully!');
     } catch (error) {
-      console.error('Error saving changes:', error);
+      //console.error('Error saving changes:', error);
       alert('Failed to save changes.');
     } finally {
       setIsSaving(false);

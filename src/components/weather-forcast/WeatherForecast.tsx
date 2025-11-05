@@ -39,7 +39,7 @@ const WeatherForecast = ({ targetDate, city = 'Brits, ZA' }: WeatherForecastProp
         setWeather(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Error loading weather data');
-        console.error('Weather fetch error:', err);
+        //console.error('Weather fetch error:', err);
       } finally {
         setLoading(false);
       }

@@ -31,7 +31,7 @@ export const transformProducts = (rawProducts: Product[]): DrinkOption[] => {
     .map((product, index) => {
       // Use the type guard to validate the category from the source data.
       if (!isDrinkCategory(product.category)) {
-        console.warn(`Invalid category "${product.category}" for product "${product.name}". Skipping.`);
+        //console.warn(`Invalid category "${product.category}" for product "${product.name}". Skipping.`);
         return {
           id: '',
           name: '',

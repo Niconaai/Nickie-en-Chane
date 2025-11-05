@@ -14,7 +14,7 @@ async function getPhotos() {
       .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file))
       .map(file => `/gallery/${file}`)
   } catch {
-    console.log('No gallery folder found')
+    //console.log('No gallery folder found')
     return []
   }
 }

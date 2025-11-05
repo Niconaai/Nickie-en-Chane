@@ -56,7 +56,7 @@ async function getToken(): Promise<string> {
     return tokenCache.value as string;
 
   } catch (error) {
-    console.error('Error getting token:', error);
+    //console.error('Error getting token:', error);
     // Clear cache on error
     tokenCache.value = null;
     tokenCache.expiry = null;
@@ -100,7 +100,7 @@ export default function SongStep({ session, onSessionUpdate, onBack, onCancelRSV
       const data = await searchResponse.json();
       setSearchResults(data.tracks?.items || []);
     } catch (error) {
-      console.error('Spotify search error:', error);
+      //console.error('Spotify search error:', error);
       setMessage('Fout met soek liedjies. Probeer weer.');
     } finally {
       setLoading(false);

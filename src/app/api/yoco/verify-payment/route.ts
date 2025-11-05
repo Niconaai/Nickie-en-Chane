@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
   const secretKey = process.env.YOCO_TEST_SECRET_KEY;
 
   if (!secretKey) {
-    console.error("YOCO_TEST_SECRET_KEY is not configured.");
+    //console.error("YOCO_TEST_SECRET_KEY is not configured.");
     return NextResponse.json({ error: 'Yoco credentials not configured' }, { status: 500 });
   }
 
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     const data = await response.json();
 
     if (!response.ok) {
-      console.error('Yoco verify API error:', data);
+      //console.error('Yoco verify API error:', data);
       throw new Error('Failed to verify payment with Yoco');
     }
 
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
         .single();
 
       if (existingPayment && existingPayment.payment_status === 'paid') {
-        console.log(`Client-side verification for payment ${paymentId} confirmed status is already 'paid'.`);
+        //console.log(`Client-side verification for payment ${paymentId} confirmed status is already 'paid'.`);
         return NextResponse.json({ success: true, status: 'paid' });
       }
 
@@ -62,21 +62,21 @@ export async function POST(request: NextRequest) {
         .eq('id', paymentId);
 
       if (dbError) {
-        console.error("Supabase update error:", dbError);
+        //console.error("Supabase update error:", dbError);
         throw new Error("Failed to update payment status in database.");
       }
 
-      console.log(`Payment ${paymentId} successfully verified and updated.`);
+      //console.log(`Payment ${paymentId} successfully verified and updated.`);
       return NextResponse.json({ success: true, status: 'paid' });
 
     } else {
-      console.log(`Payment verification for checkoutId ${checkoutId} returned status: ${status}`);
+      //console.log(`Payment verification for checkoutId ${checkoutId} returned status: ${status}`);
       return NextResponse.json({ success: false, status: status });
     }
 
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Internal Server Error';
-    console.error('Error verifying Yoco payment:', errorMessage);
+    //console.error('Error verifying Yoco payment:', errorMessage);
     return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }

@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
   const secretKey = process.env.YOCO_TEST_SECRET_KEY;
   if (!secretKey) {
-    console.error("YOCO_TEST_SECRET_KEY is not configured.");
+    //console.error("YOCO_TEST_SECRET_KEY is not configured.");
     return NextResponse.json({ error: 'Yoco credentials not configured' }, { status: 500 });
   }
 
@@ -38,7 +38,7 @@ export async function POST(request: Request) {
     const data = await response.json();
 
     if (!response.ok) {
-      console.error('Yoco API error:', data);
+      //console.error('Yoco API error:', data);
       throw new Error(data.message || 'Failed to create Yoco checkout');
     }
 

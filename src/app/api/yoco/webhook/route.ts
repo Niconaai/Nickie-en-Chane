@@ -19,7 +19,7 @@ async function verifyYocoSignature(
   secret: string
 ): Promise<boolean> {
   if (!webhookId || !signatureHeader || !timestampHeader || !secret) {
-    console.error("Webhook Error: Missing required headers or secret.");
+    //console.error("Webhook Error: Missing required headers or secret.");
     return false;
   }
 
@@ -29,7 +29,7 @@ async function verifyYocoSignature(
   const webhookTimestamp = parseInt(timestampHeader, 10);
 
   if (isNaN(webhookTimestamp) || Math.abs(currentTimestamp - webhookTimestamp) > MAX_WEBHOOK_AGE_SECONDS) {
-      console.error(`Webhook Error: Timestamp validation failed. Timestamp: ${webhookTimestamp}, Current: ${currentTimestamp}`);
+      //console.error(`Webhook Error: Timestamp validation failed. Timestamp: ${webhookTimestamp}, Current: ${currentTimestamp}`);
       return false;
   }
 
@@ -44,7 +44,7 @@ async function verifyYocoSignature(
   }
 
   if (!hashFromHeader) {
-      console.error("Webhook Error: Could not find a valid 'v1' signature in the header.");
+      //console.error("Webhook Error: Could not find a valid 'v1' signature in the header.");
       return false;
   }
 
@@ -53,7 +53,7 @@ async function verifyYocoSignature(
   // is a Base64 encoded string that must be decoded to get the raw bytes for the HMAC key.
   const secretParts = secret.split('_');
   if (secretParts.length < 2 || !secretParts[1]) {
-      console.error("Webhook Error: Invalid webhook secret format. Expected 'whsec_...'.");
+      //console.error("Webhook Error: Invalid webhook secret format. Expected 'whsec_...'.");
       return false;
   }
   const secretBytes = Buffer.from(secretParts[1], 'base64');
@@ -75,7 +75,7 @@ async function verifyYocoSignature(
     // Use crypto.timingSafeEqual to prevent timing attacks.
     return crypto.timingSafeEqual(hashBuffer, expectedBuffer);
   } catch (error) {
-    console.error("Webhook Error: Error during signature comparison.", error);
+    //console.error("Webhook Error: Error during signature comparison.", error);
     return false;
   }
 }
@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
   // Use a dedicated environment variable for the webhook secret.
   const webhookSecret = process.env.YOCO_WEBHOOK_SECRET_TEST; 
   if (!webhookSecret) {
-    console.error("YOCO_WEBHOOK_SECRET is not configured.");
+    //console.error("YOCO_WEBHOOK_SECRET is not configured.");
     return new NextResponse('Webhook secret not configured', { status: 500 });
   }
 
@@ -96,13 +96,13 @@ export async function POST(request: NextRequest) {
   const isValid = await verifyYocoSignature(webhookId, signatureHeader, timestampHeader, rawBody, webhookSecret);
   
   if (!isValid) {
-    console.warn("Unauthorized webhook received. Signature validation failed.");
+    //console.warn("Unauthorized webhook received. Signature validation failed.");
     return new NextResponse('Invalid signature', { status: 401 });
   }
 
   try {
     const event = JSON.parse(rawBody);
-    console.log('Received valid Yoco webhook event:', event.type);
+    //console.log('Received valid Yoco webhook event:', event.type);
 
     if (event.type === 'payment.succeeded') {
       const charge = event.payload;
@@ -111,7 +111,7 @@ export async function POST(request: NextRequest) {
       const paymentId = charge.id || charge.metadata?.paymentId || charge.paymentId;
 
       if (!paymentId) {
-        console.error("Webhook Error: 'paymentId' not found in metadata or payload for charge:", charge.id);
+        //console.error("Webhook Error: 'paymentId' not found in metadata or payload for charge:", charge.id);
         return new NextResponse('Missing paymentId in metadata', { status: 400 });
       }
 
@@ -127,10 +127,10 @@ export async function POST(request: NextRequest) {
         .eq('id', paymentId);
 
       if (error) {
-        console.error(`Supabase update error for paymentId ${paymentId}:`, error);
+        //console.error(`Supabase update error for paymentId ${paymentId}:`, error);
         // Even if DB fails, return 200 to Yoco to prevent retries
       } else {
-        console.log(`Payment ${paymentId} successfully updated to 'paid' via webhook.`);
+        //console.log(`Payment ${paymentId} successfully updated to 'paid' via webhook.`);
       }
     }
 
@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ status: 'success' }, { status: 200 });
 
   } catch (error) {
-    console.error('Error processing Yoco webhook:', error);
+    //console.error('Error processing Yoco webhook:', error);
     return new NextResponse('Webhook processing error', { status: 500 });
   }
 }
