@@ -1,5 +1,3 @@
-// src/app/admin/page.tsx
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -9,9 +7,10 @@ import FamilyModal, { generateAlphanumericCode } from '../../components/admin/Fa
 import FamilyList from '../../components/admin/FamilyList';
 import GuestList from '../../components/admin/GuestList';
 import PaymentsList from '../../components/admin/PaymentsList';
+import SongList from '../../components/admin/SongList';
+import DrinkSummary from '../../components/admin/DrinkSummary';
 import AdminTabs from '../../components/admin/AdminTabs';
 import { Family, Guest, Payment, FamilyFormData, GuestFormData, ModalType } from '../../components/admin/types';
-import { RSVPSessionData } from '@/types/rsvp-session';
 
 const ADMIN_PASSWORD = 'ThunderMerwe2026';
 
@@ -21,11 +20,15 @@ export default function AdminPage() {
   const [guests, setGuests] = useState<Guest[]>([]);
   const [payments, setPayments] = useState<Payment[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<'families' | 'guests' | 'payments'>('families');
+  
+  // Tabs State
+  const [activeTab, setActiveTab] = useState<'families' | 'guests' | 'payments' | 'songs' | 'drinks'>('families');
+  
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<ModalType>('add-family');
   const [currentFamily, setCurrentFamily] = useState<Family | null>(null);
   const [currentGuest, setCurrentGuest] = useState<Guest | null>(null);
+  
   const [familyForm, setFamilyForm] = useState<FamilyFormData>({
     email: '',
     invite_code: '',
@@ -34,6 +37,7 @@ export default function AdminPage() {
     total_children: 0,
     rsvp_status: 'pending'
   });
+  
   const [guestForm, setGuestForm] = useState<GuestFormData>({
     name: '',
     is_adult: true,
@@ -44,6 +48,8 @@ export default function AdminPage() {
     drink_preferences: [],
     extra_notes: ''
   });
+  
+  // Sending States
   const [sendingInviteId, setSendingInviteId] = useState<string | null>(null);
   const [sendingConfirmationId, setSendingConfirmationId] = useState<string | null>(null);
 
@@ -62,6 +68,7 @@ export default function AdminPage() {
     const { data: familiesData } = await supabase.from('families').select('*').order('created_at', { ascending: false });
     const { data: guestsData } = await supabase.from('guests').select('*').order('name');
     const { data: paymentsData } = await supabase.from('payments').select('*').order('created_at', { ascending: false });
+    
     if (familiesData) setFamilies(familiesData);
     if (guestsData) setGuests(guestsData);
     if (paymentsData) setPayments(paymentsData);
@@ -77,10 +84,37 @@ export default function AdminPage() {
     }
     return false;
   };
-
+  
   const handleLogout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('adminAuthenticated');
+  };
+
+  // Bulk Reminders Feature
+  const handleBulkReminders = async () => {
+    const confirmed = confirm(
+      '⚠️ Wees versigtig: Hierdie sal \'n e-pos stuur aan ELKE gesin wat nog nie ge-RSVP het nie.\n\nWil jy voortgaan?'
+    );
+
+    if (!confirmed) return;
+
+    try {
+      alert('Besig om te stuur... Moenie die bladsy toemaak nie.');
+      
+      const response = await fetch('/api/send-reminders', {
+        method: 'POST',
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok) throw new Error(result.error || 'Fout');
+
+      alert(`Sukses! ${result.message}`);
+      loadData(); 
+    } catch (error) {
+      console.error('Reminder error:', error);
+      alert('Daar was \'n fout met die stuur van die herinnerings.');
+    }
   };
 
   const openAddFamilyModal = () => {
@@ -144,7 +178,7 @@ export default function AdminPage() {
       closeModal();
     }
   };
-
+  
   const handleSave = (e: React.FormEvent) => {
     if (modalType.includes('family')) {
       saveFamily(e);
@@ -201,14 +235,14 @@ export default function AdminPage() {
     if (error) { alert('Fout met byvoeg gas: ' + (error instanceof Error ? error.message : 'Onbekende fout')); return; }
     if (data) { setGuests([...guests, data[0]]); await updateFamilyTotals(familyId); alert('Gas suksesvol bygevoeg!'); }
   };
-
+  
   const updateFamilyTotals = async (familyId: string) => {
     const { data: familyGuests, error } = await supabase.from('guests').select('is_adult').eq('family_id', familyId);
-    if (error) { console.error('Error updating family totals'); return; }
+    if (error) { console.error('Error updating family totals:', error); return; }
     const total_adults = familyGuests.filter((g: { is_adult: boolean }) => g.is_adult).length;
     const total_children = familyGuests.filter((g: { is_adult: boolean }) => !g.is_adult).length;
     const { error: updateError } = await supabase.from('families').update({ total_adults, total_children }).eq('id', familyId);
-    if (updateError) { console.error('Error updating family totals'); return; }
+    if (updateError) { console.error('Error updating family totals:', updateError); return; }
     setFamilies(families.map(f => (f.id === familyId ? { ...f, total_adults, total_children } : f)));
   };
 
@@ -218,12 +252,9 @@ export default function AdminPage() {
     }
     setSendingInviteId(familyId);
     try {
-      // The Authorization header is no longer needed.
       const response = await fetch('/api/send-invite', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ familyId }),
       });
       const result = await response.json();
@@ -240,86 +271,25 @@ export default function AdminPage() {
     }
   };
 
-  const handleBulkReminders = async () => {
-    const confirmed = confirm(
-      '⚠️ Wees versigtig: Hierdie sal \'n e-pos stuur aan ELKE gesin wat nog nie ge-RSVP het nie.\n\nWil jy voortgaan?'
-    );
-
-    if (!confirmed) return;
-
-    try {
-      alert('Besig om te stuur... Moenie die bladsy toemaak nie.');
-
-      const response = await fetch('/api/send-reminder', {
-        method: 'POST',
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) throw new Error(result.error || 'Fout');
-
-      alert(`Sukses! ${result.message}`);
-      // Herlaai data om te sien of status verander het (opsioneel)
-      loadData();
-    } catch (error) {
-      console.error('Reminder error:', error);
-      alert('Daar was \'n fout met die stuur van die herinnerings.');
-    }
-  };
-
   const handleResendConfirmation = async (familyId: string) => {
-    if (!confirm('Are you sure you want to resend a confirmation email to this family?')) {
+    if (!confirm('Wil jy weer die bevestigings-epos stuur?')) {
       return;
     }
-
-
-
     setSendingConfirmationId(familyId);
     try {
-      // Find the specific family and their associated guests from the state.
-      const family = families.find(f => f.id === familyId);
-      if (!family) throw new Error('Family not found in state.');
-
-      const familyGuests = guests.filter(g => g.family_id === familyId);
-
-      const mockedSession: RSVPSessionData = {
-        familyId: family.id,
-        familyName: family.family_name,
-        guests: familyGuests.map(g => ({
-          id: g.id,
-          name: g.name,
-          is_adult: g.is_adult,
-          is_attending: g.is_attending,
-          songRequest: g.song_request || '',
-          drinkPreferences: g.drink_preferences || [],
-          extraNotes: g.extra_notes || '',
-        })),
-        currentStep: 'complete',
-        submitted: true,
-        depositOption: family.deposit_option,
-      };
-
-      // Call the existing confirmation API with the mocked data.
       const response = await fetch('/api/send-confirmation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(mockedSession),
+        body: JSON.stringify({ familyId }),
       });
-
       const result = await response.json();
       if (!response.ok) {
         throw new Error(result.error || 'Failed to send confirmation.');
       }
       alert(result.message);
-
-      // Update the local state to instantly reflect the change in the UI.
-      setFamilies(families.map(f =>
-        f.id === familyId ? { ...f, confirmation_sent: true } : f
-      ));
-
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
-      alert(`Error: ${errorMessage}`);
+       const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
+       alert(`Error: ${errorMessage}`);
     } finally {
       setSendingConfirmationId(null);
     }
@@ -327,23 +297,23 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center p-8">
-        <div className="max-w-md w-full">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#3d251e] mb-2">Trou Admin</h1>
-              <p className="text-[#5c4033]">Voer die admin wagwoord in</p>
+        <div className="min-h-screen bg-white flex items-center justify-center p-8">
+            <div className="max-w-md w-full">
+                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+                    <div className="text-center mb-8">
+                        <h1 className="text-3xl font-bold text-[#3d251e] mb-2">Trou Admin</h1>
+                        <p className="text-[#5c4033]">Voer die admin wagwoord in</p>
+                    </div>
+                    <form onSubmit={(e) => { e.preventDefault(); const formData = new FormData(e.currentTarget); const password = formData.get('password') as string; handleLogin(password); }} className="space-y-6">
+                        <div>
+                            <label htmlFor="password" className="block text-sm font-medium text-[#3d251e] mb-2">Admin Wagwoord</label>
+                            <input id="password" name="password" type="password" className="w-full p-3 border border-gray-300 rounded-lg text-[#3d251e] focus:ring-2 focus:ring-[#3d251e] focus:border-transparent" placeholder="Voer wagwoord in" autoFocus required />
+                        </div>
+                        <button type="submit" className="w-full bg-[#3d251e] text-white py-3 rounded-lg hover:bg-[#5c4033] transition-colors font-medium">Teken In</button>
+                    </form>
+                </div>
             </div>
-            <form onSubmit={(e) => { e.preventDefault(); const formData = new FormData(e.currentTarget); const password = formData.get('password') as string; handleLogin(password); }} className="space-y-6">
-              <div>
-                <label htmlFor="password" className="block text-sm font-medium text-[#3d251e] mb-2">Admin Wagwoord</label>
-                <input id="password" name="password" type="password" className="w-full p-3 border border-gray-300 rounded-lg text-[#3d251e] focus:ring-2 focus:ring-[#3d251e] focus:border-transparent" placeholder="Voer wagwoord in" autoFocus required />
-              </div>
-              <button type="submit" className="w-full bg-[#3d251e] text-white py-3 rounded-lg hover:bg-[#5c4033] transition-colors font-medium">Teken In</button>
-            </form>
-          </div>
         </div>
-      </div>
     );
   }
 
@@ -361,15 +331,24 @@ export default function AdminPage() {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-[#3d251e]">Trou Admin Paneel</h1>
           <div className="flex space-x-4">
-            <Link href="/admin/liquor" className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">Manage Liquor</Link>
-            <button
+            <Link href="/admin/liquor" className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+              Manage Liquor
+            </Link>
+            
+             {/* Bulk Reminder Button */}
+             <button 
               onClick={handleBulkReminders}
               className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors flex items-center gap-2"
             >
               <span>📢</span> Stuur Herinnerings
             </button>
-            <button onClick={openAddFamilyModal} className="bg-[#3d251e] text-white px-4 py-2 rounded-lg hover:bg-[#5c4033] transition-colors">Voeg Gesin By</button>
-            <button onClick={handleLogout} className="bg-[#8b6c5c] text-white px-4 py-2 rounded-lg hover:bg-[#5c4033] transition-colors">Teken Uit</button>
+            
+            <button onClick={openAddFamilyModal} className="bg-[#3d251e] text-white px-4 py-2 rounded-lg hover:bg-[#5c4033] transition-colors">
+              Voeg Gesin By
+            </button>
+            <button onClick={handleLogout} className="bg-[#8b6c5c] text-white px-4 py-2 rounded-lg hover:bg-[#5c4033] transition-colors">
+              Teken Uit
+            </button>
           </div>
         </div>
 
@@ -395,7 +374,11 @@ export default function AdminPage() {
         )}
         {activeTab === 'guests' && <GuestList guests={guests} families={families} />}
         {activeTab === 'payments' && <PaymentsList payments={payments} families={families} onUpdatePayment={handleUpdatePayment} />}
-
+        
+        {/* NUWE KOMPONENTE */}
+        {activeTab === 'songs' && <SongList guests={guests} families={families} />}
+        {activeTab === 'drinks' && <DrinkSummary guests={guests} />}
+        
         <FamilyModal isOpen={showModal} modalType={modalType} family={currentFamily} guest={currentGuest} familyForm={familyForm} guestForm={guestForm} onFamilyFormChange={handleFamilyFormChange} onGuestFormChange={handleGuestFormChange} onSave={handleSave} onClose={closeModal} onDeleteGuest={currentGuest ? () => deleteGuest(currentGuest.id) : undefined} />
       </div>
     </div>
