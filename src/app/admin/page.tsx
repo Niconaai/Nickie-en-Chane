@@ -77,7 +77,7 @@ export default function AdminPage() {
     }
     return false;
   };
-  
+
   const handleLogout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('adminAuthenticated');
@@ -144,7 +144,7 @@ export default function AdminPage() {
       closeModal();
     }
   };
-  
+
   const handleSave = (e: React.FormEvent) => {
     if (modalType.includes('family')) {
       saveFamily(e);
@@ -201,7 +201,7 @@ export default function AdminPage() {
     if (error) { alert('Fout met byvoeg gas: ' + (error instanceof Error ? error.message : 'Onbekende fout')); return; }
     if (data) { setGuests([...guests, data[0]]); await updateFamilyTotals(familyId); alert('Gas suksesvol bygevoeg!'); }
   };
-  
+
   const updateFamilyTotals = async (familyId: string) => {
     const { data: familyGuests, error } = await supabase.from('guests').select('is_adult').eq('family_id', familyId);
     if (error) { console.error('Error updating family totals'); return; }
@@ -240,10 +240,39 @@ export default function AdminPage() {
     }
   };
 
+  const handleBulkReminders = async () => {
+    const confirmed = confirm(
+      '⚠️ Wees versigtig: Hierdie sal \'n e-pos stuur aan ELKE gesin wat nog nie ge-RSVP het nie.\n\nWil jy voortgaan?'
+    );
+
+    if (!confirmed) return;
+
+    try {
+      alert('Besig om te stuur... Moenie die bladsy toemaak nie.');
+
+      const response = await fetch('/api/send-reminder', {
+        method: 'POST',
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) throw new Error(result.error || 'Fout');
+
+      alert(`Sukses! ${result.message}`);
+      // Herlaai data om te sien of status verander het (opsioneel)
+      loadData();
+    } catch (error) {
+      console.error('Reminder error:', error);
+      alert('Daar was \'n fout met die stuur van die herinnerings.');
+    }
+  };
+
   const handleResendConfirmation = async (familyId: string) => {
     if (!confirm('Are you sure you want to resend a confirmation email to this family?')) {
       return;
     }
+
+
 
     setSendingConfirmationId(familyId);
     try {
@@ -298,23 +327,23 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-        <div className="min-h-screen bg-white flex items-center justify-center p-8">
-            <div className="max-w-md w-full">
-                <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-                    <div className="text-center mb-8">
-                        <h1 className="text-3xl font-bold text-[#3d251e] mb-2">Trou Admin</h1>
-                        <p className="text-[#5c4033]">Voer die admin wagwoord in</p>
-                    </div>
-                    <form onSubmit={(e) => { e.preventDefault(); const formData = new FormData(e.currentTarget); const password = formData.get('password') as string; handleLogin(password); }} className="space-y-6">
-                        <div>
-                            <label htmlFor="password" className="block text-sm font-medium text-[#3d251e] mb-2">Admin Wagwoord</label>
-                            <input id="password" name="password" type="password" className="w-full p-3 border border-gray-300 rounded-lg text-[#3d251e] focus:ring-2 focus:ring-[#3d251e] focus:border-transparent" placeholder="Voer wagwoord in" autoFocus required />
-                        </div>
-                        <button type="submit" className="w-full bg-[#3d251e] text-white py-3 rounded-lg hover:bg-[#5c4033] transition-colors font-medium">Teken In</button>
-                    </form>
-                </div>
+      <div className="min-h-screen bg-white flex items-center justify-center p-8">
+        <div className="max-w-md w-full">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-[#3d251e] mb-2">Trou Admin</h1>
+              <p className="text-[#5c4033]">Voer die admin wagwoord in</p>
             </div>
+            <form onSubmit={(e) => { e.preventDefault(); const formData = new FormData(e.currentTarget); const password = formData.get('password') as string; handleLogin(password); }} className="space-y-6">
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-[#3d251e] mb-2">Admin Wagwoord</label>
+                <input id="password" name="password" type="password" className="w-full p-3 border border-gray-300 rounded-lg text-[#3d251e] focus:ring-2 focus:ring-[#3d251e] focus:border-transparent" placeholder="Voer wagwoord in" autoFocus required />
+              </div>
+              <button type="submit" className="w-full bg-[#3d251e] text-white py-3 rounded-lg hover:bg-[#5c4033] transition-colors font-medium">Teken In</button>
+            </form>
+          </div>
         </div>
+      </div>
     );
   }
 
@@ -333,6 +362,12 @@ export default function AdminPage() {
           <h1 className="text-3xl font-bold text-[#3d251e]">Trou Admin Paneel</h1>
           <div className="flex space-x-4">
             <Link href="/admin/liquor" className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">Manage Liquor</Link>
+            <button
+              onClick={handleBulkReminders}
+              className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors flex items-center gap-2"
+            >
+              <span>📢</span> Stuur Herinnerings
+            </button>
             <button onClick={openAddFamilyModal} className="bg-[#3d251e] text-white px-4 py-2 rounded-lg hover:bg-[#5c4033] transition-colors">Voeg Gesin By</button>
             <button onClick={handleLogout} className="bg-[#8b6c5c] text-white px-4 py-2 rounded-lg hover:bg-[#5c4033] transition-colors">Teken Uit</button>
           </div>
@@ -360,7 +395,7 @@ export default function AdminPage() {
         )}
         {activeTab === 'guests' && <GuestList guests={guests} families={families} />}
         {activeTab === 'payments' && <PaymentsList payments={payments} families={families} onUpdatePayment={handleUpdatePayment} />}
-        
+
         <FamilyModal isOpen={showModal} modalType={modalType} family={currentFamily} guest={currentGuest} familyForm={familyForm} guestForm={guestForm} onFamilyFormChange={handleFamilyFormChange} onGuestFormChange={handleGuestFormChange} onSave={handleSave} onClose={closeModal} onDeleteGuest={currentGuest ? () => deleteGuest(currentGuest.id) : undefined} />
       </div>
     </div>

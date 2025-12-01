@@ -248,8 +248,8 @@ export default function RootLayout({
                 <div className="h-1 bg-[#656E5D]"></div>
               </div>
               <div className="text-center text-[#5c4033] text-sm">
-                <p className="mb-2">• Nick van der Merwe •</p>
-                <p>© 2025 Nicolabs Digital</p>
+                <p>Alle Regte Voorbehou</p>
+                <a className='hover:scale-150 hover:text-blue-800' href='https://www.nicolabsdigital.co.za/'>© 2025 Nicolabs Digital</a>
               </div>
             </div>
           </footer>
