@@ -1,13 +1,10 @@
-// src/app/api/send-reminders/route.ts
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { supabase } from '@/lib/supabase';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(request: Request) {
-  // Sekuriteit: Jy kan hier 'n admin password check byvoeg as jy wil, 
-  // of dit net plaaslik hardloop.
+export async function POST() {
   
   try {
     // 1. Kry alle families wat nog nie ge-RSVP het nie
@@ -20,7 +17,7 @@ export async function POST(request: Request) {
         invite_code,
         guests ( name, is_adult )
       `)
-      .eq('rsvp_status', 'pending'); // Die belangrike filter
+      .eq('rsvp_status', 'pending');
 
     if (fetchError || !pendingFamilies) {
       return NextResponse.json({ error: 'Fout met ophaal van families' }, { status: 500 });
@@ -36,16 +33,18 @@ export async function POST(request: Request) {
 
     // 2. Loop deur elke familie en stuur die email
     for (const family of pendingFamilies) {
+      // Ons vertel vir TypeScript wat die struktuur van die gaste is
+      const guests = family.guests as unknown as { name: string; is_adult: boolean }[];
+
       // Bou die gastelys HTML
-      const guestListHtml = family.guests
-        .map((guest: any) => `<li>${guest.name}${!guest.is_adult ? ' (kind)' : ''}</li>`)
+      const guestListHtml = guests
+        .map((guest) => `<li>${guest.name}${!guest.is_adult ? ' (kind)' : ''}</li>`)
         .join('');
 
       // Stuur email via Resend
       const { data, error } = await resend.emails.send({
         from: 'Chané en Nickie <info@thundermerwefees.co.za>',
         to: [family.email],
-        // Verander subject sodat dit uitstaan
         subject: `Herinnering: RSVP vir die #thunderMerweFees`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; color: #333;">
@@ -90,7 +89,6 @@ export async function POST(request: Request) {
         results.push({ email: family.email, status: 'sent', id: data?.id });
       }
       
-      // Opsioneel: Wag 'n klein bietjie tussen emails om rate limits te verhoed (as die lys lank is)
       await new Promise(resolve => setTimeout(resolve, 500));
     }
 
@@ -99,8 +97,10 @@ export async function POST(request: Request) {
       details: results 
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Groot fout:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    // Veilige error hantering
+    const errorMessage = error instanceof Error ? error.message : 'Onbekende fout';
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
