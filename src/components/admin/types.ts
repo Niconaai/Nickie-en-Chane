@@ -21,6 +21,7 @@ export interface Guest {
   dietary_requirements: string;
   meal_preference: string;
   song_request: string; 
+  album_art_url?: string;
   drink_preferences: string[]; 
   extra_notes: string; 
   created_at: string;
