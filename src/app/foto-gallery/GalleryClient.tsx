@@ -24,6 +24,7 @@ export function GalleryClient({ photos }: GalleryClientProps) {
               fill
               className="object-cover hover:scale-105 transition-transform duration-300"
               sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+              unoptimized={true}
             />
           </div>
         ))}
@@ -42,6 +43,7 @@ export function GalleryClient({ photos }: GalleryClientProps) {
               width={800}
               height={600}
               className="max-w-full max-h-full object-contain"
+              unoptimized={true}
             />
           </div>
           <button 
