@@ -14,6 +14,7 @@ export default function Akkomodasie() {
       { name: "Dikhololo", details: "Wilds lodge", mapsUrl: "https://maps.google.com/?q=Dikhololo" }
     ],
     inTown: [
+      { name: "Mahem Manor", details: "Gastehuis in Brits", mapsUrl: "https://www.google.com/maps/place/Mahem+Manor+Guesthouse/@-25.6261882,27.790615,791m/data=!3m2!1e3!4b1!4m9!3m8!1s0x1ebe31c95b45c517:0x3fe0608af7d21977!5m2!4m1!1i2!8m2!3d-25.6261882!4d27.790615!16s%2Fg%2F11lrg3m37x?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" },
       { name: "Maroela Gastehuis", details: "Gastehuis in Brits", mapsUrl: "https://maps.google.com/?q=Maroela+Gastehuis+Brits" },
       { name: "Wooden Door", details: "Gastehuis in Brits", mapsUrl: "https://maps.google.com/?q=Wooden+Door+Brits" },
       { name: "Grasdak Gastehuis", details: "Gastehuis in Brits", mapsUrl: "https://maps.google.com/?q=Grasdak+Gastehuis+Brits" }
