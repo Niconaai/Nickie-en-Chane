@@ -72,7 +72,7 @@ export default function LiquorManager({ initialProducts }: { initialProducts: Pr
         {products.map(product => (
           <div key={product.name} className="border rounded-lg p-4 flex flex-col justify-between">
             <div>
-              <img src={product.image_url} alt={product.name} className="w-full h-48 object-contain mb-2" />
+              {/*<img src={product.image_url} alt={product.name} className="w-full h-48 object-contain mb-2" />*/}
               <p className="font-bold">{product.name}</p>
               <p className="mb-2">{product.price}</p>
               
