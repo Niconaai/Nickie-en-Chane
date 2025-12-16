@@ -70,19 +70,10 @@ export default function SongList({ guests }: SongListProps) {
             sortedSongs.map((song, index) => (
               <div key={index} className="p-4 hover:bg-gray-50 transition-colors flex items-start gap-4">
                 
-                {/* Album Art */}
                 <div className="flex-shrink-0">
-                  {song.albumArt ? (
-                    <img 
-                      src={song.albumArt} 
-                      alt="Album Art" 
-                      className="w-16 h-16 rounded-md object-cover shadow-sm border border-gray-200"
-                    />
-                  ) : (
-                    <div className="w-16 h-16 rounded-md bg-gray-100 flex items-center justify-center text-2xl border border-gray-200 text-gray-400">
-                      🎵
-                    </div>
-                  )}
+                  <div className="w-12 h-12 rounded-md bg-gray-100 flex items-center justify-center text-xl border border-gray-200 text-gray-400">
+                    🎵
+                  </div>
                 </div>
 
                 {/* Song Details */}
