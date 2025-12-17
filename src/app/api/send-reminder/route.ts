@@ -51,7 +51,7 @@ export async function POST() {
             <h2>Hallo ${family.family_name},</h2>
             <p>Net 'n vinnige, vriendelike herinnering oor ons troue!</p>
             
-            <p>Ons sien julle status is nog hangend en ons wil graag seker maak julle het die uitnodiging ontvang.</p>
+            <p>As julle hierdie outomatiese e-pos ontvang beteken dit dat julle nog nie 'n RSVP ingedien het nie. Indien julle glo dit is reeds gedoen, kontak asseblief vir Nickie.</p>
 
             <img 
                 src="https://www.thundermerwefees.co.za/uitnodiging.jpg" 
@@ -77,6 +77,7 @@ export async function POST() {
 
             <p>Ons hoop om julle daar te sien!</p>
             <p>Groete,<br>Chané & Nickie</p>
+
           </div>
         `,
       });

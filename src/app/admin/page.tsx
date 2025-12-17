@@ -101,7 +101,7 @@ export default function AdminPage() {
     try {
       alert('Besig om te stuur... Moenie die bladsy toemaak nie.');
       
-      const response = await fetch('/api/send-reminders', {
+      const response = await fetch('/api/send-reminder', {
         method: 'POST',
       });
       
