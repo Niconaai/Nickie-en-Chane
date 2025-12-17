@@ -20,6 +20,9 @@ interface FamilyListProps {
   onUpdatePayment: (paymentId: string, updates: Partial<Payment>) => void;
   onSendInvite: (familyId: string) => void;
   sendingInviteId: string | null;
+  // Fix: Voeg die ontbrekende props by die interface
+  onResendConfirmation: (familyId: string) => void;
+  sendingConfirmationId: string | null;
 }
 
 type FilterType = 'all' | 'pending' | 'not-attending' | 'attending';
@@ -37,6 +40,9 @@ export default function FamilyList({
   onUpdatePayment,
   onSendInvite,
   sendingInviteId,
+  // Fix: Destructure die nuwe props hier
+  onResendConfirmation,
+  sendingConfirmationId,
 }: FamilyListProps) {
   const [showGuestModal, setShowGuestModal] = useState(false);
   const [selectedFamilyId, setSelectedFamilyId] = useState<string | null>(null);
@@ -88,28 +94,23 @@ export default function FamilyList({
   // --- Filtering Logic ---
   const filteredFamilies = useMemo(() => {
     return families.filter((family) => {
-      // Helper: Get guests for this family to check attendance
       const familyGuests = guests.filter((g) => g.family_id === family.id);
       const hasAttendingGuests = familyGuests.some((g) => g.is_attending);
 
-      // 1. Pending (Strictly 'pending' status)
       if (activeFilter === 'pending') {
         return family.rsvp_status === 'pending';
       }
 
-      // 2. Not Attending (Cancelled OR Submitted with 0 attending guests)
       if (activeFilter === 'not-attending') {
         const isCancelled = family.rsvp_status === 'cancelled';
         const isSubmittedButNoneComing = family.rsvp_status === 'submitted' && !hasAttendingGuests;
         return isCancelled || isSubmittedButNoneComing;
       }
 
-      // 3. Attending (At least one guest is marked as attending)
       if (activeFilter === 'attending') {
         return hasAttendingGuests;
       }
 
-      // Default: 'all' returns true for everyone
       return true;
     });
   }, [families, guests, activeFilter]);
@@ -121,7 +122,6 @@ export default function FamilyList({
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <h2 className="text-xl font-semibold text-gray-900">Gesins Bestuur</h2>
             
-            {/* Filter Tabs */}
             <div className="flex p-1 space-x-1 bg-gray-100 rounded-lg overflow-x-auto">
               <button
                 onClick={() => setActiveFilter('all')}
@@ -270,7 +270,6 @@ export default function FamilyList({
                               )}
                             </div>
 
-                            {/* Deposit Option Display (Read Only) */}
                             {family.deposit_option && (
                               <div className="text-sm font-medium text-gray-700">
                                 Deposito opsie: {' '}
@@ -387,16 +386,19 @@ export default function FamilyList({
                           onClick={() => {
                             const message = `Hallo ${family.family_name}!\n\nOns bring goeie nuus! \n\n'n Epos met julle amptelike uitnodiging en RSVP besonderhede was gestuur na: ${family.email}. \nJulle unieke uitnodigingskode is ${family.invite_code}. \n\nBesoek ook solank ons trou-webtuiste: https://www.thundermerwefees.co.za/\nGaan loer asseblief in jou inbox (of miskien Gemorspos).\n\nOns sien uit om die #thunderMerweFees met julle te deel. \n\nGroete,\nChané en Nickie`;
                             navigator.clipboard.writeText(message);
-                            //alert('WhatsApp message copied to clipboard!');
                           }}
                           className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition-colors text-sm"
                         >
                           Copy WhatsApp Text
                         </button>
+                      </div>
+
+                      {/* Send Invite & Resend Confirmation Buttons */}
+                      <div className="flex space-x-2">
                         <button
                           onClick={() => onSendInvite(family.id)}
                           disabled={sendingInviteId === family.id || !!family.invite_sent}
-                          className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors text-sm disabled:bg-gray-400 disabled:cursor-not-allowed w-28 text-center"
+                          className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors text-sm disabled:bg-gray-400 disabled:cursor-not-allowed min-w-[100px] text-center"
                         >
                           {sendingInviteId === family.id
                             ? 'Sending...'
@@ -404,7 +406,19 @@ export default function FamilyList({
                             ? 'Sent ✔️'
                             : 'Send Invite'}
                         </button>
+
+                         {/* Fix: Voeg die Resend Confirmation knoppie by */}
+                        <button
+                          onClick={() => onResendConfirmation(family.id)}
+                          disabled={sendingConfirmationId === family.id}
+                          className="bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700 transition-colors text-sm disabled:bg-gray-400 disabled:cursor-not-allowed min-w-[100px] text-center"
+                        >
+                           {sendingConfirmationId === family.id
+                            ? 'Sending...'
+                            : 'Resend Confirm'}
+                        </button>
                       </div>
+
                       <div className="flex space-x-2">
                         <button
                           onClick={() => onEditFamily(family)}
