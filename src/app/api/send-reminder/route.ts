@@ -50,8 +50,10 @@ export async function POST() {
           <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px; color: #333;">
             <h2>Hallo ${family.family_name},</h2>
             <p>Net 'n vinnige, vriendelike herinnering oor ons troue!</p>
+
+            <p>Ons vra dat julle die RSVP so gou moontlik voor 28 Februarie sal indien.</p>
             
-            <p>As julle hierdie outomatiese e-pos ontvang beteken dit dat julle nog nie 'n RSVP ingedien het nie. Indien julle glo dit is reeds gedoen, kontak asseblief vir Nickie.</p>
+            <p>As julle hierdie outomatiese e-pos ontvang beteken dit dat julle nog nie 'n RSVP ingedien het nie. Besoek asseblief die RSVP portaal en dien die RSVP in! Indien julle glo dit is reeds gedoen, kontak asseblief vir Nickie.</p>
 
             <img 
                 src="https://www.thundermerwefees.co.za/uitnodiging.jpg" 
